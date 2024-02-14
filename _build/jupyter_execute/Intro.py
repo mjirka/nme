@@ -14,9 +14,9 @@
 # * maximálně 3 absence
 # * zisk alespoň 60 % bodů za úkoly zadávané na cvičeních. Tyto úkoly vypracované v pythonu odevzdávejte na výše uvedený e-mail do začátku následujícího cvičení.
 # 
-# <!-- ## Úkoly
-# * [Úkol z cvičení č. 11](http://kfe.fjfi.cvut.cz/~jirkama1/Ukol11.html) (zadání ve formátu [Jupyter Notebook](http://kfe.fjfi.cvut.cz/~jirkama1/Ukol11.ipynb))
 # 
+# * [Úkol z cvičení č. 1](https://mjirka.github.io/nme/Ukol01.html) (zadání ve formátu [Jupyter Notebook](https://mjirka.github.io/nme//Ukol01.ipynb))
+# <!-- ## Úkoly
 # 
 # ## Zápočtová tabulka
 # | | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | Zápočet  | 
@@ -55,4 +55,4 @@
 # Materiály ke cvičením vycházejí z těchto [podkladů](http://kfe.fjfi.cvut.cz/~vachal/edu/nme/cviceni/index.html).
 # 
 # ***
-# <div style="text-align: right">Akutalizace 09.02.2024</div>
+# <div style="text-align: right">Akutalizace 14.02.2024</div>
