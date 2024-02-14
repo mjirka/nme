@@ -14,10 +14,10 @@
 # * maximálně 3 absence
 # * zisk alespoň 60 % bodů za úkoly zadávané na cvičeních. Tyto úkoly vypracované v pythonu odevzdávejte na výše uvedený e-mail do začátku následujícího cvičení.
 # 
+# ## Úkoly
+# * [Úkol z cvičení č. 1](https://mjirka.github.io/nme/Ukol01.html)
 # 
-# * [Úkol z cvičení č. 1](https://mjirka.github.io/nme/Ukol01.html) (zadání ve formátu [Jupyter Notebook](https://mjirka.github.io/nme//Ukol01.ipynb))
-# <!-- ## Úkoly
-# 
+# <!-- 
 # ## Zápočtová tabulka
 # | | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | Zápočet  | 
 # | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
@@ -43,7 +43,7 @@
 # | S. Velichová  | / 1 | / 1    | / 1 | / 1 | / 1 | / 1 | / 1   | / 1 | - 0   | - 0  | / 0 | |
 # 
 # Vysvětlivky: "/" přítomen, "-" nepřítomen, číslo udává počet získaných bodů za domáci úkoly
-# -->
+# //-->
 # 
 # ## Používané nástroje
 # Na cvičeních budeme používat Python v on-line prostředí [Jupyter notebook](https://jupyter.org/). Jupyter notebook lze vytvářet a editovat on-line např. v [Google Colab](https://colab.research.google.com/). Pro vypracování úkolů a off-line práci s Jupyter notebooky na počítači je nejjednodušší nainstalovat si programový balík [Anaconda](https://www.anaconda.com/) (dostupné pro Windows/Mac/Linux), který obsahuje všechny potřebné knihovny (a navíc Python editor [spyder](https://www.spyder-ide.org/) a mnoho dalšího):
