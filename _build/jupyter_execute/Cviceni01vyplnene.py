@@ -284,7 +284,7 @@ pole = np.zeros((2,2))
 print(pole)
 
 
-#  * Funkcí `ones()` vytvoříme jednotkovou matici 3x3:
+#  * Funkcí `ones()` vytvoříme jedničkovou matici 3x3:
 
 # In[21]:
 

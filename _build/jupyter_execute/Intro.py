@@ -15,7 +15,7 @@
 # * zisk alespoň 60 % bodů za úkoly zadávané na cvičeních. Tyto úkoly vypracované v pythonu odevzdávejte na výše uvedený e-mail do začátku následujícího cvičení.
 # 
 # ## Úkoly
-# * [Úkol z cvičení č. 1](https://mjirka.github.io/nme/Ukol01.html)
+# * [Úkol z cvičení č. 1](https://mjirka.github.io/nme/Ukol01.html) (zadání [ve formátu Jupyter Notebook](https://mjirka.github.io/nme/Ukol01.ipynb))
 # 
 # <!-- 
 # ## Zápočtová tabulka
@@ -48,11 +48,11 @@
 # ## Používané nástroje
 # Na cvičeních budeme používat Python v on-line prostředí [Jupyter notebook](https://jupyter.org/). Jupyter notebook lze vytvářet a editovat on-line např. v [Google Colab](https://colab.research.google.com/). Pro vypracování úkolů a off-line práci s Jupyter notebooky na počítači je nejjednodušší nainstalovat si programový balík [Anaconda](https://www.anaconda.com/) (dostupné pro Windows/Mac/Linux), který obsahuje všechny potřebné knihovny (a navíc Python editor [spyder](https://www.spyder-ide.org/) a mnoho dalšího):
 # 1. [Návod na instalaci](https://docs.anaconda.com/anaconda/install/)
-# 2. [Návod na spuštení Jupyter notebook](https://docs.anaconda.com/anaconda/user-guide/getting-started/)
+# 2. [Návod na spuštení Jupyter Notebook](https://freelearning.anaconda.cloud/get-started-with-anaconda/18571)
 # 
 # **S případnými dotazy na instalaci a spuštění Jupyter Notebooku mě kontaktujte na mailu.**
 # 
 # Materiály ke cvičením vycházejí z těchto [podkladů](http://kfe.fjfi.cvut.cz/~vachal/edu/nme/cviceni/index.html).
 # 
 # ***
-# <div style="text-align: right">Akutalizace 14.02.2024</div>
+# <div style="text-align: right">Akutalizace 15.02.2024</div>
