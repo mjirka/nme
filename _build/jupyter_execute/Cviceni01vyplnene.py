@@ -14,7 +14,7 @@
 # In[1]:
 
 
-# print
+print('Hello, World')
 
 
 # Pomocí klávesy `b` vložíte další řádek do JP.
@@ -39,6 +39,12 @@
 
 
 # toto je komentar
+"""
+Komentar
+na vice
+radku...
+"""
+print("Hello, World!") 
 
 
 # Inicializace proměnných `a`, `b`, základní aritmetické operace a výpis výsledku pomocí funkce `print()`:
@@ -46,7 +52,23 @@
 # In[3]:
 
 
-# zakladni aritmeticke operace
+a=43
+b=5.0
+
+soucet=a+b
+rozdil=a-b
+soucin=a*b
+podil=a/b
+mocnina=a**b
+zbytek_po_deleni = a%b
+
+# vypis
+print('Soucet ',soucet)
+print('Rozdil ',rozdil)
+print('Soucin ',soucin)
+print('Podil ',podil)
+print('Mocnina ',mocnina)
+print('Zbytek po deleni ',zbytek_po_deleni)
 
 
 # <div class="alert alert-block alert-warning"><b>Cvičení 01.01: </b> Vypočtěte objem jehlanu o stranách 3 a 4 majiícího výšku 7. </div>
@@ -54,7 +76,12 @@
 # In[4]:
 
 
-# Cviceni 01.01
+a=3.0
+b=4.0
+v=7.0
+S=a*b
+V=1/3*S*v
+print(V)
 
 
 # ## Podmínkové cykly
@@ -68,7 +95,14 @@
 # In[5]:
 
 
-# if, else
+cislo = 0
+if cislo > 0:
+    print(cislo, "je kladne.")
+elif cislo <0:
+    print(cislo, "je zaporne")
+else:
+    print("musi to byt nula")    
+print("Tento text se vypise vzdy.")
 
 
 # ### For ...
@@ -78,7 +112,8 @@
 # In[6]:
 
 
-# for
+for x in range(10):
+    print(x)
 
 
 # ### While...
@@ -86,7 +121,10 @@
 # In[7]:
 
 
-# while
+cislo = 0
+while cislo < 10:
+  print(cislo)
+  cislo = cislo+1 # ekvivalenti zapis je take: cislo += 1
 
 
 # ### Break
@@ -97,6 +135,15 @@
 
 
 # Ze seznamu cislic 0,1,2,... chci vypsat pouze prvni dve cislice. 
+seznam_cislic = range(0,5)
+
+for cislo in range(0, len(seznam_cislic)):
+    if cislo == 2:
+        break
+    else:
+        print('Cislo: ',seznam_cislic[cislo])
+    print('Pocitadlo: ',cislo)
+print("Hotovo")
 
 
 # ### Continue
@@ -107,6 +154,15 @@
 
 
 # Ze seznamu cislic 0,1,2,... chci vypsat vsechny cislice, krome dvojky. 
+seznam_cislic = range(0,5)
+
+for cislo in range(0, len(seznam_cislic)):
+    if cislo == 2:
+        continue
+    else:
+        print('Cislo: ',seznam_cislic[cislo])
+    print('Pocitadlo: ',cislo)
+print("Hotovo")
 
 
 # ## Funkce
@@ -116,7 +172,10 @@
 # In[10]:
 
 
-# funkce
+def objem_jehlanu(a,b,v):
+  return 1/3*a*b*v
+
+print("Objem jehlanu = ",objem_jehlanu(2,3,4))
 
 
 # <div class="alert alert-block alert-warning"><b>Cvičení 01.02: </b> Napište funkci, která rozhodne, zda zadané číslo je liché, nebo sudé, a vypište výsledek. </div>
@@ -124,7 +183,14 @@
 # In[11]:
 
 
-# Cviceni 01.02
+def funkce(c):
+    if cislo % 2 == 0:
+        print('Cislo ',c,' je sude.')
+    else:
+        print('Cislo ',c,' je liche.')
+
+cislo = 6
+funkce(cislo)
 
 
 # ## Numerická knihovna numpy
@@ -145,8 +211,10 @@ import numpy as np
 
 
 # vektor
+a = np.array([1, 2, 3])
 
 # matice (pole)
+A = np.array([[1,2,3],[4,5,6],[7,8,9]])
 
 
 # <div class="alert alert-block alert-danger"><b>Pozor:</b> v poli <code>array</code> má <b>první prvek index 0</b>!</div>
@@ -156,7 +224,8 @@ import numpy as np
 # In[14]:
 
 
-# shape
+print(a.shape)
+print(A.shape)
 
 
 # Funkce `size` vrátí počet prvků v poli:
@@ -164,7 +233,8 @@ import numpy as np
 # In[15]:
 
 
-# size
+print(a.size)
+print(A.size)
 
 
 # Matici lze transponovat funkcí `transpose()`:
@@ -172,7 +242,8 @@ import numpy as np
 # In[16]:
 
 
-# transpose
+A_transponovana = A.transpose()
+print(A_transponovana)
 
 
 # Pro vytváření polí lze používat následující generátory:
@@ -182,7 +253,8 @@ import numpy as np
 # In[17]:
 
 
-# arange
+pole = np.arange(0,10,1)
+print(pole)
 
 
 # * Pomocí funkce `linspace()` vygenerujeme pole s prvky od 0 do 10 **(včetně)**, přičemž počet prvků je 20:
@@ -190,7 +262,8 @@ import numpy as np
 # In[18]:
 
 
-# linspace
+pole = np.linspace(0,10,20)
+print(pole)
 
 
 # * Příkazem `logspace()` vytvoříme pole od 0 do 10 s počtem prvků 20 v logaritmickém měřítku ($\log_{10}$):
@@ -198,7 +271,8 @@ import numpy as np
 # In[19]:
 
 
-# logspace
+pole = np.logspace(0,10,20,base=10)
+print(pole)
 
 
 # * Pomocí funkce `zeros()` vytvoříme nulovou matici 2x2:
@@ -206,7 +280,8 @@ import numpy as np
 # In[20]:
 
 
-# zeros
+pole = np.zeros((2,2))
+print(pole)
 
 
 #  * Funkcí `ones()` vytvoříme jednotkovou matici 3x3:
@@ -214,7 +289,8 @@ import numpy as np
 # In[21]:
 
 
-# ones
+pole = np.ones((3,3))
+print(pole)
 
 
 # * Pomocí funkce `eye()` vytvoříme matici 3x3 s jedničkami na diagonále, ostatní hodnoty jsou nulové:
@@ -222,7 +298,8 @@ import numpy as np
 # In[22]:
 
 
-# eye
+pole = np.eye(3)
+print(pole)
 
 
 # * Pole náhodných čísel v rozmezí 0 az 1 se vygeneruje pomocí funkce `np.random.rand()`:
@@ -230,7 +307,8 @@ import numpy as np
 # In[23]:
 
 
-# random
+pole_nahodnych_cisel = np.random.rand(3,2)
+print(pole_nahodnych_cisel)
 
 
 # Pro přístup k prvkům pole `A` používáme syntaxi `A[i,j]`, kde `i` je index řádku a `j` je index sloupce:
@@ -238,7 +316,8 @@ import numpy as np
 # In[24]:
 
 
-# pole
+prvni_prvek_pole = A[0,0]
+print(prvni_prvek_pole)
 
 
 # Pro přístup k prvkům pole používáme syntaxi `[min:max:krok]`. Mějme vektor $\mathbf{v}=(0,1,2,3,4,5,6)$. Nyní z něj vyjmeme první ("0") až šestý prvek ("5"), a to s krokem 2:
@@ -246,7 +325,10 @@ import numpy as np
 # In[25]:
 
 
-# pole - vyber
+v = np.arange(0,7)
+print(v)
+vyber_z_v = v[0:6:2]
+print(vyber_z_v)
 
 
 # Podobně u matice $A$ vybereme např. poslední dva prvky ve třetím sloupci.
@@ -254,7 +336,8 @@ import numpy as np
 # In[26]:
 
 
-# pole - vyber
+A_vyber = A[1:,2]
+print(A_vyber)
 
 
 # U matice $A$ vybereme první řádek:
@@ -262,7 +345,8 @@ import numpy as np
 # In[27]:
 
 
-# pole - vyber
+prvni_radek = A[0,:]
+print(prvni_radek)
 
 
 # U matice $A$ vybereme první sloupec:
@@ -270,7 +354,8 @@ import numpy as np
 # In[28]:
 
 
-# pole - vyber
+prvni_sloupec = A[:,0]
+print(prvni_sloupec)
 
 
 # Násobení matic a vektorů se provádí pomocí operátoru `dot`:
@@ -279,10 +364,18 @@ import numpy as np
 
 
 # matice 2x3
+A = np.array([[1,2,3],[4,5,6]])
+print(A)
+print(A.shape)
 
 # matice 3x2
+B = np.array([[1,2],[3,4],[5,6]])
+print(B)
+print(B.shape)
 
 # vysledek
+C = np.dot(A,B)
+print(C)
 
 
 # <div class="alert alert-block alert-danger"><b>Pozor:</b> operace <b>C*C</b> násobí matice po prvcích (není to maticové násobení)</div>
@@ -291,8 +384,10 @@ import numpy as np
 
 
 # maticove nasobeni
+print(np.dot(C,C))
 
 # nasobeni po prvcich
+print(C*C)
 
 
 # ### Funkce
@@ -302,7 +397,13 @@ import numpy as np
 # In[31]:
 
 
-# numpy - funkce
+print(np.sqrt(5))
+print(np.log(5))
+print(np.log10(5))
+print(np.sin(5))
+print(np.abs(-3))
+print(np.e)
+print(np.pi)
 
 
 # Součet prvků v poli je dán funkcí `sum()`:
@@ -311,6 +412,8 @@ import numpy as np
 
 
 # soucet prvku v poli
+soucet = np.sum(A)
+print(soucet)
 
 
 # Minimální a maximální hodnotu v poli určíme funkcí `min()` a `max()`:
@@ -319,8 +422,12 @@ import numpy as np
 
 
 # maximalni hodnota v poli
+maximum = np.max(A)
+print(maximum)
 
 # minimalni hodnota v poli
+minimum = np.min(A)
+print(minimum)
 
 
 # Funkce `average()` vrací průměrnou hodnotu; `std()` je směrodatná odchylka a `var()` je rozptyl:
@@ -329,10 +436,16 @@ import numpy as np
 
 
 # prumerna hodnota
+prumer = np.average(A)
+print(prumer)
 
 # smerodatna odchylka
+smerodatna_odchylka = np.std(A)
+print(smerodatna_odchylka)
 
 # rozptyl
+rozptyl = np.var(A)
+print(rozptyl)
 
 
 # Index prvku v poli lze najít pomocí funkce `argwhere()`:
@@ -340,7 +453,8 @@ import numpy as np
 # In[35]:
 
 
-# argwhere
+index_hledaneho_prvku = np.argwhere(A == 3)
+print(index_hledaneho_prvku)
 
 
 # <div class="alert alert-block alert-info"><b>Tip: </b> Další příklady a návody pro práci s knihovnou <code>numpy</code> lze nalézt na <a href='https://numpy.org/'>https://numpy.org/</a>.</div>
@@ -362,7 +476,8 @@ import matplotlib.pyplot as plt
 # In[37]:
 
 
-# hodnoty x a y
+x = np.linspace(0,4*np.pi,100)
+y = np.sin(x)
 
 
 # Nejdříve je potřeba vytvořit obrázek pomocí `fig`. Vykreslení dat provedeme příkazem `plot()`:
@@ -370,7 +485,8 @@ import matplotlib.pyplot as plt
 # In[38]:
 
 
-# vykresleni x,y
+fig, ax = plt.subplots()
+ax.plot(x,y)
 
 
 # Přidáme popisky os pomocí `set_xlabel()`, `set_ylabel()` a název grafu pomocí `set_title()`:
@@ -378,7 +494,11 @@ import matplotlib.pyplot as plt
 # In[39]:
 
 
-# popisky os, nazev grafu
+fig, ax = plt.subplots()
+ax.plot(x,y)
+ax.set_xlabel('x')
+ax.set_ylabel('sin(x)')
+ax.set_title('Graf funkce sin(x)')
 
 
 # Přidáme funkci `cos()`, nastavíme barvu (`color`), styl (`linestyle`) a šířku (`linewidth`) linky. Průhlednost se nastavuje parametrem `alpha`. Legendu zobrazíme příkazem `legend()`:
@@ -387,8 +507,19 @@ import matplotlib.pyplot as plt
 
 
 # funkce cos()
+y1 = np.cos(x)
+
+fig, ax = plt.subplots()
+ax.plot(x,y)
 
 # vykreslime funkci cos()
+ax.plot(x,y1, color='red',linestyle='dashed',linewidth=2,label='cos(x)',alpha=0.5)
+
+
+ax.set_xlabel('x')
+ax.set_ylabel('sin(x), cos(x)')
+ax.set_title('Grafy funkci sin(x) a cos(x)')
+ax.legend()
 
 
 # Na závěr obrázek uložíme příkazem `savefig()`:
@@ -396,7 +527,7 @@ import matplotlib.pyplot as plt
 # In[41]:
 
 
-# ulozeni obrazku
+fig.savefig("obrazek.png", dpi=300)
 
 
 # ### Visualizace závislosti dvou proměnných
@@ -408,7 +539,10 @@ import matplotlib.pyplot as plt
 # In[42]:
 
 
-# meshgrid
+fig, ax = plt.subplots()
+osa_x = np.linspace(-2, 2, 50)
+osa_y = np.linspace(-2, 2, 50)
+(x,y) = np.meshgrid(osa_x,osa_y)
 
 
 # Spočítáme hodnoty funkce $z(x,y)$:
@@ -416,7 +550,7 @@ import matplotlib.pyplot as plt
 # In[43]:
 
 
-# hodnoty z
+z = np.exp(-np.sqrt(x**2+y**2))*np.cos(2*x)*np.sin(2*y)
 
 
 # 2D graf vykreslíme pomocí funkce `pcolor()` s parametrem `shading='auto'`:
@@ -424,7 +558,12 @@ import matplotlib.pyplot as plt
 # In[44]:
 
 
-# vykresleni dat
+fig, ax = plt.subplots()
+osa_x = np.linspace(-2, 2, 50)
+osa_y = np.linspace(-2, 2, 50)
+(x,y) = np.meshgrid(osa_x,osa_y)
+z = np.exp(-np.sqrt(x**2+y**2))*np.cos(2*x)*np.sin(2*y)
+ax.pcolor(x,y,z,shading='auto')
 
 
 # Kontury získáme použitím funkce `contour()`:
@@ -432,7 +571,12 @@ import matplotlib.pyplot as plt
 # In[45]:
 
 
-# contour
+fig, ax = plt.subplots()
+osa_x = np.linspace(-2, 2, 50)
+osa_y = np.linspace(-2, 2, 50)
+(x,y) = np.meshgrid(osa_x,osa_y)
+z = np.exp(-np.sqrt(x**2+y**2))*np.cos(2*x)*np.sin(2*y)
+ax.contour(x,y,z)
 
 
 # ### 3D visualizace
@@ -442,7 +586,8 @@ import matplotlib.pyplot as plt
 # In[46]:
 
 
-# 3D graf
+fig = plt.figure()
+ax = fig.add_subplot(1, 1, 1, projection='3d')
 
 
 # Vytvoříme mřížku $x\times y$ pomocí funkce `meshgrid`:
@@ -450,7 +595,9 @@ import matplotlib.pyplot as plt
 # In[47]:
 
 
-# meshgrid
+osa_x = np.linspace(-2, 2, 50)
+osa_y = np.linspace(-2, 2, 50)
+(x,y) = np.meshgrid(osa_x,osa_y)
 
 
 # Spočítáme hodnoty funkce $z(x,y)$:
@@ -458,7 +605,7 @@ import matplotlib.pyplot as plt
 # In[48]:
 
 
-# hodnoty z
+z = np.exp(-np.sqrt(x**2+y**2))*np.cos(2*x)*np.sin(2*y)
 
 
 # 3D data vykreslíme pomocí funkce `plot_surface()` a přidáme popisky os:
@@ -466,7 +613,16 @@ import matplotlib.pyplot as plt
 # In[49]:
 
 
-# vykresleni dat - plot_surface
+fig = plt.figure()
+ax = fig.add_subplot(1, 1, 1, projection='3d')
+
+osa_x = np.linspace(-2, 2, 50)
+osa_y = np.linspace(-2, 2, 50)
+(x,y) = np.meshgrid(osa_x,osa_y)
+z = np.exp(-np.sqrt(x**2+y**2))*np.cos(2*x)*np.sin(2*y)
+
+ax.plot_surface(x, y, z)
+ax.set(xlabel='x', ylabel='y', zlabel='z')
 
 
 # <div class="alert alert-block alert-warning"><b>Cvičení 01.03: </b> Vykreslete průběh funkce log(<i>x</i>) pro <i>x</i> od 0.1 do 10. Osy grafu popište, přidejte legendu a obrázek uložte ve formátu *.jpg.</div>
@@ -474,7 +630,14 @@ import matplotlib.pyplot as plt
 # In[50]:
 
 
-# Cviceni 01.03
+x = np.linspace(1e-1,10,100)
+y = np.log10(x)
+fig, ax = plt.subplots()
+ax.plot(x,y,label='log(10)')
+ax.set_xlabel('x')
+ax.set_ylabel('log(x)')
+ax.legend()
+fig.savefig('log10.jpg',dpi=100)
 
 
 # <div class="alert alert-block alert-info"><b>Tip: </b> Další příklady a návody pro práci s knihovnou <code>matplotlib</code> lze nalézt na <a href='https://matplotlib.org/'>https://matplotlib.org/</a>.</div>
