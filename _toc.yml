@@ -8,3 +8,4 @@ parts:
   numbered: true
   chapters:
   - file: Cviceni01vyplnene
+  - file: Cviceni02
