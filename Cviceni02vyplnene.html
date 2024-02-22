@@ -185,7 +185,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/mjirka/nme/main?urlpath=tree/Cviceni02.ipynb"
+        <a href="https://mybinder.org/v2/gh/mjirka/nme/main?urlpath=tree/Cviceni02vyplnene.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -228,7 +228,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/Cviceni02.ipynb"
+        <a href="_sources/Cviceni02vyplnene.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -470,12 +470,33 @@ title="Print to PDF"
 <li><p>délka manitsy určuje přesnost</p></li>
 <li><p>v počítači je mezi 1 a 2 je konečný počet čísel 1, 1+<span class="math notranslate nohighlight">\(\epsilon\)</span>, 1+<span class="math notranslate nohighlight">\(2\epsilon\)</span>,…,2-<span class="math notranslate nohighlight">\(\epsilon\)</span></p></li>
 <li><p>čím menší <span class="math notranslate nohighlight">\(\epsilon\)</span>, tím menší jsou chyby v zaokrouhlování</p></li>
-<li><p>chyby při arimetických výpočtech v počítačích mohou mít své důsledky [<a class="reference external" href="https://www3.nd.edu/~markst/castaward/text10n.html">1</a>, <a class="reference external" href="https://www3.nd.edu/~markst/castaward/text9n.html">2</a>]</p></li>
+<li><p>chyby při arimetických výpočtech v počítačích mohou mít své důsledky [<a class="reference external" href="https://en.wikipedia.org/wiki/Ariane_5#Notable_launches">1</a>, <a class="reference external" href="https://www-users.cse.umn.edu/~arnold/disasters/Patriot-dharan-skeel-siam.pdf">2</a>]</p></li>
 </ul>
 <div class="alert alert-block alert-warning"><b>Cvičení 02.01: </b> Odhadněte $\epsilon$ a odhad porovnejte se skutečnou hodnotou.</div><p>Budeme postupovat tak, že počáteční odhad (libovolně vysoký) budeme postupně dělit dvěma tak dlouho, dokud po přičtení k jedničce dostaneme číslo větší než jedna.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># kod</span>
+<span class="n">cislo</span> <span class="o">=</span> <span class="mf">1.0</span>           <span class="c1"># Absolutni hodnota epsilon je ruzna pro ruzna cisla</span>
+<span class="n">eps</span>   <span class="o">=</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">cislo</span> <span class="c1"># Pocatecni odhad epsilon</span>
+<span class="c1"># Zmensujeme eps, dokud po jeho pricteni ke vstupnimu cislu dostavame vetsi cislo</span>
+<span class="c1"># Odhad bude presny v ramci jednoho radu (ve dvojkove soustave, tj. muze se 2x lisit)</span>
+<span class="k">while</span> <span class="p">(</span> <span class="n">cislo</span><span class="o">+</span><span class="n">eps</span> <span class="o">&gt;</span> <span class="n">cislo</span> <span class="p">):</span>
+    <span class="n">eps</span> <span class="o">=</span> <span class="n">eps</span> <span class="o">/</span> <span class="mi">2</span>  <span class="c1"># Pro nasledujici iteraci vyzkousime polovicni eps</span>
+
+<span class="c1">#Posledni iterace jiz hodnotu nezmenila, potrebujeme hodnotu z predposledni</span>
+<span class="c1"># iterace - ta je rovna dvojnasobku aktualni hodnoty eps.</span>
+<span class="n">eps</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">eps</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Odhad strojoveho epsilon je: &#39;</span><span class="p">,</span><span class="n">eps</span><span class="p">)</span>
+
+<span class="c1">#  Knihovna nupmy ma definovane skutecne hodnoty strojoveho epsilon.</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Skutecna hodnota epsilon je: &#39;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">eps</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Odhad strojoveho epsilon je:  1.7763568394002506e-16
+Skutecna hodnota epsilon je:  2.220446049250313e-16
 </pre></div>
 </div>
 </div>
@@ -503,9 +524,32 @@ title="Print to PDF"
 <ul class="simple">
 <li><p>V počítači nemusí platit <span class="math notranslate nohighlight">\((a + 1) - 1 = a\)</span></p></li>
 </ul>
-<div class="alert alert-block alert-warning"><b>Cvičení 02.02: </b>Vypočítejte 1 + 1/3 - 1/3. Ověřte výsledek pro případ, že byste přičtení i odečtení provedli 100x.</div><div class="cell docutils container">
+<div class="alert alert-block alert-warning"><b>Cvičení 02.02: </b>Vypočítejte 1 + 1/3 - 1/3. Ověřte výsledek i pro případ, že byste přičtení i odečtení provedli 100x.</div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># kod</span>
+<span class="k">def</span> <span class="nf">pricist_a_odecist</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">vysledek</span> <span class="o">=</span> <span class="mf">1.0</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">vysledek</span> <span class="o">+=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">3</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">vysledek</span> <span class="o">-=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">3</span>
+        
+    <span class="k">return</span> <span class="n">vysledek</span>
+
+<span class="c1">#1x</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+<span class="c1"># 100x</span>
+<span class="n">pricist_a_odecist</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0000000000000002
 </pre></div>
 </div>
 </div>
@@ -513,9 +557,37 @@ title="Print to PDF"
 <ul class="simple">
 <li><p>V počítači nemusí platit asociativnost sčítání <span class="math notranslate nohighlight">\((a+b)+c = a+(b+c)\)</span>.</p></li>
 </ul>
-<div class="alert alert-block alert-warning"><b>Cvičení 02.03: </b>Mějme řadu definovanou jako $x_{n} = \dfrac{1}{n^{-1.1}}$. Sečtěte prvních 30 členů v jednom směru a v druhém směru.</div><div class="cell docutils container">
+<div class="alert alert-block alert-warning"><b>Cvičení 02.03: </b>Mějme řadu definovanou jako $x_{n} = \exp(-n\ln(1,1))$. Sečtěte prvních 30 členů v jednom směru a v druhém směru.</div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># kod</span>
+<span class="c1"># Vrati i-ty prvek rady</span>
+<span class="k">def</span> <span class="nf">rada</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">i</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">1.1</span><span class="p">))</span>
+
+<span class="c1"># Secte radu vzestupne od 0 do n</span>
+<span class="k">def</span> <span class="nf">soucet_vzestupne</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">soucet</span> <span class="o">=</span> <span class="mi">0</span>   <span class="c1"># Nezapominejte na inicializaci hodnoty promenne</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">soucet</span> <span class="o">=</span> <span class="n">soucet</span> <span class="o">+</span> <span class="n">rada</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">soucet</span>
+
+
+<span class="c1"># Secte radu sestupne od n do 0</span>
+<span class="k">def</span> <span class="nf">soucet_sestupne</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">soucet</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)):</span> <span class="c1">#range(n,-1,-1):</span>
+        <span class="n">soucet</span> <span class="o">=</span> <span class="n">soucet</span> <span class="o">+</span> <span class="n">rada</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">soucet</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">soucet_vzestupne</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">soucet_sestupne</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10.426914466988315
+10.426914466988313
 </pre></div>
 </div>
 </div>
@@ -561,20 +633,11 @@ title="Print to PDF"
 <span class="k">def</span> <span class="nf">df</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-<span class="c1">#######################################</span>
-<span class="c1"># vlozte funkci pocitajici doprednou diferenci:</span>
-<span class="c1">#######################################</span>
-<span class="k">def</span> <span class="nf">num1_df</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">h</span><span class="p">):</span>
-    <span class="k">return</span> <span class="mi">0</span>
-<span class="c1">#######################################</span>
+<span class="k">def</span> <span class="nf">num1_df</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">h</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">/</span><span class="n">h</span>
 
-
-<span class="c1">#######################################</span>
-<span class="c1"># vlozte funkci pocitajici centralni diferenci:</span>
-<span class="c1">#######################################</span>
-<span class="k">def</span> <span class="nf">num2_df</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">h</span><span class="p">):</span>
-    <span class="k">return</span> <span class="mi">0</span>
-<span class="c1">#######################################</span>
+<span class="k">def</span> <span class="nf">num2_df</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">h</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">h</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">6</span>
 <span class="n">h</span> <span class="o">=</span> <span class="n">x</span>  <span class="c1"># Pocatecni hodnota h</span>
@@ -614,7 +677,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Cviceni02_24_0.png" src="_images/Cviceni02_24_0.png" />
+<img alt="_images/Cviceni02vyplnene_24_0.png" src="_images/Cviceni02vyplnene_24_0.png" />
 </div>
 </div>
 </section>
@@ -648,14 +711,10 @@ title="Print to PDF"
 
 <span class="c1"># diferencni schema v(t+dt)-v(t)/dt = -v(t)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">):</span>
-<span class="c1">#######################################</span>
-    <span class="c1"># vlozte vypocet t, v, v_exact:</span>
-<span class="c1">#######################################</span>
-    <span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
-    <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>    
-    <span class="n">v_exact</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
-<span class="c1">#######################################</span>
-    
+    <span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">dt</span>
+    <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">dt</span> <span class="o">+</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">v_exact</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>    
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">v_exact</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Analyticke reseni&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Eulerova metoda&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">)</span>
@@ -666,10 +725,10 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fa130074040&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fb354d57280&gt;
 </pre></div>
 </div>
-<img alt="_images/Cviceni02_29_1.png" src="_images/Cviceni02_29_1.png" />
+<img alt="_images/Cviceni02vyplnene_29_1.png" src="_images/Cviceni02vyplnene_29_1.png" />
 </div>
 </div>
 <ul class="simple">
@@ -703,13 +762,10 @@ title="Print to PDF"
 
 <span class="c1"># diferencni schema v(t+dt)-v(t-dt)/2dt = -v(t)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">N</span><span class="p">):</span>
-<span class="c1">#######################################</span>
-    <span class="c1"># vlozte vypocet t, v, v_exact:</span>
-<span class="c1">#######################################</span>
-    <span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
-    <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>    
-    <span class="n">v_exact</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
-<span class="c1">#######################################</span>
+    <span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">dt</span>
+    <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">dt</span> <span class="o">+</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> 
+    <span class="n">v_exact</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
     
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>    
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">v_exact</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Analyticke reseni&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
@@ -720,10 +776,10 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fa130342370&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fb354ff2250&gt;
 </pre></div>
 </div>
-<img alt="_images/Cviceni02_31_1.png" src="_images/Cviceni02_31_1.png" />
+<img alt="_images/Cviceni02vyplnene_31_1.png" src="_images/Cviceni02vyplnene_31_1.png" />
 </div>
 </div>
 <p>Velikost chyby se postupně zvyšuje, jedná se tedy o nestabilní metodu, viz <a class="reference external" href="http://kfe.fjfi.cvut.cz/~vachal/edu/nme/cviceni/01_chyby/DOCS/priklad_nestabilniho_algoritmu.pdf">vysvětlení</a>.</p>
