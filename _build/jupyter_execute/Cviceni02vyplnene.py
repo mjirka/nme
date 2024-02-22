@@ -34,8 +34,7 @@ import matplotlib.pyplot as plt
 # * délka manitsy určuje přesnost
 #  * v počítači je mezi 1 a 2 je konečný počet čísel 1, 1+$\epsilon$, 1+$2\epsilon$,...,2-$\epsilon$
 #  * čím menší $\epsilon$, tím menší jsou chyby v zaokrouhlování
-# * chyby při arimetických výpočtech v počítačích mohou mít své důsledky [[1](https://www3.nd.edu/~markst/castaward/text10n.html), [2](https://www3.nd.edu/~markst/castaward/text9n.html)]
-# 
+# * chyby při arimetických výpočtech v počítačích mohou mít své důsledky [[1](https://en.wikipedia.org/wiki/Ariane_5#Notable_launches), [2](https://www-users.cse.umn.edu/~arnold/disasters/Patriot-dharan-skeel-siam.pdf)]
 
 # <div class="alert alert-block alert-warning"><b>Cvičení 02.01: </b> Odhadněte $\epsilon$ a odhad porovnejte se skutečnou hodnotou.</div>
 
@@ -45,6 +44,21 @@ import matplotlib.pyplot as plt
 
 
 # kod
+cislo = 1.0           # Absolutni hodnota epsilon je ruzna pro ruzna cisla
+eps   = 0.1 * cislo # Pocatecni odhad epsilon
+# Zmensujeme eps, dokud po jeho pricteni ke vstupnimu cislu dostavame vetsi cislo
+# Odhad bude presny v ramci jednoho radu (ve dvojkove soustave, tj. muze se 2x lisit)
+while ( cislo+eps > cislo ):
+    eps = eps / 2  # Pro nasledujici iteraci vyzkousime polovicni eps
+
+#Posledni iterace jiz hodnotu nezmenila, potrebujeme hodnotu z predposledni
+# iterace - ta je rovna dvojnasobku aktualni hodnoty eps.
+eps = 2 * eps
+
+print('Odhad strojoveho epsilon je: ',eps)
+
+#  Knihovna nupmy ma definovane skutecne hodnoty strojoveho epsilon.
+print('Skutecna hodnota epsilon je: ',np.finfo(float).eps)
 
 
 # #### Šíření chyb ve výpočtech
@@ -63,22 +77,59 @@ print(c)
 
 # * V počítači nemusí platit $(a + 1) - 1 = a$
 
-# <div class="alert alert-block alert-warning"><b>Cvičení 02.02: </b>Vypočítejte 1 + 1/3 - 1/3. Ověřte výsledek pro případ, že byste přičtení i odečtení provedli 100x.</div>
+# <div class="alert alert-block alert-warning"><b>Cvičení 02.02: </b>Vypočítejte 1 + 1/3 - 1/3. Ověřte výsledek i pro případ, že byste přičtení i odečtení provedli 100x.</div>
 
 # In[4]:
 
 
 # kod
+def pricist_a_odecist(n):
+    vysledek = 1.0
+    
+    for i in range(n):
+        vysledek += 1/3
+
+    for i in range(n):
+        vysledek -= 1/3
+        
+    return vysledek
+
+#1x
+print(1+1/3-1/3)
+# 100x
+pricist_a_odecist(100)
 
 
 #  * V počítači nemusí platit asociativnost sčítání $(a+b)+c = a+(b+c)$.
 
-# <div class="alert alert-block alert-warning"><b>Cvičení 02.03: </b>Mějme řadu definovanou jako $x_{n} = \dfrac{1}{n^{-1.1}}$. Sečtěte prvních 30 členů v jednom směru a v druhém směru.</div>
+# <div class="alert alert-block alert-warning"><b>Cvičení 02.03: </b>Mějme řadu definovanou jako $x_{n} = \exp(-n\ln(1,1))$. Sečtěte prvních 30 členů v jednom směru a v druhém směru.</div>
 
 # In[5]:
 
 
 # kod
+# Vrati i-ty prvek rady
+def rada(i):
+    return np.exp(-i*np.log(1.1))
+
+# Secte radu vzestupne od 0 do n
+def soucet_vzestupne(n):
+    soucet = 0   # Nezapominejte na inicializaci hodnoty promenne
+    for i in range(n+1):
+        soucet = soucet + rada(i)
+    return soucet
+
+
+# Secte radu sestupne od n do 0
+def soucet_sestupne(n):
+    soucet = 0
+    for i in reversed(range(n+1)): #range(n,-1,-1):
+        soucet = soucet + rada(i)
+    return soucet
+
+n = 30
+print(soucet_vzestupne(n))
+print(soucet_sestupne(n))
 
 
 # ### Chyba metody
@@ -116,20 +167,11 @@ def f(x):
 def df(x):
     return np.cos(x)
 
-#######################################
-# vlozte funkci pocitajici doprednou diferenci:
-#######################################
-def num1_df(x,h):
-    return 0
-#######################################
+def num1_df(x, h):
+    return (f(x+h) - f(x))/h
 
-
-#######################################
-# vlozte funkci pocitajici centralni diferenci:
-#######################################
-def num2_df(x,h):
-    return 0
-#######################################
+def num2_df(x, h):
+    return (f(x+h) - f(x-h))/(2*h)
 
 x = np.pi/6
 h = x  # Pocatecni hodnota h
@@ -198,14 +240,10 @@ v_exact[0] = np.exp(-t[0])
 
 # diferencni schema v(t+dt)-v(t)/dt = -v(t)
 for i in range (1,N):
-#######################################
-    # vlozte vypocet t, v, v_exact:
-#######################################
-    t[i]=0
-    v[i]=0    
-    v_exact[i]=0
-#######################################
-    
+    t[i] = t[i-1] + dt
+    v[i] = -v[i-1]*dt + v[i-1]
+    v_exact[i] = np.exp(-t[i])
+
 fig, ax = plt.subplots(figsize=(10,5))    
 ax.plot(t,v_exact,label='Analyticke reseni',linewidth=2)
 ax.scatter(t,v,label='Eulerova metoda',color='C1')
@@ -245,13 +283,10 @@ v[1] = v_exact[1]
 
 # diferencni schema v(t+dt)-v(t-dt)/2dt = -v(t)
 for i in range (2,N):
-#######################################
-    # vlozte vypocet t, v, v_exact:
-#######################################
-    t[i]=0
-    v[i]=0    
-    v_exact[i]=0
-#######################################
+    t[i] = t[i-1] + dt
+    v[i] = -2*v[i-1]*dt + v[i-2] 
+    v_exact[i] = np.exp(-t[i])
+
     
 fig, ax = plt.subplots(figsize=(10,5))    
 ax.plot(t,v_exact,label='Analyticke reseni',linewidth=2)

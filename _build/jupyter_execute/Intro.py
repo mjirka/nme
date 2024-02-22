@@ -15,36 +15,79 @@
 # * zisk alespoň 60 % bodů za úkoly zadávané na cvičeních. Tyto úkoly vypracované v pythonu odevzdávejte na výše uvedený e-mail do začátku následujícího cvičení.
 # 
 # ## Úkoly
-# * [Úkol z cvičení č. 1](https://mjirka.github.io/nme/Ukol01.html) (zadání [ve formátu Jupyter Notebook](https://mjirka.github.io/nme/Ukol01.ipynb))
 # * [Úkol z cvičení č. 2](https://mjirka.github.io/nme/Ukol02.html) (zadání [ve formátu Jupyter Notebook](https://mjirka.github.io/nme/Ukol02.ipynb))
 # 
-# <!-- 
+# 
 # ## Zápočtová tabulka
-# | | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | Zápočet  | 
-# | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-# | M. Benedová   | / 1 | / 1    | / 1 | / 1 | / 1 | / 1 | / 1   | / 0 | / 1   | / 0  | / 0 | |
-# | R. Beňo       | - 1 | / 1    | / 1 | / 1 | / 1 | / 1 | / 1   | / 0 | / 0   | - 0  | / 0 | |
-# | M. Bělohlávek | / 1 | / 1    | / 1 | / 1 | / 1 | / 1 | / 1   | / 1 | - 1   | / 1  | / 1 | |
-# | M. Buloichyk  | / 1 | - 0.5  | - 1 | - 1 | / 1 | / 0 | / 0.75| / 1 | - 1   | / 0  | / 0 | |
-# | M. Divišová   | / 1 | / 0.75 | / 1 | / 1 | / 1 | / 1 | / 0.75| / 1 | / 1   | / 1  | / 0 | |
-# | Z. Doležal    | - 0 | / 0.75 | / 1 | / 1 | / 1 | / 1 | / 1   | / 1 | / 1   | / 1  | / 0 | |
-# | A. Godál      | / 1 | / 1    | / 1 | / 1 | / 1 | / 1 | / 1   | / 1 | - 0   | - 0  | - 0 | |
-# | F. Janeček    | / 1 | - 1    | / 1 | / 1 | / 1 | / 1 | / 1   | - 1 | / 1   | / 1  | - 1 | |
-# | V. Janota     | / 1 | / 1    | / 1 | / 1 | / 1 | / 1 | / 1   | / 0 | - 1   | / 0  | / 0 | |
-# | L. Karczubová | / 1 | / 1    | / 0 | / 0 | / 1 | / 1 | / 1   | / 1 | / 0.5 | / 1  | / 0 | |
-# | Z. Legerský   | / 1 | / 0    | - 0 | / 0 | / 1 | / 1 | / 0   | / 0 | / 1   | / 1  | / 1 | |
-# | J. Macura     | / 1 | / 1    | / 0 | / 1 | - 1 | / 0 | / 1   | / 1 | / 0.5 | - 0.5| / 0 | |
-# | N. Majerová   | - 0 | - 0    | - 0 | - 0 | - 0 | - 0 | - 0   | - 0 | - 0   | - 0  | - 0 | |
-# | V. Růžičková  | / 1 | / 1    | / 1 | / 1 | / 1 | / 1 | / 1   | / 1 | - 0   | / 0  | / 0 | |
-# | Š. Skalka     | / 1 | / 1    | / 0 | / 1 | / 0 | / 1 | / 1   | - 0 | / 1   | - 0  | / 1 | |
-# | L. Smejkal    | - 0 | - 0    | - 0 | - 0 | - 0 | - 0 | - 0   | - 0 | - 0   | - 0  | - 0 | |
-# | M. Šmíd       | / 1 | / 0    | / 1 | / 1 | / 0 | / 1 | / 1   | / 1 | - 1   | / 1  | / 0 | |
-# | O. Staněk     | - 0 | - 0    | - 0 | - 0 | - 0 | - 0 | - 0   | - 0 | - 0   | - 0  | - 0 | |
-# | M. Tvrdík     | / 1 | / 0.5  | / 1 | / 1 | - 1 | / 1 | / 1   | / 1 | - 0   | / 0  | / 0 | |
-# | S. Velichová  | / 1 | / 1    | / 1 | / 1 | / 1 | / 1 | / 1   | / 1 | - 0   | - 0  | / 0 | |
+# ### Cvičení v 10:00
+# | | 1 | 2 |
+# | :-: | :-: | :-: |
+# | Beran |/ 1 |/ |
+# | Bláha |/ 1 |- |
+# | Černík |/ 1 |/ |
+# | Fojtík |/ 1 |/ |
+# | Heinl |/ 1 | / |
+# | Janderová |/ 1|/ |
+# | Kohout |/ 1|/ |
+# | Kollár |/ 0|- |
+# | Kratochvíl |/ 1|/ |
+# | Krupka |/ 1|/ |
+# | Kuchař |/ 1|/ |
+# | Kulda |/ 1|/ |
+# | Linx |/ 1|/ |
+# | Mutaková |/ 0.6|- |
+# | Nejedlá |/ 1|- |
+# | Pacal |/ 1|/ |
+# | Paleta |/ 1|/ |
+# | Povolný |/ 1|/ |
+# | Rajtmajer |/ 1|/ |
+# | Rybak |/ 0.7|/ |
+# | Selivonenko |/ 1|/ |
+# | Sipetic |/ 1|/ |
+# | Stránský |/ 1|/ |
+# | Šana |/ 1|- |
+# | Šika |/ |/ |
+# | Šimanová |/ 1|- |
+# | Trlicová |/ 1|/ |
+# | Velek |/ 1| /|
+# | Veselý |/ 1|/ |
+# 
+# ### Cvičení ve 14:00
+# | | 1 | 2 |
+# | :-: | :-: | :-: |
+# | Blažek | - 0 |/ |
+# | Borková |- 1 |/ |
+# | Březina |/ 1 |/ |
+# | Dedek |/ 1 |- |
+# | Denisov |- 0 |/ |
+# | Feldbabelová |/ 1 |/ |
+# | Hanušová |/ 1 |/ |
+# | Hauptmann |/ 1 |- |
+# | Hrdličková |/ 1 |/ |
+# | Chudožilov |/ 1 |/ |
+# | Karamonová |/ 1 |/ |
+# | Kohut |/ 1 |/ |
+# | Kolík |/ 1 |/ |
+# | Kouřimská |/ 1 |/ |
+# | Králová |-  |/ |
+# | Kubíček |/ 1 |/ |
+# | Lerchová |/ 1 |/ |
+# | Maronczak |/ 1 |/ |
+# | Maštera |/ 1 |/ |
+# | Nezhentsev |/ 1 |/ |
+# | Nosek |/ 1 |/ |
+# | Salčáková |/ 1 |/ |
+# | Stanek |/ 1 |/ |
+# | Suleimenov |/ 1 |/ |
+# | Šanovec |/ 1 |/ |
+# | Šimek |/ 1 |/ |
+# | Šlosárek |/ 1 |/ |
+# | Tuček |/ 1 |/ |
+# | Veselá |/ 1 |/ |
+# | Yuskiv |/ 1 |/ |
 # 
 # Vysvětlivky: "/" přítomen, "-" nepřítomen, číslo udává počet získaných bodů za domáci úkoly
-# //-->
+# 
 # 
 # ## Používané nástroje
 # Na cvičeních budeme používat Python v on-line prostředí [Jupyter notebook](https://jupyter.org/). Jupyter notebook lze vytvářet a editovat on-line např. v [Google Colab](https://colab.research.google.com/). Pro vypracování úkolů a off-line práci s Jupyter notebooky na počítači je nejjednodušší nainstalovat si programový balík [Anaconda](https://www.anaconda.com/) (dostupné pro Windows/Mac/Linux), který obsahuje všechny potřebné knihovny (a navíc Python editor [spyder](https://www.spyder-ide.org/) a mnoho dalšího):
@@ -56,4 +99,4 @@
 # Materiály ke cvičením vycházejí z těchto [podkladů](http://kfe.fjfi.cvut.cz/~vachal/edu/nme/cviceni/index.html).
 # 
 # ***
-# <div style="text-align: right">Akutalizace 21.02.2024</div>
+# <div style="text-align: right">Akutalizace 22.02.2024</div>
