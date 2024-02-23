@@ -46,7 +46,7 @@
 # | Sipetic |/ 1|/ |
 # | Stránský |/ 1|/ |
 # | Šana |/ 1|- |
-# | Šika |/ 0|/ |
+# | Šika |/ 1|/ |
 # | Šimanová |/ 1|- |
 # | Trlicová |/ 1|/ |
 # | Velek |/ 1| /|
