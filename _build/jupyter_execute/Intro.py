@@ -46,7 +46,7 @@
 # | Sipetic |/ 1|/ |
 # | Stránský |/ 1|/ |
 # | Šana |/ 1|- |
-# | Šika |/ |/ |
+# | Šika |/ 0|/ |
 # | Šimanová |/ 1|- |
 # | Trlicová |/ 1|/ |
 # | Velek |/ 1| /|
@@ -69,7 +69,7 @@
 # | Kohut |/ 1 |/ |
 # | Kolík |/ 1 |/ |
 # | Kouřimská |/ 1 |/ |
-# | Králová |-  |/ |
+# | Králová |- 0 |/ |
 # | Kubíček |/ 1 |/ |
 # | Lerchová |/ 1 |/ |
 # | Maronczak |/ 1 |/ |
@@ -99,4 +99,4 @@
 # Materiály ke cvičením vycházejí z těchto [podkladů](http://kfe.fjfi.cvut.cz/~vachal/edu/nme/cviceni/index.html).
 # 
 # ***
-# <div style="text-align: right">Akutalizace 22.02.2024</div>
+# <div style="text-align: right">Akutalizace 23.02.2024</div>
