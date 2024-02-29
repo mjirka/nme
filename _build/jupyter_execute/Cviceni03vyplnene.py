@@ -37,7 +37,11 @@ pocet_radku = A.shape[0]
 pocet_sloupcu = B.shape[1]
 C = np.zeros((pocet_radku,pocet_sloupcu))
 
-# vlozte kod
+for i in range(pocet_radku):          #zvolim i-ty radek matice A
+    for j in range(pocet_sloupcu):    # a j-ty sloupec matice B
+        for k in range(A.shape[1]):   # projdu zaroven cely i-ty radek A a j-ty sloupec B
+            C[i,j] = C[i,j] + A[i,k]*B[k,j] # poscitam vynasobene hodnoty a ulozim je do prvku C[i,j]           
+print(C)
 
 C_kontrola = np.dot(A,B)
 print(C_kontrola)
@@ -73,8 +77,13 @@ b = np.array([[141,-123,312]]).T # vektor b
 
 x = np.zeros((3,1)) # neznamy vektor
 n = x.size # pocet prvku (3)
+for i in range(n-1,-1,-1): # hodnoty i: 2, 1 , 0
+    soucet = 0
+    for j in range(i+1,n,1):
+        soucet = soucet+x[j]*A[i,j]
+    x[i] = (b[i]-soucet)/A[i,i]
 
-# vlozte kod
+print('Nami vypocitany vektor x = ' , x)
 
 x_kontrola = np.linalg.solve(A,b)
 print('Kontrola: x = ',x_kontrola)
@@ -115,8 +124,9 @@ A = np.array([
 n = A.shape[0] # pocet radku matice A
 U = np.zeros((n, n)) # nulova matice, ze ktere postupne vytvorime horni trojuhlenikovou matici
 L = np.eye(n) # jednotkova matice, ze ktere postupne vytvorime dolni trojuhlenikovou matici
-
-# vlozte kod
+for i in range(n):
+    U[i, i:] = A[i, i:] - np.dot(L[i,:(i-2)],U[:(i-2),i:])
+    L[(i+1):,i] = (A[(i+1):,i] - np.dot(L[(i+1):,:(i-2)],U[:(i-2),i])) / U[i, i]
 
 print('Matice L = ',L)
 print('Matice U = ',U)

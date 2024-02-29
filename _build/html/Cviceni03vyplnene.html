@@ -190,7 +190,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/mjirka/nme/main?urlpath=tree/Cviceni03.ipynb"
+        <a href="https://mybinder.org/v2/gh/mjirka/nme/main?urlpath=tree/Cviceni03vyplnene.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -233,7 +233,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/Cviceni03.ipynb"
+        <a href="_sources/Cviceni03vyplnene.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -452,7 +452,11 @@ title="Print to PDF"
 <span class="n">pocet_sloupcu</span> <span class="o">=</span> <span class="n">B</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">pocet_radku</span><span class="p">,</span><span class="n">pocet_sloupcu</span><span class="p">))</span>
 
-<span class="c1"># vlozte kod</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">pocet_radku</span><span class="p">):</span>          <span class="c1">#zvolim i-ty radek matice A</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">pocet_sloupcu</span><span class="p">):</span>    <span class="c1"># a j-ty sloupec matice B</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>   <span class="c1"># projdu zaroven cely i-ty radek A a j-ty sloupec B</span>
+            <span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="n">B</span><span class="p">[</span><span class="n">k</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="c1"># poscitam vynasobene hodnoty a ulozim je do prvku C[i,j]           </span>
+<span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
 
 <span class="n">C_kontrola</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">C_kontrola</span><span class="p">)</span>
@@ -461,6 +465,11 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ -3.7  -7.4 -11.1 -14.8 -25.9]
+ [ 22.5  26.   30.5  25.    2. ]
+ [ 26.   29.   37.   36.   50. ]
+ [ 20.   21.   23.   20.   12. ]
+ [ 14.   21.   29.   26.    7. ]]
+[[ -3.7  -7.4 -11.1 -14.8 -25.9]
  [ 22.5  26.   30.5  25.    2. ]
  [ 26.   29.   37.   36.   50. ]
  [ 20.   21.   23.   20.   12. ]
@@ -501,8 +510,13 @@ title="Print to PDF"
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="c1"># neznamy vektor</span>
 <span class="n">n</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">size</span> <span class="c1"># pocet prvku (3)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span> <span class="c1"># hodnoty i: 2, 1 , 0</span>
+    <span class="n">soucet</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">soucet</span> <span class="o">=</span> <span class="n">soucet</span><span class="o">+</span><span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span>
+    <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">soucet</span><span class="p">)</span><span class="o">/</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">]</span>
 
-<span class="c1"># vlozte kod</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Nami vypocitany vektor x = &#39;</span> <span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 
 <span class="n">x_kontrola</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Kontrola: x = &#39;</span><span class="p">,</span><span class="n">x_kontrola</span><span class="p">)</span>
@@ -510,7 +524,10 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Kontrola: x =  [[2.]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nami vypocitany vektor x =  [[2.]
+ [5.]
+ [4.]]
+Kontrola: x =  [[2.]
  [5.]
  [4.]]
 </pre></div>
@@ -554,8 +571,9 @@ title="Print to PDF"
 <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># pocet radku matice A</span>
 <span class="n">U</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span> <span class="c1"># nulova matice, ze ktere postupne vytvorime horni trojuhlenikovou matici</span>
 <span class="n">L</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="c1"># jednotkova matice, ze ktere postupne vytvorime dolni trojuhlenikovou matici</span>
-
-<span class="c1"># vlozte kod</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">U</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">:]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">:]</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">,:(</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">)],</span><span class="n">U</span><span class="p">[:(</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">),</span><span class="n">i</span><span class="p">:])</span>
+    <span class="n">L</span><span class="p">[(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">):,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">A</span><span class="p">[(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">):,</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">L</span><span class="p">[(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">):,:(</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">)],</span><span class="n">U</span><span class="p">[:(</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">),</span><span class="n">i</span><span class="p">]))</span> <span class="o">/</span> <span class="n">U</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Matice L = &#39;</span><span class="p">,</span><span class="n">L</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Matice U = &#39;</span><span class="p">,</span><span class="n">U</span><span class="p">)</span>
@@ -563,10 +581,10 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Matice L =  [[1. 0.]
- [0. 1.]]
-Matice U =  [[0. 0.]
- [0. 0.]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Matice L =  [[1.  0. ]
+ [1.5 1. ]]
+Matice U =  [[ 4.   3. ]
+ [ 0.  -1.5]]
 </pre></div>
 </div>
 </div>
