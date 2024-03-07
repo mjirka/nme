@@ -82,8 +82,10 @@ velikostChybyA = np.array([])
 for i in range(pocet_iteraci):
     velikostReseniA = np.append(velikostReseniA, np.linalg.norm(x))  # jen pro zobrazovani
     velikostChybyA = np.append(velikostChybyA,np.linalg.norm(x-reseniA)) # jen pro zobrazovani
-    # DOPLNTE #    
-    x = 0
+    # DOPLNTE #
+    F = -np.dot(np.linalg.inv(D),(L+U))
+    G = np.linalg.inv(D)
+    x = np.dot(F,x) + np.dot(G,b)                         # toto je vlastni vypocet 
     # DOPLNTE #
 
 
@@ -98,7 +100,9 @@ for i in range(pocet_iteraci):
     velikostReseniB = np.append(velikostReseniB, np.linalg.norm(x))  # jen pro zobrazovani
     velikostChybyB = np.append(velikostChybyB,np.linalg.norm(x-reseniB)) # jen pro zobrazovani
     # DOPLNTE #
-    x = 0
+    F = -np.dot(np.linalg.inv(D),(L+U))
+    G = np.linalg.inv(D)
+    x = np.dot(F,x) + np.dot(G,b)                         # vlastni vypocet
     # DOPLNTE #
     
 # zobrazime si, jak to vypada
@@ -176,7 +180,9 @@ for i in range(pocet_iteraci):
     velikostReseniA = np.append(velikostReseniA, np.linalg.norm(x))  # jen pro zobrazovani
     velikostChybyA = np.append(velikostChybyA,np.linalg.norm(x-reseniA)) # jen pro zobrazovani
     # DOPLNTE
-    x = 0
+    F = -np.dot(np.linalg.inv(D+L),U)
+    G = np.linalg.inv(D+L)
+    x = np.dot(F,x) + np.dot(G,b)                         # toto je vlastni vypocet 
     # DOPLNTE
 
 
@@ -192,7 +198,9 @@ for i in range(pocet_iteraci):
     velikostReseniB = np.append(velikostReseniB, np.linalg.norm(x))  # jen pro zobrazovani
     velikostChybyB = np.append(velikostChybyB,np.linalg.norm(x-reseniB)) # jen pro zobrazovani
     # DOPLNTE
-    x = 0
+    F = -np.dot(np.linalg.inv(D+L),U)
+    G = np.linalg.inv(D+L)
+    x = np.dot(F,x) + np.dot(G,b)                         # vlastni vypocet
     # DOPLNTE
 
 # zobrazime si, jak to vypada
@@ -266,7 +274,9 @@ x = uvodniOdhad
 vzdProstaIterace = np.array([])
 for i in range(pocet_iteraci):
     # DOPLNTE
-    x = 0
+    F = B
+    G = np.eye(F.shape[0])
+    x = np.dot(F,x) + np.dot(G,b)
     # DOPLNTE
     vzdProstaIterace = np.append(vzdProstaIterace,np.linalg.norm(x-origReseni))
 
@@ -306,8 +316,9 @@ G = np.linalg.inv(D+L)
 x = uvodniOdhad
 vzdSuperRelaxace = np.array([])
 for i in range(pocet_iteraci):
-    # DOPLNTE    
-    x = 0
+    # DOPLNTE
+    xkp1 = np.dot(F,x) + np.dot(G,b)                         
+    x = x + omega * (xkp1 - x)
     # DOPLNTE
     vzdSuperRelaxace = np.append(vzdSuperRelaxace,np.linalg.norm(x-origReseni))
 
@@ -318,7 +329,7 @@ L = np.tril(A,-1) # vytvori dolni trojuhlenikovou matici (s nulovou diagonalou)
 U = np.triu(A,1) # vytvori horni trojuhlenikovou matici (s nulovou diagonalou)
 D = A - L - U
 
-# toto je ze seidela
+# toto je z Gaiss-Seidela
 F = -np.dot(np.linalg.inv(D+L),U)
 G = np.linalg.inv(D+L)
 
@@ -330,7 +341,8 @@ x = uvodniOdhad
 vzdSuperRelaxaceOmega = np.array([])
 for i in range(pocet_iteraci):
     # DOPLNTE
-    x = 0
+    xkp1 = np.dot(F,x) + np.dot(G,b)                         
+    x = omega * (xkp1 - x) + x
     # DOPLNTE
     vzdSuperRelaxaceOmega = np.append(vzdSuperRelaxaceOmega,np.linalg.norm(x-origReseni))
 
@@ -387,17 +399,17 @@ ax.legend()
 # ale muzete si vyzkouset i jine matice
 
 #
-#matice = np.array([
-#    [4, 0, 0],
-#    [0, 3.7, 0],
-#    [0, 0, 3]
-#])
-
 matice = np.array([
-    [4, 0, -10],
-    [0, 3.7, -8.8],
-    [-7.85, 2.6, 3]
-    ])
+    [4, 0, 0],
+    [0, 3.7, 0],
+    [0, 0, 3]
+])
+
+#matice = np.array([
+#    [4, 0, -10],
+#    [0, 3.7, -8.8],
+#    [-7.85, 2.6, 3]
+#    ])
 
 # do vlastniho vektoru v ulozime uvodni odhad
 v = np.array([[1,1,1]]).T
@@ -410,7 +422,7 @@ odhadVlastnihoCisla = np.array([])
 for i in range(pocet_iteraci):
     odhadVlastnihoCisla = np.append(odhadVlastnihoCisla,np.linalg.norm(np.dot(matice,v)))
     # DOPLNTE
-    v = 0
+    v = np.dot(matice,v) / np.linalg.norm(np.dot(matice,v))
     # DOPLNTE
     
 
