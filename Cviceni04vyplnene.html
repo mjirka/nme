@@ -55,6 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="5. Aproximace funkcí" href="Cviceni05.html" />
     <link rel="prev" title="3. Numerické metody lineární algebry" href="Cviceni03vyplnene.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
@@ -136,6 +137,11 @@ const thebe_selector_output = ".output, .cell_output"
    4. Iterační metody řešení soustav lineárních rovnic, hledání vlastních čísel
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni05.html">
+   5. Aproximace funkcí
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -195,7 +201,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/mjirka/nme/main?urlpath=tree/Cviceni04.ipynb"
+        <a href="https://mybinder.org/v2/gh/mjirka/nme/main?urlpath=tree/Cviceni04vyplnene.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -238,7 +244,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/Cviceni04.ipynb"
+        <a href="_sources/Cviceni04vyplnene.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -481,8 +487,10 @@ $<span class="math notranslate nohighlight">\(
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">pocet_iteraci</span><span class="p">):</span>
     <span class="n">velikostReseniA</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">velikostReseniA</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>  <span class="c1"># jen pro zobrazovani</span>
     <span class="n">velikostChybyA</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">velikostChybyA</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">reseniA</span><span class="p">))</span> <span class="c1"># jen pro zobrazovani</span>
-    <span class="c1"># DOPLNTE #    </span>
-    <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="c1"># DOPLNTE #</span>
+    <span class="n">F</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">D</span><span class="p">),(</span><span class="n">L</span><span class="o">+</span><span class="n">U</span><span class="p">))</span>
+    <span class="n">G</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>                         <span class="c1"># toto je vlastni vypocet </span>
     <span class="c1"># DOPLNTE #</span>
 
 
@@ -497,7 +505,9 @@ $<span class="math notranslate nohighlight">\(
     <span class="n">velikostReseniB</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">velikostReseniB</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>  <span class="c1"># jen pro zobrazovani</span>
     <span class="n">velikostChybyB</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">velikostChybyB</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">reseniB</span><span class="p">))</span> <span class="c1"># jen pro zobrazovani</span>
     <span class="c1"># DOPLNTE #</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">F</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">D</span><span class="p">),(</span><span class="n">L</span><span class="o">+</span><span class="n">U</span><span class="p">))</span>
+    <span class="n">G</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>                         <span class="c1"># vlastni vypocet</span>
     <span class="c1"># DOPLNTE #</span>
     
 <span class="c1"># zobrazime si, jak to vypada</span>
@@ -519,10 +529,10 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7ff9fc43eac0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f175eb9f700&gt;
 </pre></div>
 </div>
-<img alt="_images/Cviceni04_7_1.png" src="_images/Cviceni04_7_1.png" />
+<img alt="_images/Cviceni04vyplnene_7_1.png" src="_images/Cviceni04vyplnene_7_1.png" />
 </div>
 </div>
 </section>
@@ -582,7 +592,9 @@ $<span class="math notranslate nohighlight">\(
     <span class="n">velikostReseniA</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">velikostReseniA</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>  <span class="c1"># jen pro zobrazovani</span>
     <span class="n">velikostChybyA</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">velikostChybyA</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">reseniA</span><span class="p">))</span> <span class="c1"># jen pro zobrazovani</span>
     <span class="c1"># DOPLNTE</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">F</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">D</span><span class="o">+</span><span class="n">L</span><span class="p">),</span><span class="n">U</span><span class="p">)</span>
+    <span class="n">G</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">D</span><span class="o">+</span><span class="n">L</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>                         <span class="c1"># toto je vlastni vypocet </span>
     <span class="c1"># DOPLNTE</span>
 
 
@@ -598,7 +610,9 @@ $<span class="math notranslate nohighlight">\(
     <span class="n">velikostReseniB</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">velikostReseniB</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>  <span class="c1"># jen pro zobrazovani</span>
     <span class="n">velikostChybyB</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">velikostChybyB</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">reseniB</span><span class="p">))</span> <span class="c1"># jen pro zobrazovani</span>
     <span class="c1"># DOPLNTE</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">F</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">D</span><span class="o">+</span><span class="n">L</span><span class="p">),</span><span class="n">U</span><span class="p">)</span>
+    <span class="n">G</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">D</span><span class="o">+</span><span class="n">L</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>                         <span class="c1"># vlastni vypocet</span>
     <span class="c1"># DOPLNTE</span>
 
 <span class="c1"># zobrazime si, jak to vypada</span>
@@ -620,10 +634,10 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7ff9fbcb7ee0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f175e405cd0&gt;
 </pre></div>
 </div>
-<img alt="_images/Cviceni04_11_1.png" src="_images/Cviceni04_11_1.png" />
+<img alt="_images/Cviceni04vyplnene_11_1.png" src="_images/Cviceni04vyplnene_11_1.png" />
 </div>
 </div>
 </section>
@@ -685,7 +699,9 @@ $<span class="math notranslate nohighlight">\(
 <span class="n">vzdProstaIterace</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">pocet_iteraci</span><span class="p">):</span>
     <span class="c1"># DOPLNTE</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">F</span> <span class="o">=</span> <span class="n">B</span>
+    <span class="n">G</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
     <span class="c1"># DOPLNTE</span>
     <span class="n">vzdProstaIterace</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vzdProstaIterace</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">origReseni</span><span class="p">))</span>
 
@@ -725,8 +741,9 @@ $<span class="math notranslate nohighlight">\(
 <span class="n">x</span> <span class="o">=</span> <span class="n">uvodniOdhad</span>
 <span class="n">vzdSuperRelaxace</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">pocet_iteraci</span><span class="p">):</span>
-    <span class="c1"># DOPLNTE    </span>
-    <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="c1"># DOPLNTE</span>
+    <span class="n">xkp1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>                         
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">omega</span> <span class="o">*</span> <span class="p">(</span><span class="n">xkp1</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span>
     <span class="c1"># DOPLNTE</span>
     <span class="n">vzdSuperRelaxace</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vzdSuperRelaxace</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">origReseni</span><span class="p">))</span>
 
@@ -737,7 +754,7 @@ $<span class="math notranslate nohighlight">\(
 <span class="n">U</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">triu</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># vytvori horni trojuhlenikovou matici (s nulovou diagonalou)</span>
 <span class="n">D</span> <span class="o">=</span> <span class="n">A</span> <span class="o">-</span> <span class="n">L</span> <span class="o">-</span> <span class="n">U</span>
 
-<span class="c1"># toto je ze seidela</span>
+<span class="c1"># toto je z Gaiss-Seidela</span>
 <span class="n">F</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">D</span><span class="o">+</span><span class="n">L</span><span class="p">),</span><span class="n">U</span><span class="p">)</span>
 <span class="n">G</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">D</span><span class="o">+</span><span class="n">L</span><span class="p">)</span>
 
@@ -749,7 +766,8 @@ $<span class="math notranslate nohighlight">\(
 <span class="n">vzdSuperRelaxaceOmega</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">pocet_iteraci</span><span class="p">):</span>
     <span class="c1"># DOPLNTE</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">xkp1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>                         
+    <span class="n">x</span> <span class="o">=</span> <span class="n">omega</span> <span class="o">*</span> <span class="p">(</span><span class="n">xkp1</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">x</span>
     <span class="c1"># DOPLNTE</span>
     <span class="n">vzdSuperRelaxaceOmega</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vzdSuperRelaxaceOmega</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">origReseni</span><span class="p">))</span>
 
@@ -770,10 +788,10 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7ff9fbc98dc0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f175e6ef580&gt;
 </pre></div>
 </div>
-<img alt="_images/Cviceni04_18_1.png" src="_images/Cviceni04_18_1.png" />
+<img alt="_images/Cviceni04vyplnene_18_1.png" src="_images/Cviceni04vyplnene_18_1.png" />
 </div>
 </div>
 </section>
@@ -813,17 +831,17 @@ $<span class="math notranslate nohighlight">\(
 <span class="c1"># ale muzete si vyzkouset i jine matice</span>
 
 <span class="c1">#</span>
-<span class="c1">#matice = np.array([</span>
-<span class="c1">#    [4, 0, 0],</span>
-<span class="c1">#    [0, 3.7, 0],</span>
-<span class="c1">#    [0, 0, 3]</span>
-<span class="c1">#])</span>
-
 <span class="n">matice</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
-    <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">],</span>
-    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">3.7</span><span class="p">,</span> <span class="o">-</span><span class="mf">8.8</span><span class="p">],</span>
-    <span class="p">[</span><span class="o">-</span><span class="mf">7.85</span><span class="p">,</span> <span class="mf">2.6</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-    <span class="p">])</span>
+    <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">3.7</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="p">])</span>
+
+<span class="c1">#matice = np.array([</span>
+<span class="c1">#    [4, 0, -10],</span>
+<span class="c1">#    [0, 3.7, -8.8],</span>
+<span class="c1">#    [-7.85, 2.6, 3]</span>
+<span class="c1">#    ])</span>
 
 <span class="c1"># do vlastniho vektoru v ulozime uvodni odhad</span>
 <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span><span class="o">.</span><span class="n">T</span>
@@ -836,7 +854,7 @@ $<span class="math notranslate nohighlight">\(
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">pocet_iteraci</span><span class="p">):</span>
     <span class="n">odhadVlastnihoCisla</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">odhadVlastnihoCisla</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">matice</span><span class="p">,</span><span class="n">v</span><span class="p">)))</span>
     <span class="c1"># DOPLNTE</span>
-    <span class="n">v</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">matice</span><span class="p">,</span><span class="n">v</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">matice</span><span class="p">,</span><span class="n">v</span><span class="p">))</span>
     <span class="c1"># DOPLNTE</span>
     
 
@@ -864,14 +882,16 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Odhad nejvetsiho vlastniho cisla =  0.0
-Odhad prislusneho vlastniho vektoru =  0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Odhad nejvetsiho vlastniho cisla =  3.9998812802104133
+Odhad prislusneho vlastniho vektoru =  [[9.99794407e-01]
+ [2.02767030e-02]
+ [5.66205224e-07]]
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7ff9fbb97f70&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f175e2033a0&gt;
 </pre></div>
 </div>
-<img alt="_images/Cviceni04_22_2.png" src="_images/Cviceni04_22_2.png" />
+<img alt="_images/Cviceni04vyplnene_22_2.png" src="_images/Cviceni04vyplnene_22_2.png" />
 </div>
 </div>
 </section>
@@ -910,6 +930,13 @@ Odhad prislusneho vlastniho vektoru =  0
             <p class="prev-next-subtitle">previous</p>
             <p class="prev-next-title"><span class="section-number">3. </span>Numerické metody lineární algebry</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="Cviceni05.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Aproximace funkcí</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>
