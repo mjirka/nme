@@ -16,6 +16,7 @@
 # 
 # ## Úkoly
 # * [Úkol z cvičení č. 4](https://mjirka.github.io/nme/Ukol04.html) (zadání [ve formátu Jupyter Notebook](https://mjirka.github.io/nme/Ukol04.ipynb))
+# * [Úkol z cvičení č. 5](https://mjirka.github.io/nme/Ukol05.html) (zadání [ve formátu Jupyter Notebook](https://mjirka.github.io/nme/Ukol05.ipynb))
 # 
 # 
 # ## Zápočtová tabulka
@@ -43,7 +44,7 @@
 # | Rajtmajer |/ 1|/ 1| / 1 | /   |
 # | Rybak |/ 0.7|/ 0| - 1 | -   |
 # | Selivonenko |/ 1|/ 0| - 0 | -   |
-# | Sipetic |/ 1|/ 1| /  | /   |
+# | Sipetic |/ 1|/ 1| / 1 | /   |
 # | Stránský |/ 1|/ 1| / 1 | /   |
 # | Šana |/ 1|- 0.5| / 0 | /   |
 # | Šika |/ 1|/ 1 | / 1 | /   |
@@ -99,4 +100,4 @@
 # Materiály ke cvičením vycházejí z těchto [podkladů](http://kfe.fjfi.cvut.cz/~vachal/edu/nme/cviceni/index.html).
 # 
 # ***
-# <div style="text-align: right">Akutalizace 7.3. 2024</div>
+# <div style="text-align: right">Akutalizace 13.3. 2024</div>
