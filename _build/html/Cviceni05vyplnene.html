@@ -200,7 +200,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/mjirka/nme/main?urlpath=tree/Cviceni05.ipynb"
+        <a href="https://mybinder.org/v2/gh/mjirka/nme/main?urlpath=tree/Cviceni05vyplnene.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -243,7 +243,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/Cviceni05.ipynb"
+        <a href="_sources/Cviceni05vyplnene.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -454,7 +454,22 @@ F_{i}(x) = \dfrac{x-x_{0}}{x_{i}-x_{0}}\dots\dfrac{x-x_{i-1}}{x_{i}-x_{i-1}}\dfr
 <span class="n">bod</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">28</span><span class="p">,</span> <span class="o">-</span><span class="mi">16</span><span class="p">,</span> <span class="o">-</span><span class="mi">36</span><span class="p">,</span> <span class="o">-</span><span class="mi">40</span><span class="p">])</span>
-<span class="c1"># DOPLNTE KOD</span>
+<span class="n">pocet_bodu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1"># stupen polynomu je pocet_bodu - 1</span>
+<span class="n">L</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># Lagrangeuv polynom</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">pocet_bodu</span><span class="p">):</span> <span class="c1"># pocet scitancu v sume = stejny jako pocet bodu</span>
+    <span class="n">F</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">pocet_bodu</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">j</span> <span class="o">!=</span> <span class="n">i</span><span class="p">:</span>
+            <span class="n">F</span> <span class="o">=</span> <span class="n">F</span> <span class="o">*</span> <span class="p">(</span><span class="n">bod</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">])</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="n">L</span> <span class="o">+</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">F</span>   
+
+<span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-26.25
 </pre></div>
 </div>
 </div>
@@ -541,9 +556,12 @@ c_{j}=\dfrac{2}{N}\sum_{k=1}^{N}f\left[ \cos\left( \dfrac{\pi(k-0.5)}{N}\right) 
 <span class="n">yarr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">bodu</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">bodu</span><span class="p">):</span>
-    <span class="c1">## DOPLNIT</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="c1">## DOPLNIT</span>
+    <span class="n">Tj</span> <span class="o">=</span> <span class="n">T</span><span class="p">(</span><span class="n">trans</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="c1"># hodnoty Cebysevovych polynomu v bode x</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">c0</span><span class="o">*</span><span class="mi">1</span> <span class="c1"># c0 prvni scitanec v aproximovane funkci</span>
+    <span class="c1"># dale potrebujeme pricist sumu polynomu</span>
+    <span class="c1"># cj[j] - koeficient cj, tj. j-ty polynom v bode x</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="p">):</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">cj</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">Tj</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
     <span class="n">xarr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span> <span class="c1"># ulozime aktualni x</span>
     <span class="n">yarr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span> <span class="c1"># a aktualni y</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">+</span><span class="n">krok</span> <span class="c1"># posuneme se na dalsi x</span>
@@ -565,10 +583,10 @@ c_{j}=\dfrac{2}{N}\sum_{k=1}^{N}f\left[ \cos\left( \dfrac{\pi(k-0.5)}{N}\right) 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x77ddd11b8fd0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x79225eaf6640&gt;
 </pre></div>
 </div>
-<img alt="_images/Cviceni05_15_1.png" src="_images/Cviceni05_15_1.png" />
+<img alt="_images/Cviceni05vyplnene_15_1.png" src="_images/Cviceni05vyplnene_15_1.png" />
 </div>
 </div>
 </section>
@@ -598,8 +616,7 @@ c_{j}=\dfrac{2}{N}\sum_{k=1}^{N}f\left[ \cos\left( \dfrac{\pi(k-0.5)}{N}\right) 
     <span class="k">return</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">h</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">h</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">num4_df</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span> <span class="c1"># odhad derivace metodou ctvrteho radu</span>
-    <span class="c1">## DOPLNIT</span>
-    <span class="k">return</span> <span class="mf">1.0</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">12</span><span class="o">*</span><span class="n">h</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">h</span><span class="p">)</span> <span class="o">-</span> <span class="mi">8</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">h</span><span class="p">)</span> <span class="o">+</span> <span class="mi">8</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">h</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">h</span><span class="p">)</span> <span class="p">)</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">6</span>
 <span class="n">h</span> <span class="o">=</span> <span class="n">x</span>  <span class="c1"># Pocatecni hodnota h</span>
@@ -643,7 +660,7 @@ c_{j}=\dfrac{2}{N}\sum_{k=1}^{N}f\left[ \cos\left( \dfrac{\pi(k-0.5)}{N}\right) 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Cviceni05_19_0.png" src="_images/Cviceni05_19_0.png" />
+<img alt="_images/Cviceni05vyplnene_19_0.png" src="_images/Cviceni05vyplnene_19_0.png" />
 </div>
 </div>
 </section>

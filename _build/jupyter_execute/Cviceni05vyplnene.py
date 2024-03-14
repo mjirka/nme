@@ -48,7 +48,17 @@ import matplotlib.pyplot as plt
 bod = -0.5
 x = np.array([-4, -1, 0, 2])
 y = np.array([-28, -16, -36, -40])
-# DOPLNTE KOD
+pocet_bodu = np.size(x) # stupen polynomu je pocet_bodu - 1
+L = 0 # Lagrangeuv polynom
+
+for i in range(pocet_bodu): # pocet scitancu v sume = stejny jako pocet bodu
+    F = 1
+    for j in range(pocet_bodu):
+        if j != i:
+            F = F * (bod - x[j])/(x[i]-x[j])
+    L = L + y[i]*F   
+
+print(L)
 
 
 # ### Spline (lokální interpolace)
@@ -136,9 +146,12 @@ xarr = np.zeros(bodu)
 yarr = np.zeros(bodu)
 
 for i in range(bodu):
-    ## DOPLNIT
-    y = 1
-    ## DOPLNIT
+    Tj = T(trans(x)) # hodnoty Cebysevovych polynomu v bode x
+    y = 0.5*c0*1 # c0 prvni scitanec v aproximovane funkci
+    # dale potrebujeme pricist sumu polynomu
+    # cj[j] - koeficient cj, tj. j-ty polynom v bode x
+    for j in range(N-2):
+        y = y + cj[j]*Tj[j]
     xarr[i] = x # ulozime aktualni x
     yarr[i] = y # a aktualni y
     x = x+krok # posuneme se na dalsi x
@@ -186,8 +199,7 @@ def num2_df(x, h):
     return (f(x+h) - f(x-h))/(2*h)
 
 def num4_df(x, h): # odhad derivace metodou ctvrteho radu
-    ## DOPLNIT
-    return 1.0
+    return 1/(12*h) * ( f(x-2*h) - 8*f(x-h) + 8*f(x+h) - f(x+2*h) )
 
 x = np.pi/6
 h = x  # Pocatecni hodnota h
