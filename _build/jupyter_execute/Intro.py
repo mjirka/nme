@@ -17,6 +17,8 @@
 # ## Úkoly
 # * [Úkol z cvičení č. 5](https://mjirka.github.io/nme/Ukol05.html) (zadání [ve formátu Jupyter Notebook](https://mjirka.github.io/nme/Ukol05.ipynb))
 # 
+# * [Úkol z cvičení č. 6](https://mjirka.github.io/nme/Ukol06.html) (zadání [ve formátu Jupyter Notebook](https://mjirka.github.io/nme/Ukol06.ipynb))
+# 
 # 
 # ## Zápočtová tabulka
 # ### Cvičení v 10:00
@@ -99,10 +101,4 @@
 # Materiály ke cvičením vycházejí z těchto [podkladů](http://kfe.fjfi.cvut.cz/~vachal/edu/nme/cviceni/index.html).
 # 
 # ***
-# <div style="text-align: right">Akutalizace 14.3. 2024</div>
-
-# In[ ]:
-
-
-
-
+# <div style="text-align: right">Akutalizace 20.3. 2024</div>
