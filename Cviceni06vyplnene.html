@@ -205,7 +205,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/mjirka/nme/main?urlpath=tree/Cviceni06.ipynb"
+        <a href="https://mybinder.org/v2/gh/mjirka/nme/main?urlpath=tree/Cviceni06vyplnene.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -248,7 +248,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/Cviceni06.ipynb"
+        <a href="_sources/Cviceni06vyplnene.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -420,7 +420,7 @@ $<span class="math notranslate nohighlight">\(
 \tilde{S} = \sqrt{\sum_{i=1}^{n}w_{i}\left[y_{i} - f(x_{i})\right]^{2}}
 \)</span>$</p></li>
 <li><p>Aproximační funkce může být např.</p></li>
-<li><p>Lineární (cvičení)</p></li>
+<li><p>Lineární (odvození uděláme v rámci cvičení)</p></li>
 <li><p>Kvadratická <a class="reference external" href="http://kfe.fjfi.cvut.cz/~vachal/edu/nme/cviceni/03_aprox/DOCS/teorie_metoda_nejmensich_ctvercu.pdf">(odvození)</a></p></li>
 <li><p>John von Neumann: “<em>With four parameters I can fit an elephant, and with five I can make him wiggle his trunk.</em>” <a class="reference external" href="http://dx.doi.org/10.1038/427297a">[zdroj]</a></p></li>
 <li><p>Problémy statistické regrese - <a class="reference external" href="https://en.wikipedia.org/wiki/Anscombe%27s_quartet">Anscombe’s quartet</a></p></li>
@@ -437,11 +437,12 @@ $<span class="math notranslate nohighlight">\(
 <span class="c1"># to vede na reseni soustavy lin. rovnic</span>
 <span class="c1"># ze soustavy lin. rovnic vypocitame koeficienty k, q</span>
 <span class="c1"># np.sum() = suma</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)],</span>
+    <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">n</span><span class="p">]</span>
+    <span class="p">])</span>
 
-<span class="c1"># DOPLNIT</span>
-<span class="c1"># A =</span>
-<span class="c1"># b =</span>
-<span class="c1"># DOPLNIT</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y</span><span class="p">)])</span>
 
 <span class="c1"># ziskame koeficienty</span>
 <span class="n">reseni</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
@@ -462,18 +463,14 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_11154</span><span class="o">/</span><span class="mf">138282949.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span> 
-<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="c1"># ziskame koeficienty</span>
-<span class="ne">---&gt; </span><span class="mi">18</span> <span class="n">reseni</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="n">k</span> <span class="o">=</span> <span class="n">reseni</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="n">q</span> <span class="o">=</span> <span class="n">reseni</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-
-<span class="ne">NameError</span>: name &#39;A&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Parametr k:  1.3999999999999995
+Parametr q:  3.5000000000000018
 </pre></div>
 </div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Aproximace metodou nejmensich ctvercu&#39;)
+</pre></div>
+</div>
+<img alt="_images/Cviceni06vyplnene_6_2.png" src="_images/Cviceni06vyplnene_6_2.png" />
 </div>
 </div>
 </section>
@@ -493,13 +490,14 @@ $<span class="math notranslate nohighlight">\(
 <span class="k">def</span> <span class="nf">insertion_sort</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
  
     <span class="c1"># prochazim pole od 1 do n -1</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">arr</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
-         
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">arr</span><span class="o">.</span><span class="n">size</span><span class="p">):</span> <span class="c1"># i=1,2,3,4</span>
+ 
         <span class="n">klic</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
         <span class="n">j</span> <span class="o">=</span> <span class="n">i</span><span class="o">-</span><span class="mi">1</span>
-        <span class="c1"># DOPLNIT</span>
-        <span class="c1">#</span>
-        <span class="c1"># DOPLNIT</span>
+        <span class="k">while</span> <span class="n">j</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">klic</span> <span class="p">:</span> <span class="c1">#prvky arr[0..i-1], ktere jsou vetsi nez klic</span>
+                <span class="n">arr</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="c1"># posunu doprava</span>
+                <span class="n">j</span> <span class="o">-=</span> <span class="mi">1</span> 
+        <span class="n">arr</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">klic</span>
  
 <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">12</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Nesetridene pole:&#39;</span><span class="p">)</span>
@@ -516,7 +514,7 @@ $<span class="math notranslate nohighlight">\(
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nesetridene pole:
 [12 11 13  5  6]
 Setridene pole:
-[12 11 13  5  6]
+[ 5  6 11 12 13]
 </pre></div>
 </div>
 </div>
@@ -539,11 +537,12 @@ Setridene pole:
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
  
         <span class="n">klic_index</span> <span class="o">=</span> <span class="n">i</span> <span class="c1"># index klice</span>
-        
-        <span class="c1"># DOPLNIT</span>
-        <span class="c1"># </span>
-        <span class="c1"># DOPLNIT</span>
-        
+ 
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">arr</span><span class="o">.</span><span class="n">size</span><span class="p">):</span> <span class="c1"># projdeme pole od i+1. prvku do konce</span>
+            <span class="k">if</span> <span class="n">arr</span><span class="p">[</span><span class="n">klic_index</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>   <span class="c1"># pokud je zkoumany j-ty prvek mensi</span>
+                <span class="n">klic_index</span> <span class="o">=</span> <span class="n">j</span>        <span class="c1"># ulozime si jeho index</span>
+ 
+        <span class="n">arr</span><span class="p">[</span><span class="n">klic_index</span><span class="p">],</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">arr</span><span class="p">[</span><span class="n">klic_index</span><span class="p">]</span> <span class="c1"># prohodime aktualni a nalezeny prvek</span>
         
         <span class="c1"># protoze jsme prosli cely zbytek pole, je ted na i-tem miste i-ty</span>
         <span class="c1"># nejmensi prvek, a muzeme pokracovat tridenim zbytku pole</span>
@@ -563,7 +562,7 @@ Setridene pole:
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nesetridene pole:
 [ 8 14 11  1 32]
 Setridene pole:
-[ 8 14 11  1 32]
+[ 1  8 11 14 32]
 </pre></div>
 </div>
 </div>
