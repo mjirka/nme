@@ -20,7 +20,7 @@ import matplotlib.pyplot as plt
 # \tilde{S} = \sqrt{\sum_{i=1}^{n}w_{i}\left[y_{i} - f(x_{i})\right]^{2}}
 # $$
 # * Aproximační funkce může být např.
-#  * Lineární (cvičení)
+#  * Lineární (odvození uděláme v rámci cvičení)
 #  * Kvadratická [(odvození)](http://kfe.fjfi.cvut.cz/~vachal/edu/nme/cviceni/03_aprox/DOCS/teorie_metoda_nejmensich_ctvercu.pdf)
 #  
 # * John von Neumann: "*With four parameters I can fit an elephant, and with five I can make him wiggle his trunk.*" [[zdroj]](http://dx.doi.org/10.1038/427297a)
@@ -41,11 +41,12 @@ n = x.size
 # to vede na reseni soustavy lin. rovnic
 # ze soustavy lin. rovnic vypocitame koeficienty k, q
 # np.sum() = suma
+A = np.array([
+    [np.sum(x*x), np.sum(x)],
+    [np.sum(x), n]
+    ])
 
-# DOPLNIT
-# A =
-# b =
-# DOPLNIT
+b = np.array([np.sum(x*y), np.sum(y)])
 
 # ziskame koeficienty
 reseni = np.linalg.solve(A,b)
@@ -74,7 +75,7 @@ ax.set_title('Aproximace metodou nejmensich ctvercu')
 
 # <div class="alert alert-block alert-warning"><b>Cvičení 06.02: </b>Doplňte kód pro implementaci řazení vkládáním.</div>
 
-# In[4]:
+# In[3]:
 
 
 # kod
@@ -82,13 +83,14 @@ ax.set_title('Aproximace metodou nejmensich ctvercu')
 def insertion_sort(arr):
  
     # prochazim pole od 1 do n -1
-    for i in range(1, arr.size):
-         
+    for i in range(1, arr.size): # i=1,2,3,4
+ 
         klic = arr[i]
         j = i-1
-        # DOPLNIT
-        #
-        # DOPLNIT
+        while j >= 0 and arr[j] > klic : #prvky arr[0..i-1], ktere jsou vetsi nez klic
+                arr[j + 1] = arr[j] # posunu doprava
+                j -= 1 
+        arr[j + 1] = klic
  
 arr = np.array([12, 11, 13, 5, 6])
 print('Nesetridene pole:')
@@ -108,7 +110,7 @@ print(arr)
 
 # <div class="alert alert-block alert-warning"><b>Cvičení 06.03: </b>Doplňte kód pro implementaci řazení výběrem.</div>
 
-# In[5]:
+# In[4]:
 
 
 # kod
@@ -119,11 +121,12 @@ def selection_sort(arr):
     for i in range(arr.size):
  
         klic_index = i # index klice
-        
-        # DOPLNIT
-        # 
-        # DOPLNIT
-        
+ 
+        for j in range (i+1,arr.size): # projdeme pole od i+1. prvku do konce
+            if arr[klic_index] > arr[j]:   # pokud je zkoumany j-ty prvek mensi
+                klic_index = j        # ulozime si jeho index
+ 
+        arr[klic_index], arr[i] = arr[i], arr[klic_index] # prohodime aktualni a nalezeny prvek
         
         # protoze jsme prosli cely zbytek pole, je ted na i-tem miste i-ty
         # nejmensi prvek, a muzeme pokracovat tridenim zbytku pole
@@ -142,7 +145,7 @@ print(arr1)
 
 # * [Animace](https://www.youtube.com/watch?v=PgBzjlCcFvc)
 
-# In[6]:
+# In[5]:
 
 
 # kod
@@ -196,7 +199,7 @@ print(arr3)
 
 # * [Animace](https://www.youtube.com/watch?v=MtQL_ll5KhQ)
 
-# In[7]:
+# In[6]:
 
 
 # kod
