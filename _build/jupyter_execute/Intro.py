@@ -16,7 +16,7 @@
 # 
 # ## Úkoly
 # * [Úkol z cvičení č. 6](https://mjirka.github.io/nme/Ukol06.html) (zadání [ve formátu Jupyter Notebook](https://mjirka.github.io/nme/Ukol06.ipynb))
-# 
+# * [Úkol z cvičení č. 7](https://mjirka.github.io/nme/Ukol07.html) (zadání [ve formátu Jupyter Notebook](https://mjirka.github.io/nme/Ukol07.ipynb))
 # 
 # ## Zápočtová tabulka
 # ### Cvičení v 10:00
