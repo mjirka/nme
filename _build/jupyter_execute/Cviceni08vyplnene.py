@@ -55,18 +55,24 @@ b = a+zlatyRez*(c-a)
 while True:
     if (c-a) < presnost: # skoncime, pokud je minimum urceno dostatecne presne
         break
-    # DOPLNTE
-    # nyni mame body a<b<c, pokud bod b je v leve casti intervalu < a,c >,
-    # ponechame ho tam, a dopocitame bod d
-    # pokud je bod b v prave casti intervalu < a,c > (tzn vznikl v prubehu
-    # iteraci), preznacime ho na d a dopocteme polohu bodu b
-
+    
+    if (b-a)/(c-a)<0.5:
+        # nyni mame body a<b<c, pokud bod b je v leve casti intervalu < a,c >,
+        # ponechame ho tam, a dopocitame bod d
+        d = a+(1-zlatyRez)*(c-a) # 1-zlatyRez ~ 0.62
+    else:
+        # pokud je bod b v prave casti intervalu < a,c > (tzn vznikl v prubehu
+        # iteraci), preznacime ho na d a dopocteme polohu bodu b
+        d = b
+        b = a+zlatyRez*(c-a)
     # nyni mame a<b<d<c, zjistime ve kterem intervalu je minimum
-    # pokud je minimum v intervalu < a,d > (ten navic obsahuje bod b),
-    # presuneme pravy konec intervalu do bodu d, bod b nechame na svem miste
-    # pokud je minimum je v intervalu < b,c > (ten navic obsahuje bod d),        
-    # bod d se stane novym bodem b
-    # a levy okraj presuneme do puvodniho bodu b    
+    if f(a)>=f(b) and f(b)<=f(d): # minimum je v intervalu < a,d >, ten navic obsahuje bod b
+        c = d # presuneme pravy konec intervalu do bodu d, bod b nechame na svem miste
+    else: #minimum je v intervalu < b,c >, ten navic obsahuje bod d
+        tmp = b
+        b = d # bod d se stane novym bodem b
+        a = tmp # levy okraj presuneme do puvodniho bodu b
+    #[a c]
 
 print('Minimum je v intervalu <',a,',',c,'>')
 
@@ -79,7 +85,7 @@ print('Minimum je v intervalu <',a,',',c,'>')
 
 # <div class="alert alert-block alert-warning"><b>Cvičení 08.02: </b> Najděte minimum funkce $f(x)=-\sin(x)$ metodou parabolické interpolace.</div>
 
-# In[ ]:
+# In[3]:
 
 
 #
@@ -108,9 +114,21 @@ while True:
     # a,b,c
     d = b-0.5*((b-a)**2*(f(b)-f(c))-(b-c)**2*(f(b)-f(a)))/((b-a)*(f(b)-f(c))-(b-c)*(f(b)-f(a)))
     
-    # zjistime, zda nastala situace a < d < b < c nebo a < b < d < c, najdeme interval, na kterem
-    # se nachazi minimum a zkratime interval, ktery toto minimum obsahuje
-    # DOPLNTE
+    # zjistime, zda nastala situace a < d < b < c nebo a < b < d < c
+    if d < b: # nastala situace a < d < b < c
+        # zjistime, na kterem intervalu je minimum
+        if f(a) > f(d) and f(d) < f(b): # minimum je na intervalu  < a,b > , ktery obsahuje bod d
+            c = b # posuneme pravy okraj do bodu b
+            b = d # treti bod uprostred bude tvoren bodem d
+        else: # minimum je na intervalu  < d,c > , ktery obsahuje bod b
+            a = d # posuneme levy okraj do bodu d
+    else: # nastala situace a < b < d < c
+        # zjistime, na kterem intervalu je minimum
+        if f(a) > f(b) and f(b) < f(d): # minimum je na intervalu  < a,d >  obsahujicim bod b
+            c = d # posuneme pravy okraj do bodu d
+        else: # minimum je na intervalu  < b,c >  obsahujicim bod d
+            a = b # posuneme levy okraj do bodu b
+            b = d # treti bod uprostred bude tvoren bodem d
 
 print('Minimum je v intervalu <',a,',',c,'>')
 
@@ -142,7 +160,7 @@ print('Minimum je v intervalu <',a,',',c,'>')
 
 # <div class="alert alert-block alert-warning"><b>Cvičení 08.03: </b>Najděte minimum funkcí $f_{1}(x)=x^{2}+y^{2}$ a  $f_{2}(x)=100(x-y^{2})^{2}+(1-x)^{2}$ simplexovou metodou.</div>
 
-# In[10]:
+# In[4]:
 
 
 #
