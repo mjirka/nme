@@ -55,6 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="10. Obyčejné diferenciální rovnice (ODR)" href="Cviceni10.html" />
     <link rel="prev" title="8. Extrémy funkcí" href="Cviceni08vyplnene.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
@@ -161,6 +162,11 @@ const thebe_selector_output = ".output, .cell_output"
    9. Numerická integrace
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni10.html">
+   10. Obyčejné diferenciální rovnice (ODR)
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -220,7 +226,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/mjirka/nme/main?urlpath=tree/Cviceni09.ipynb"
+        <a href="https://mybinder.org/v2/gh/mjirka/nme/main?urlpath=tree/Cviceni09vyplnene.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -263,7 +269,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/Cviceni09.ipynb"
+        <a href="_sources/Cviceni09vyplnene.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -475,7 +481,7 @@ $<span class="math notranslate nohighlight">\(
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">pocet_kroku</span><span class="p">):</span>
     <span class="n">bod</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">i</span><span class="o">*</span><span class="n">r</span>
     <span class="c1"># DOPLNTE</span>
-    <span class="n">S_obdelnik</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">S_obdelnik</span> <span class="o">=</span> <span class="n">S_obdelnik</span> <span class="o">+</span> <span class="n">r</span><span class="o">*</span><span class="n">f</span><span class="p">((</span><span class="n">bod</span><span class="o">+</span><span class="n">bod</span><span class="o">+</span><span class="n">r</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Obdelnikova metoda: &#39;</span><span class="p">,</span><span class="n">S_obdelnik</span><span class="p">)</span>
 
 <span class="c1"># lichobeznikova metoda</span>
@@ -483,7 +489,7 @@ $<span class="math notranslate nohighlight">\(
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">pocet_kroku</span><span class="p">):</span>
     <span class="n">bod</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">i</span><span class="o">*</span><span class="n">r</span>  
     <span class="c1"># DOPLNTE</span>
-    <span class="n">S_lichobeznik</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">S_lichobeznik</span> <span class="o">=</span> <span class="n">S_lichobeznik</span> <span class="o">+</span> <span class="n">r</span><span class="o">*</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">bod</span><span class="p">)</span><span class="o">+</span><span class="n">f</span><span class="p">(</span><span class="n">bod</span><span class="o">+</span><span class="n">r</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Lichobeznikova metoda: &#39;</span><span class="p">,</span><span class="n">S_lichobeznik</span><span class="p">)</span>
 
 <span class="c1"># Simpsonovo pravidlo</span>
@@ -492,15 +498,15 @@ $<span class="math notranslate nohighlight">\(
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">pocet_kroku_simpson</span><span class="p">):</span>
     <span class="n">bod</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="o">*</span><span class="n">r</span>
     <span class="c1"># DOPLNTE</span>
-    <span class="n">S_simpson</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">S_simpson</span> <span class="o">=</span> <span class="n">S_simpson</span> <span class="o">+</span> <span class="n">r</span><span class="o">/</span><span class="mi">3</span><span class="o">*</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">bod</span><span class="p">)</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">bod</span><span class="o">+</span><span class="n">r</span><span class="p">)</span> <span class="o">+</span> <span class="n">f</span><span class="p">(</span><span class="n">bod</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">r</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Simpsonovo pravidlo: &#39;</span><span class="p">,</span><span class="n">S_simpson</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Obdelnikova metoda:  0
-Lichobeznikova metoda:  0
-Simpsonovo pravidlo:  0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Obdelnikova metoda:  0.256657230544745
+Lichobeznikova metoda:  0.2566059008096602
+Simpsonovo pravidlo:  0.25664012405560144
 </pre></div>
 </div>
 </div>
@@ -513,7 +519,7 @@ Simpsonovo pravidlo:  0
 <li><p>Výpočet integrálu při neekvidistantním rozdělení bodů <span class="math notranslate nohighlight">\(x_{i}\)</span> s různými váhami <span class="math notranslate nohighlight">\(w_{i}\)</span></p></li>
 <li><p>Chceme spočítat integrál s minimálním počtem vyčíslení <span class="math notranslate nohighlight">\(f(x)\)</span></p></li>
 <li><p>Volíme optimální polohu bodů <span class="math notranslate nohighlight">\(x_{i}\)</span> a příslušné váhy <span class="math notranslate nohighlight">\(w_{i}\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(N+1\)</span> bodů dává přesný výsledek pro polynomy řádu <span class="math notranslate nohighlight">\(\leq 2N+1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(n\)</span> bodů dává přesný výsledek pro polynomy řádu <span class="math notranslate nohighlight">\(\leq 2n-1\)</span></p></li>
 <li><p>Dvojnásobná přesnost oproti integraci s ekvidistantním rozdělením</p></li>
 <li><p>Pro polohu bodů a příslušné váhy používáme tyto polynomy:</p></li>
 <li><p>Legenderovy na intervalu <span class="math notranslate nohighlight">\((-1,1)\)</span></p></li>
@@ -577,7 +583,7 @@ kde
     <span class="c1"># DOPLNTE</span>
     <span class="c1">#</span>
     <span class="c1"># DOPLNTE</span>
-    <span class="n">integral</span> <span class="o">=</span> <span class="mi">0</span> 
+    <span class="n">integral</span> <span class="o">=</span> <span class="n">integral</span><span class="o">+</span> <span class="n">vahy</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">f</span><span class="p">(((</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="n">vahy</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span> <span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Nas vypocet: &#39;</span><span class="p">,</span><span class="n">integral</span><span class="p">)</span>
 
@@ -587,7 +593,7 @@ kde
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nas vypocet:  0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nas vypocet:  2.348228171380327
 Kontrola:  2.350402387287603
 </pre></div>
 </div>
@@ -659,10 +665,10 @@ Kontrola:  2.350402387287603
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x788dea054be0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x78e57d4b7b80&gt;
 </pre></div>
 </div>
-<img alt="_images/Cviceni09_12_1.png" src="_images/Cviceni09_12_1.png" />
+<img alt="_images/Cviceni09vyplnene_12_1.png" src="_images/Cviceni09vyplnene_12_1.png" />
 </div>
 </div>
 </section>
@@ -718,6 +724,11 @@ kde \)</span>\tilde{f}(\vec{x}) = f(\vec{x})<span class="math notranslate nohigh
     <span class="c1"># DOPLNTE</span>
     <span class="c1">#</span>
     <span class="c1"># DOPLNTE</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mf">0.5</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mf">0.5</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">&lt;</span><span class="mf">0.5</span><span class="o">**</span><span class="mi">2</span><span class="p">:</span>
+        <span class="n">vkruhu</span> <span class="o">=</span> <span class="n">vkruhu</span> <span class="o">+</span> <span class="mi">1</span>    <span class="c1"># pricteme je</span>
+        <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
     <span class="n">npi</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">vkruhu</span> <span class="o">/</span> <span class="n">kapek</span>
     <span class="n">plotPi</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">npi</span> 
 
@@ -735,10 +746,10 @@ kde \)</span>\tilde{f}(\vec{x}) = f(\vec{x})<span class="math notranslate nohigh
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vypoctena hodnota pi =  0.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vypoctena hodnota pi =  3.6
 </pre></div>
 </div>
-<img alt="_images/Cviceni09_16_1.png" src="_images/Cviceni09_16_1.png" />
+<img alt="_images/Cviceni09vyplnene_16_1.png" src="_images/Cviceni09vyplnene_16_1.png" />
 </div>
 </div>
 <div class="alert alert-block alert-warning"><b>Cvičení 09.05: </b> Numericky vypočítejte <a href="https://www.wolframalpha.com/input?i=integrate+x%2By+for+0%3Cx%3C1+and+0%3Cy%3C1">integrál</a> $\int_{0}^{1}\int_{0}^{1}(x+y) dx dy$. Vykreslete výslednou hodnotu, absolutní chybu a odhad přesnosti metody v závislosti na počtu kroků.</div><div class="cell docutils container">
@@ -754,7 +765,12 @@ kde \)</span>\tilde{f}(\vec{x}) = f(\vec{x})<span class="math notranslate nohigh
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">kroku</span><span class="p">):</span>
     <span class="c1"># DOPLNTE</span>
-    <span class="n">vysledky</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span> 
+    <span class="c1"># </span>
+    <span class="c1"># DOPLNTE</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># dve nahodna cisla v intervalu (0,1)</span>
+    <span class="n">value</span> <span class="o">=</span>  <span class="n">f</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># vypocteme funkcni hodnotu v techto dvou nahodnych bodech</span>
+    <span class="n">suma</span> <span class="o">=</span> <span class="n">suma</span> <span class="o">+</span> <span class="n">value</span>    <span class="c1"># pricteme ke kumulovane hodnote</span>
+    <span class="n">vysledky</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">suma</span> <span class="o">/</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># prumer (kumul. hodnota delena poctem kroku)</span>
 <span class="n">integral</span> <span class="o">=</span> <span class="n">suma</span> <span class="o">/</span> <span class="n">kroku</span>
 
 
@@ -788,14 +804,14 @@ kde \)</span>\tilde{f}(\vec{x}) = f(\vec{x})<span class="math notranslate nohigh
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Numericka integrace =  0.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Numericka integrace =  0.9904932738698149
 Kontrola =  1
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x788de97a8400&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x78e57d2a3b80&gt;
 </pre></div>
 </div>
-<img alt="_images/Cviceni09_18_2.png" src="_images/Cviceni09_18_2.png" />
+<img alt="_images/Cviceni09vyplnene_18_2.png" src="_images/Cviceni09vyplnene_18_2.png" />
 </div>
 </div>
 </section>
@@ -835,6 +851,13 @@ Kontrola =  1
             <p class="prev-next-subtitle">previous</p>
             <p class="prev-next-title"><span class="section-number">8. </span>Extrémy funkcí</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="Cviceni10.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Obyčejné diferenciální rovnice (ODR)</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>
