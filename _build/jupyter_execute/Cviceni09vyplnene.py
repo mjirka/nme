@@ -57,7 +57,7 @@ S_obdelnik = 0
 for i in range(pocet_kroku):
     bod = a + i*r
     # DOPLNTE
-    S_obdelnik = 0
+    S_obdelnik = S_obdelnik + r*f((bod+bod+r)/2)
 print('Obdelnikova metoda: ',S_obdelnik)
 
 # lichobeznikova metoda
@@ -65,7 +65,7 @@ S_lichobeznik = 0
 for i in range(pocet_kroku):
     bod = a + i*r  
     # DOPLNTE
-    S_lichobeznik = 0
+    S_lichobeznik = S_lichobeznik + r*(f(bod)+f(bod+r))/2
 print('Lichobeznikova metoda: ',S_lichobeznik)
 
 # Simpsonovo pravidlo
@@ -74,7 +74,7 @@ pocet_kroku_simpson = int(np.round(pocet_kroku/2))
 for i in range(pocet_kroku_simpson):
     bod = a + 2*i*r
     # DOPLNTE
-    S_simpson = 0
+    S_simpson = S_simpson + r/3*(f(bod) + 4*f(bod+r) + f(bod + 2*r))
 print('Simpsonovo pravidlo: ',S_simpson)
 
 
@@ -83,7 +83,7 @@ print('Simpsonovo pravidlo: ',S_simpson)
 # - Výpočet integrálu při neekvidistantním rozdělení bodů $x_{i}$ s různými váhami $w_{i}$
 # - Chceme spočítat integrál s minimálním počtem vyčíslení $f(x)$
 # - Volíme optimální polohu bodů $x_{i}$ a příslušné váhy $w_{i}$
-# - $N+1$ bodů dává přesný výsledek pro polynomy řádu $\leq 2N+1$
+# - $n$ bodů dává přesný výsledek pro polynomy řádu $\leq 2n-1$
 # - Dvojnásobná přesnost oproti integraci s ekvidistantním rozdělením
 # - Pro polohu bodů a příslušné váhy používáme tyto polynomy:
 #  - Legenderovy na intervalu $(-1,1)$
@@ -150,7 +150,7 @@ for i in range(m):
     # DOPLNTE
     #
     # DOPLNTE
-    integral = 0 
+    integral = integral+ vahy[i,1]*(b-a)/2*f(((b-a)*vahy[i,0]+ (a+b))/2)
 
 print('Nas vypocet: ',integral)
 
@@ -265,6 +265,11 @@ for i in range(steps):
     # DOPLNTE
     #
     # DOPLNTE
+    if (x[0,0]-0.5)**2+(x[0,1]-0.5)**2<0.5**2:
+        vkruhu = vkruhu + 1    # pricteme je
+        ax[0].scatter(x[0,0], x[0,1], marker="x", color='red')
+    else:
+        ax[0].scatter(x[0,0], x[0,1], marker="x", color='blue')
     npi = 4 * vkruhu / kapek
     plotPi[i] = npi 
 
@@ -296,7 +301,12 @@ suma = 0
 
 for i in range(kroku):
     # DOPLNTE
-    vysledky[i,0] = 0 
+    # 
+    # DOPLNTE
+    r = np.random.rand(1,2)  # dve nahodna cisla v intervalu (0,1)
+    value =  f(r[0,0],r[0,1])  # vypocteme funkcni hodnotu v techto dvou nahodnych bodech
+    suma = suma + value    # pricteme ke kumulovane hodnote
+    vysledky[i,0] = suma / (i+1)  # prumer (kumul. hodnota delena poctem kroku)
 integral = suma / kroku
 
 

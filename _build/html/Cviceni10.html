@@ -1,0 +1,730 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>10. Obyčejné diferenciální rovnice (ODR) &#8212; Letní semestr 2023/24</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="9. Numerická integrace" href="Cviceni09vyplnene.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Letní semestr 2023/24</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Intro.html">
+                    Numerické metody - cvičení (12NME1)
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Obsah cvičení
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni01vyplnene.html">
+   1. Jupyter notebook a základy Pythonu
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni02vyplnene.html">
+   2. Chyby a nestabilita
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni03vyplnene.html">
+   3. Numerické metody lineární algebry
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni04vyplnene.html">
+   4. Iterační metody řešení soustav lineárních rovnic, hledání vlastních čísel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni05vyplnene.html">
+   5. Aproximace funkcí
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni06vyplnene.html">
+   6. Aproximace funkcí II, třídění
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni07vyplnene.html">
+   7. Řešení nelineárních rovnic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni08vyplnene.html">
+   8. Extrémy funkcí
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni09vyplnene.html">
+   9. Numerická integrace
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   10. Obyčejné diferenciální rovnice (ODR)
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/mjirka/nme/main?urlpath=tree/Cviceni10.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/Cviceni10.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#runge-kuttovy-metody-pro-reseni-pocatecniho-problemu">
+   10.1. Runge-Kuttovy metody pro řešení počátečního problému
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#eulerova-metoda">
+     10.1.1. Eulerova metoda
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metoda-stredniho-bodu">
+     10.1.2. Metoda středního bodu
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#heunova-metoda">
+     10.1.3. Heunova metoda
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#runge-kuttova-metoda-4-radu">
+     10.1.4. Runge-Kuttova metoda 4. řádu
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stiff-rovnice-rovnice-se-silnym-tlumenim">
+   10.2. Stiff rovnice (rovnice se silným tlumením)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reseni-soustav-diferencialnich-rovnic">
+   10.3. Řešení soustav diferenciálních rovnic
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dalsi-metody-reseni-odr">
+   10.4. Další metody řešení ODR
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Obyčejné diferenciální rovnice (ODR)</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#runge-kuttovy-metody-pro-reseni-pocatecniho-problemu">
+   10.1. Runge-Kuttovy metody pro řešení počátečního problému
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#eulerova-metoda">
+     10.1.1. Eulerova metoda
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metoda-stredniho-bodu">
+     10.1.2. Metoda středního bodu
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#heunova-metoda">
+     10.1.3. Heunova metoda
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#runge-kuttova-metoda-4-radu">
+     10.1.4. Runge-Kuttova metoda 4. řádu
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stiff-rovnice-rovnice-se-silnym-tlumenim">
+   10.2. Stiff rovnice (rovnice se silným tlumením)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reseni-soustav-diferencialnich-rovnic">
+   10.3. Řešení soustav diferenciálních rovnic
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dalsi-metody-reseni-odr">
+   10.4. Další metody řešení ODR
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="obycejne-diferencialni-rovnice-odr">
+<h1><span class="section-number">10. </span>Obyčejné diferenciální rovnice (ODR)<a class="headerlink" href="#obycejne-diferencialni-rovnice-odr" title="Permalink to this heading">#</a></h1>
+<p>Naimportujeme si knihovny potřebné pro následující příklady:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Vektorové vyjádření systému rovnic
+$<span class="math notranslate nohighlight">\( \dfrac{\mathrm{d}\vec y}{\mathrm{d}x}=\vec f (x,\vec y)\)</span>$</p></li>
+<li><p>ODR <span class="math notranslate nohighlight">\(N\)</span>-tého řádu převádíme na soustavu <span class="math notranslate nohighlight">\(N\)</span> diferenciálních rovnic 1. řádu</p></li>
+<li><p>Potřebujeme  <span class="math notranslate nohighlight">\(N\)</span> počátečních podmínek</p></li>
+<li><p>Řešení se liší v závislosti na počátečních podmínkách:</p>
+<ol class="simple">
+<li><p><strong>Počáteční problém</strong>: všechny podmínky <strong>jsou</strong> zadány v jednom bodě</p></li>
+<li><p><strong>Okrajový problém</strong>: všechny podmínky <strong>nejsou</strong> zadány v jednom bodě</p></li>
+</ol>
+</li>
+</ul>
+<section id="runge-kuttovy-metody-pro-reseni-pocatecniho-problemu">
+<h2><span class="section-number">10.1. </span>Runge-Kuttovy metody pro řešení počátečního problému<a class="headerlink" href="#runge-kuttovy-metody-pro-reseni-pocatecniho-problemu" title="Permalink to this heading">#</a></h2>
+<section id="eulerova-metoda">
+<h3><span class="section-number">10.1.1. </span>Eulerova metoda<a class="headerlink" href="#eulerova-metoda" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Z Taylorova rozvoje známe směrnici tečny</p></li>
+<li><p>V každém bodě <span class="math notranslate nohighlight">\(x_{1},x_{2}\dots x_{n}\)</span> aproximujeme funkci její tečnou
+$<span class="math notranslate nohighlight">\( y(x+h)\approx y(x)+hf\left( x,y(x)\right)\)</span>$</p></li>
+<li><p>Metodu lze zpřesnit zmenšením vzdálenosti <span class="math notranslate nohighlight">\(h=x_{k+1}-x_{k}\)</span></p></li>
+</ul>
+</section>
+<section id="metoda-stredniho-bodu">
+<h3><span class="section-number">10.1.2. </span>Metoda středního bodu<a class="headerlink" href="#metoda-stredniho-bodu" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Přesnější vyjádření směrnice tečny:</p>
+<ol class="simple">
+<li><p>Provedeme poloviční krok <span class="math notranslate nohighlight">\(h/2\)</span> pomocí Eulerovy metody</p></li>
+<li><p>V tomto bodě vypočítáme směrnici tečny</p></li>
+<li><p>Tuto směrnici použijeme k provedení celého kroku z bodu <span class="math notranslate nohighlight">\(x\)</span> do <span class="math notranslate nohighlight">\(x+h\)</span>
+$<span class="math notranslate nohighlight">\( y(x+h)\approx y(x)+hf\left[ x+\dfrac{h}{2},y(x)+\dfrac{h}{2}f\left( x,y(x)\right) \right]   \)</span>$</p></li>
+</ol>
+</li>
+</ul>
+</section>
+<section id="heunova-metoda">
+<h3><span class="section-number">10.1.3. </span>Heunova metoda<a class="headerlink" href="#heunova-metoda" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Opět zpřesňujeme vyjádření směrnice tečny:</p>
+<ol class="simple">
+<li><p>Směrnici tečny v bodě <span class="math notranslate nohighlight">\(x+h\)</span> určíme pomocí Eulerovy metody</p></li>
+<li><p>Uděláme průměr ze směrnic v bodech <span class="math notranslate nohighlight">\(x\)</span> a <span class="math notranslate nohighlight">\(x+h\)</span></p></li>
+<li><p>Tuto směrnici použijeme k provedení celého kroku z bodu <span class="math notranslate nohighlight">\(x\)</span> do <span class="math notranslate nohighlight">\(x+h\)</span>
+$<span class="math notranslate nohighlight">\( y(x+h)\approx y(x)+\dfrac{h}{2}\lbrace f \left( x,y(x) \right) + f\left[x+h,y(x)+hf(x,y(x))\right]\rbrace   \)</span>$</p></li>
+</ol>
+</li>
+</ul>
+</section>
+<section id="runge-kuttova-metoda-4-radu">
+<h3><span class="section-number">10.1.4. </span>Runge-Kuttova metoda 4. řádu<a class="headerlink" href="#runge-kuttova-metoda-4-radu" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Využívá postupné zpřesňování hodnot derivace v bodech mezi <span class="math notranslate nohighlight">\(x\)</span> a <span class="math notranslate nohighlight">\(x+h\)</span></p></li>
+<li><p><a class="reference external" href="http://kfe.fjfi.cvut.cz/~vachal/edu/nme/cviceni/09_ODE/DOCS/teorie_RK.pdf">Odvození</a></p></li>
+<li><p>Postup výpočtu:
+$<span class="math notranslate nohighlight">\( k_{1}=f(x_{n},y_{n})\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( k_{2}=f(x_{n}+\dfrac{h}{2},y_{n}+\dfrac{h}{2}k_{1})\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( k_{3}=f(x_{n}+\dfrac{h}{2},y_{n}+\dfrac{h}{2}k_{2})\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( k_{4}=f(x_{n}+h,y_{n}+hk_{3})\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( y_{n+1}\approx y_{n}+\dfrac{h}{6}\left(k_{1}+2k_{2}+2k_{3}+k_{4} \right)\)</span>$</p></li>
+<li><p>Pro Runge-Kuttovy metody obecně platí:</p>
+<ul>
+<li><p>Výhody: robustní metoda, funguje témeř vždy</p></li>
+<li><p>Nevýhody: na jeden krok je potřeba funkci několikrát vyčíslit, nehodí se pro řešení rovnic se silným tlumením (stiff rovnice)</p></li>
+</ul>
+</li>
+</ul>
+<div class="alert alert-block alert-warning"><b>Cvičení 10.01: </b>Vyřešete modelovou úlohu popisující časový vývoj počtu bakterií $\dfrac{\mathrm{d}N}{\mathrm{d}t}=(1+\cos t)N(t)$ výše zmíněnými metodami. Předpokládáme, že na počátku žije jen jedna bakterie.</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># kod</span>
+
+<span class="c1"># pocatecni podminky</span>
+<span class="n">uH</span>  <span class="o">=</span> <span class="mi">1</span> <span class="c1"># Heunova metoda</span>
+<span class="n">uSB</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># Metoda stredniho bodu</span>
+<span class="n">uE</span>  <span class="o">=</span> <span class="mi">1</span> <span class="c1"># Eulerova metoda</span>
+<span class="n">uRK</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># Runge-Kutta</span>
+
+<span class="c1"># konecny cas</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="c1"># casove kroky</span>
+<span class="n">tA</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">num</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+
+<span class="c1">## resime tuto rovnici f(x,y(x))=dy(x)/dx:</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">*</span> <span class="n">y</span>
+
+<span class="c1"># presne reseni</span>
+<span class="n">exact</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">tA</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">tA</span><span class="p">))</span> 
+
+<span class="c1"># delka kroku</span>
+<span class="n">h</span> <span class="o">=</span> <span class="mf">0.1</span> 
+<span class="c1">##</span>
+
+
+<span class="c1">## stiff</span>
+<span class="c1">#def f(x,y):</span>
+<span class="c1">#    return -15*y</span>
+<span class="c1">#</span>
+<span class="c1">## presne reseni</span>
+<span class="c1">#exact = np.exp(-15*tA ) </span>
+<span class="c1">#</span>
+<span class="c1">#</span>
+<span class="c1"># delka kroku (0.1 - 0.2)</span>
+<span class="c1">#h=0.1</span>
+<span class="c1">##</span>
+
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mf">4.5</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tA</span><span class="p">,</span><span class="n">exact</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># zobrazime presne reseni</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">t</span><span class="o">&lt;</span><span class="n">T</span><span class="p">:</span>
+    <span class="c1"># DOPLNTE</span>
+    <span class="c1"># Eulerova metoda</span>
+    <span class="c1">#ax.plot(t,uE, marker=&quot;+&quot;, color=&#39;C1&#39;)</span>
+    <span class="c1"># uE = uE + ...</span>
+    <span class="c1">#</span>
+    <span class="c1"># Metoda stredniho bodu</span>
+    <span class="c1">#ax.plot(t,uSB, marker=&quot;s&quot;, color=&#39;c&#39;)</span>
+    <span class="c1">#</span>
+    <span class="c1"># Heunova metoda</span>
+    <span class="c1">#ax.plot(t,uH, marker=&quot;x&quot;, color=&#39;k&#39;)</span>
+    <span class="c1">#</span>
+    <span class="c1"># Runge-Kutta 4. rad</span>
+    <span class="c1">#ax.plot(t,uRK, marker=&quot;.&quot;, color=&#39;r&#39;)</span>
+    <span class="c1">#    </span>
+    <span class="c1"># DOPLNTE</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">t</span> <span class="o">+</span> <span class="n">h</span>
+    
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\dfrac{\mathrm</span><span class="si">{d}</span><span class="s1">N}{\mathrm</span><span class="si">{d}</span><span class="s1">t}$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$t$&#39;</span><span class="p">)</span>
+<span class="c1">#ax.set_xlim((4.5,5))</span>
+<span class="c1">#ax.set_ylim((0,60))</span>
+
+
+<span class="c1"># stiff rovnice</span>
+<span class="c1">#ax.set_ylim((-1,1))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;$t$&#39;)
+</pre></div>
+</div>
+<img alt="_images/Cviceni10_5_1.png" src="_images/Cviceni10_5_1.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="stiff-rovnice-rovnice-se-silnym-tlumenim">
+<h2><span class="section-number">10.2. </span>Stiff rovnice (rovnice se silným tlumením)<a class="headerlink" href="#stiff-rovnice-rovnice-se-silnym-tlumenim" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Takové rovnice, které v sobě obsahují útlum s charakteristickým časem <span class="math notranslate nohighlight">\(\tau \ll \)</span> jiný charakteristický čas úlohy</p></li>
+<li><p>Pro řešení je potřeba zvolit délku kroku <span class="math notranslate nohighlight">\(h \leq \tau\)</span></p></li>
+</ul>
+</section>
+<section id="reseni-soustav-diferencialnich-rovnic">
+<h2><span class="section-number">10.3. </span>Řešení soustav diferenciálních rovnic<a class="headerlink" href="#reseni-soustav-diferencialnich-rovnic" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Zadnou úlohu převedeme na soustavu <span class="math notranslate nohighlight">\(N\)</span> diferenciálních rovnic 1. řádu</p></li>
+</ul>
+<div class="alert alert-block alert-warning"><b>Cvičení 10.02: </b> Runge-Kuttovou metodou čtvrtého řádu vyřešte <a href="https://cs.wikipedia.org/wiki/Keplerova_%C3%BAloha">Keplerovu úlohu</a> dle <a href="http://kfe.fjfi.cvut.cz/~vachal/edu/nme/cviceni/09_ODE/DOCS/priklad_ode_soustava.pdf">tohoto</a> zadání.</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># kod</span>
+
+<span class="c1"># metodou Runge-Kuta ctvrteho radu budeme resit soustavu dvou rovnic druheho radu (problem dvou teles)</span>
+
+<span class="c1"># konecny cas</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mi">20</span>
+
+<span class="c1"># pocatecni podminky</span>
+<span class="c1"># array([x, dx/dt, y, dy/dt])</span>
+<span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">])</span>
+
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">u</span><span class="p">):</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+    <span class="c1"># DOPLNTE</span>
+    <span class="c1">#</span>
+    <span class="c1"># DOPLNTE    </span>
+    <span class="k">return</span> <span class="n">w</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mf">4.5</span><span class="p">))</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">t</span><span class="o">&lt;</span><span class="n">T</span><span class="p">:</span>    
+    <span class="c1">#r = (u[0]**2+u[2]**2)**(1/2)    </span>
+    <span class="c1">#h = 1e-1*r**2</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="mf">0.005</span> <span class="c1"># delka kroku</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">t</span> <span class="o">+</span> <span class="n">h</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">u</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+    <span class="c1"># DOPLNTE</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="n">u</span>
+    <span class="c1"># DOPLNTE</span>
+    
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;y&#39;)
+</pre></div>
+</div>
+<img alt="_images/Cviceni10_9_1.png" src="_images/Cviceni10_9_1.png" />
+</div>
+</div>
+</section>
+<section id="dalsi-metody-reseni-odr">
+<h2><span class="section-number">10.4. </span>Další metody řešení ODR<a class="headerlink" href="#dalsi-metody-reseni-odr" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="http://kfe.fjfi.cvut.cz/~vachal/edu/nme/cviceni/09_ODE/DOCS/teorie_ode_dalsi_metody.pdf">Zde</a></p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Cviceni09vyplnene.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">9. </span>Numerická integrace</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Martin Jirka<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
