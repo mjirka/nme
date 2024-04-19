@@ -225,7 +225,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/mjirka/nme/main?urlpath=tree/Cviceni10.ipynb"
+        <a href="https://mybinder.org/v2/gh/mjirka/nme/main?urlpath=tree/Cviceni10vyplnene.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -268,7 +268,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/Cviceni10.ipynb"
+        <a href="_sources/Cviceni10vyplnene.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -555,7 +555,7 @@ $<span class="math notranslate nohighlight">\( k_{1}=f(x_{n},y_{n})\)</span><spa
 <span class="c1">#</span>
 <span class="c1">#</span>
 <span class="c1"># delka kroku (0.1 - 0.2)</span>
-<span class="c1">#h=0.1</span>
+<span class="c1">#h=0.2</span>
 <span class="c1">##</span>
 
 
@@ -564,21 +564,30 @@ $<span class="math notranslate nohighlight">\( k_{1}=f(x_{n},y_{n})\)</span><spa
 
 <span class="n">t</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">while</span> <span class="n">t</span><span class="o">&lt;</span><span class="n">T</span><span class="p">:</span>
-    <span class="c1"># DOPLNTE</span>
     <span class="c1"># Eulerova metoda</span>
-    <span class="c1">#ax.plot(t,uE, marker=&quot;+&quot;, color=&#39;C1&#39;)</span>
-    <span class="c1"># uE = uE + ...</span>
-    <span class="c1">#</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">uE</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;+&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">)</span>
+    <span class="c1"># spocteme novou hodnotu promenne uE</span>
+    <span class="n">uE</span> <span class="o">=</span> <span class="n">uE</span><span class="o">+</span><span class="n">h</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">uE</span><span class="p">)</span>
+
     <span class="c1"># Metoda stredniho bodu</span>
-    <span class="c1">#ax.plot(t,uSB, marker=&quot;s&quot;, color=&#39;c&#39;)</span>
-    <span class="c1">#</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">uSB</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">)</span>
+    <span class="c1"># spocteme novou hodnotu promenne uSB</span>
+    <span class="n">uSB</span> <span class="o">=</span> <span class="n">uSB</span><span class="o">+</span><span class="n">h</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="n">h</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">uSB</span><span class="o">+</span><span class="n">h</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">uSB</span><span class="p">))</span>
+
     <span class="c1"># Heunova metoda</span>
-    <span class="c1">#ax.plot(t,uH, marker=&quot;x&quot;, color=&#39;k&#39;)</span>
-    <span class="c1">#</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">uH</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+    <span class="c1"># spocteme novou hodnotu promenne uH</span>
+    <span class="n">uH</span> <span class="o">=</span> <span class="n">uH</span><span class="o">+</span><span class="n">h</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">uH</span><span class="p">)</span><span class="o">+</span><span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="n">h</span><span class="p">,</span><span class="n">uH</span><span class="o">+</span><span class="n">h</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">uH</span><span class="p">)))</span>
+
     <span class="c1"># Runge-Kutta 4. rad</span>
-    <span class="c1">#ax.plot(t,uRK, marker=&quot;.&quot;, color=&#39;r&#39;)</span>
-    <span class="c1">#    </span>
-    <span class="c1"># DOPLNTE</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">uRK</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+    <span class="c1"># spocteme novou hodnotu promenne uRK</span>
+    <span class="n">k1</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">uRK</span><span class="p">)</span>
+    <span class="n">k2</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="n">h</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">uRK</span><span class="o">+</span><span class="n">h</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">k1</span><span class="p">)</span>
+    <span class="n">k3</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="n">h</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">uRK</span><span class="o">+</span><span class="n">h</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">k2</span><span class="p">)</span>
+    <span class="n">k4</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="n">h</span><span class="p">,</span><span class="n">uRK</span><span class="o">+</span><span class="n">h</span><span class="o">*</span><span class="n">k3</span><span class="p">)</span>
+    <span class="n">uRK</span> <span class="o">=</span> <span class="n">uRK</span> <span class="o">+</span> <span class="n">h</span><span class="o">/</span><span class="mi">6</span><span class="o">*</span><span class="p">(</span><span class="n">k1</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">k2</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">k3</span><span class="o">+</span><span class="n">k4</span><span class="p">)</span>
+    
     <span class="n">t</span> <span class="o">=</span> <span class="n">t</span> <span class="o">+</span> <span class="n">h</span>
     
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\dfrac{\mathrm</span><span class="si">{d}</span><span class="s1">N}{\mathrm</span><span class="si">{d}</span><span class="s1">t}$&#39;</span><span class="p">)</span>
@@ -596,7 +605,7 @@ $<span class="math notranslate nohighlight">\( k_{1}=f(x_{n},y_{n})\)</span><spa
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;$t$&#39;)
 </pre></div>
 </div>
-<img alt="_images/Cviceni10_5_1.png" src="_images/Cviceni10_5_1.png" />
+<img alt="_images/Cviceni10vyplnene_5_1.png" src="_images/Cviceni10vyplnene_5_1.png" />
 </div>
 </div>
 </section>
@@ -629,23 +638,26 @@ $<span class="math notranslate nohighlight">\( k_{1}=f(x_{n},y_{n})\)</span><spa
 
 <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">u</span><span class="p">):</span>
     <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-    <span class="c1"># DOPLNTE</span>
-    <span class="c1">#</span>
-    <span class="c1"># DOPLNTE    </span>
+    <span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">w</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">u</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">w</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">u</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+    <span class="n">w</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">u</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">/</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">u</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>   
     <span class="k">return</span> <span class="n">w</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mf">4.5</span><span class="p">))</span>
 
 <span class="n">t</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">while</span> <span class="n">t</span><span class="o">&lt;</span><span class="n">T</span><span class="p">:</span>    
-    <span class="c1">#r = (u[0]**2+u[2]**2)**(1/2)    </span>
-    <span class="c1">#h = 1e-1*r**2</span>
-    <span class="n">h</span> <span class="o">=</span> <span class="mf">0.005</span> <span class="c1"># delka kroku</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">u</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>    
+    <span class="n">h</span> <span class="o">=</span> <span class="mf">1e-1</span><span class="o">*</span><span class="n">r</span><span class="o">**</span><span class="mi">2</span>
+    <span class="c1">#h = 0.005 # delka kroku</span>
     <span class="n">t</span> <span class="o">=</span> <span class="n">t</span> <span class="o">+</span> <span class="n">h</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">u</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
-    <span class="c1"># DOPLNTE</span>
-    <span class="n">u</span> <span class="o">=</span> <span class="n">u</span>
-    <span class="c1"># DOPLNTE</span>
+    <span class="n">k1</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>    
+    <span class="n">k2</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">u</span><span class="o">+</span><span class="n">h</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">k1</span><span class="p">)</span>
+    <span class="n">k3</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">u</span><span class="o">+</span><span class="n">h</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">k2</span><span class="p">)</span>
+    <span class="n">k4</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">u</span><span class="o">+</span><span class="n">h</span><span class="o">*</span><span class="n">k3</span><span class="p">)</span>
+    <span class="n">u</span><span class="o">=</span><span class="n">u</span><span class="o">+</span><span class="n">h</span><span class="o">/</span><span class="mi">6</span><span class="o">*</span><span class="p">(</span><span class="n">k1</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">k2</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">k3</span><span class="o">+</span><span class="n">k4</span><span class="p">)</span>
     
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
@@ -656,7 +668,7 @@ $<span class="math notranslate nohighlight">\( k_{1}=f(x_{n},y_{n})\)</span><spa
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;y&#39;)
 </pre></div>
 </div>
-<img alt="_images/Cviceni10_9_1.png" src="_images/Cviceni10_9_1.png" />
+<img alt="_images/Cviceni10vyplnene_9_1.png" src="_images/Cviceni10vyplnene_9_1.png" />
 </div>
 </div>
 </section>

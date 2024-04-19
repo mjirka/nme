@@ -96,7 +96,7 @@ h = 0.1
 #
 #
 # delka kroku (0.1 - 0.2)
-#h=0.1
+#h=0.2
 ##
 
 
@@ -105,21 +105,30 @@ ax.plot(tA,exact,linewidth=2) # zobrazime presne reseni
 
 t = 0
 while t<T:
-    # DOPLNTE
     # Eulerova metoda
-    #ax.plot(t,uE, marker="+", color='C1')
-    # uE = uE + ...
-    #
+    ax.plot(t,uE, marker="+", color='C1')
+    # spocteme novou hodnotu promenne uE
+    uE = uE+h*f(t,uE)
+
     # Metoda stredniho bodu
-    #ax.plot(t,uSB, marker="s", color='c')
-    #
+    ax.plot(t,uSB, marker="s", color='c')
+    # spocteme novou hodnotu promenne uSB
+    uSB = uSB+h*f(t+h/2,uSB+h/2*f(t,uSB))
+
     # Heunova metoda
-    #ax.plot(t,uH, marker="x", color='k')
-    #
+    ax.plot(t,uH, marker="x", color='k')
+    # spocteme novou hodnotu promenne uH
+    uH = uH+h/2*(f(t,uH)+f(t+h,uH+h*f(t,uH)))
+
     # Runge-Kutta 4. rad
-    #ax.plot(t,uRK, marker=".", color='r')
-    #    
-    # DOPLNTE
+    ax.plot(t,uRK, marker=".", color='r')
+    # spocteme novou hodnotu promenne uRK
+    k1 = f(t,uRK)
+    k2 = f(t+h/2,uRK+h/2*k1)
+    k3 = f(t+h/2,uRK+h/2*k2)
+    k4 = f(t+h,uRK+h*k3)
+    uRK = uRK + h/6*(k1+2*k2+2*k3+k4)
+    
     t = t + h
     
 ax.set_ylabel(r'$\dfrac{\mathrm{d}N}{\mathrm{d}t}$')
@@ -158,23 +167,26 @@ u = np.array([1, -0.3, 0, 0.3])
 
 def f(u):
     w = np.zeros(4)
-    # DOPLNTE
-    #
-    # DOPLNTE    
+    w[0] = u[1]
+    w[1] = -u[0]/(u[0]**2+u[2]**2)**(3/2)
+    w[2] = u[3]
+    w[3] = -u[2]/(u[0]**2+u[2]**2)**(3/2)   
     return w
 
 fig, ax = plt.subplots(figsize=(15,4.5))
 
 t = 0
 while t<T:    
-    #r = (u[0]**2+u[2]**2)**(1/2)    
-    #h = 1e-1*r**2
-    h = 0.005 # delka kroku
+    r = (u[0]**2+u[2]**2)**(1/2)    
+    h = 1e-1*r**2
+    #h = 0.005 # delka kroku
     t = t + h
     ax.scatter(u[0], u[2], marker=".")
-    # DOPLNTE
-    u = u
-    # DOPLNTE
+    k1 = f(u)    
+    k2 = f(u+h/2*k1)
+    k3 = f(u+h/2*k2)
+    k4 = f(u+h*k3)
+    u=u+h/6*(k1+2*k2+2*k3+k4)
     
 ax.set_xlabel('x')
 ax.set_ylabel('y')
