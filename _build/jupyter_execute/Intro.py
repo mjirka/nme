@@ -16,6 +16,7 @@
 # 
 # ## Úkoly
 # * [Úkol z cvičení č. 10](https://mjirka.github.io/nme/Ukol10.html) (zadání [ve formátu Jupyter Notebook](https://mjirka.github.io/nme/Ukol10.ipynb))
+# * [Úkol z cvičení č. 11](https://mjirka.github.io/nme/Ukol11.html) (zadání [ve formátu Jupyter Notebook](https://mjirka.github.io/nme/Ukol11.ipynb))
 # 
 # ## Zápočtová tabulka
 # ### Cvičení v 10:00
@@ -40,7 +41,7 @@
 # | Paleta |/ 1|/ 1| / 1 | / 1 |/  1| / 1 | / 1 | / 0 | / 0| /  |
 # | Povolný |/ 1|/ 1| - 1 | / 1 |/  1| - 1 | / 1 | - 1 | / 1| /  |
 # | Rajtmajer |/ 1|/ 1| / 1 | / 1 |- 0 | / 1 | / 1 | / 0 | / 1| /  |
-# | Rybak |/ 0.7|/ 0| - 1 | - 1 |/  1| / 1 | / 1 | / 0.5 | / 0| /  |
+# | Rybak |/ 0.7|/ 0| - 1 | - 1 |/  1| / 1 | / 1 | / 0.5 | / 1| /  |
 # | Selivonenko |/ 1|/ 0| - 0 | - 0.6 |/  1| / 1 | / 1 | / 1 | / 1| /  |
 # | Sipetic |/ 1|/ 1| / 1 | / 1 |-  1| / 1 | / 1 | / 1 | - 0| /  |
 # | Stránský |/ 1|/ 1| / 1 | / 1 |/  1| / 1 | / 1 | / 0 | - 0| /  |
@@ -98,4 +99,4 @@
 # Materiály ke cvičením vycházejí z těchto [podkladů](http://kfe.fjfi.cvut.cz/~vachal/edu/nme/cviceni/index.html).
 # 
 # ***
-# <div style="text-align: right">Akutalizace 19.4. 2024</div>
+# <div style="text-align: right">Akutalizace 24.4. 2024</div>
