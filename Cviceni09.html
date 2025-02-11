@@ -1,0 +1,839 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Numerická integrace &#8212; Letní semestr</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Letní semestr</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Intro.html">
+                    Numerické metody - cvičení (12NME1)
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Obsah cvičení
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni01.html">
+   1. Jupyter notebook a základy Pythonu
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/m-jirka/nme_cv/main?urlpath=tree/Cviceni09.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/Cviceni09.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#klasicke-kvadraturni-vzorce">
+   Klasické kvadraturní vzorce
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#newtoncotesovy-vzorce">
+     Newton–Cotesovy vzorce
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gaussovy-kvadratury">
+   Gaussovy kvadratury
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rombergova-metoda">
+   Rombergova metoda
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vicedimenzionalni-integraly">
+   Vícedimenzionální integrály
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metoda-monte-carlo">
+     Metoda Monte-Carlo
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Numerická integrace</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#klasicke-kvadraturni-vzorce">
+   Klasické kvadraturní vzorce
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#newtoncotesovy-vzorce">
+     Newton–Cotesovy vzorce
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gaussovy-kvadratury">
+   Gaussovy kvadratury
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rombergova-metoda">
+   Rombergova metoda
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vicedimenzionalni-integraly">
+   Vícedimenzionální integrály
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metoda-monte-carlo">
+     Metoda Monte-Carlo
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="numericka-integrace">
+<h1>Numerická integrace<a class="headerlink" href="#numericka-integrace" title="Permalink to this heading">#</a></h1>
+<p>Naimportujeme si knihovny potřebné pro následující příklady:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">scipy.integrate</span> <span class="k">as</span> <span class="nn">integrate</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="klasicke-kvadraturni-vzorce">
+<h2>Klasické kvadraturní vzorce<a class="headerlink" href="#klasicke-kvadraturni-vzorce" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Máme ekvidistantní body <span class="math notranslate nohighlight">\(x_{i}\)</span> a vypočteme <span class="math notranslate nohighlight">\(f_{i}(x_{i})\)</span></p></li>
+<li><p>V 1D aproximujeme integrál pomocí obdélníků/lichoběžníků</p></li>
+<li><p>Přesnost je dána šířkou obdélníku</p></li>
+</ul>
+<section id="newtoncotesovy-vzorce">
+<h3>Newton–Cotesovy vzorce<a class="headerlink" href="#newtoncotesovy-vzorce" title="Permalink to this heading">#</a></h3>
+<ol class="simple">
+<li><p>Obdélníkové pravidlo
+$<span class="math notranslate nohighlight">\(
+\int_{x_{1}}^{x_{2}}f(x)\,dx\approx (x_{2}-x_{1})f\left( \dfrac{x_{1}+x_{2}}{2} \right)
+\)</span>$</p></li>
+<li><p>Lichoběžníkové pravidlo
+$<span class="math notranslate nohighlight">\(
+\int_{x_{1}}^{x_{2}}f(x)\,dx\approx (x_{2}-x_{1})\dfrac{f(x_{1})+f(x_{2})}{2}
+\)</span>$</p></li>
+<li><p>Simpsonovo pravidlo</p></li>
+</ol>
+<ul class="simple">
+<li><p><a class="reference external" href="http://kfe.fjfi.cvut.cz/~vachal/edu/nme/cviceni/07_numint/DOCS/odvozeni_integrace_Lagrange.pdf">Odvození</a>
+$<span class="math notranslate nohighlight">\(
+\int_{x_{1}}^{x_{3}}f(x)\,dx\approx (x_{2}-x_{1})\dfrac{f(x_{1})+4f(x_{2})+f(x_{3})}{3}
+\)</span>$</p></li>
+</ul>
+<div class="alert alert-block alert-warning"><b>Cvičení 09.01: </b>Pomocí obdélníkové, lichoběžníkové a Simpsonovy metody numericky vypočtěte <a href="https://www.wolframalpha.com/input?i=integrate+sin%28x%29+from+1+to+5">integrál</a> $\int_{1}^{5} \sin(x)\,dx$.</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># kod</span>
+
+<span class="n">pocet_kroku</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="n">pocet_kroku</span> <span class="c1"># velikost kroku</span>
+
+<span class="c1"># obdelnikova metoa</span>
+<span class="n">S_obdelnik</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">pocet_kroku</span><span class="p">):</span>
+    <span class="n">bod</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">i</span><span class="o">*</span><span class="n">r</span>
+    <span class="c1"># DOPLNTE</span>
+    <span class="n">S_obdelnik</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Obdelnikova metoda: &#39;</span><span class="p">,</span><span class="n">S_obdelnik</span><span class="p">)</span>
+
+<span class="c1"># lichobeznikova metoda</span>
+<span class="n">S_lichobeznik</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">pocet_kroku</span><span class="p">):</span>
+    <span class="n">bod</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">i</span><span class="o">*</span><span class="n">r</span>  
+    <span class="c1"># DOPLNTE</span>
+    <span class="n">S_lichobeznik</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Lichobeznikova metoda: &#39;</span><span class="p">,</span><span class="n">S_lichobeznik</span><span class="p">)</span>
+
+<span class="c1"># Simpsonovo pravidlo</span>
+<span class="n">S_simpson</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">pocet_kroku_simpson</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">pocet_kroku</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">pocet_kroku_simpson</span><span class="p">):</span>
+    <span class="n">bod</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="o">*</span><span class="n">r</span>
+    <span class="c1"># DOPLNTE</span>
+    <span class="n">S_simpson</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Simpsonovo pravidlo: &#39;</span><span class="p">,</span><span class="n">S_simpson</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Obdelnikova metoda:  0
+Lichobeznikova metoda:  0
+Simpsonovo pravidlo:  0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="gaussovy-kvadratury">
+<h2>Gaussovy kvadratury<a class="headerlink" href="#gaussovy-kvadratury" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Výpočet integrálu při neekvidistantním rozdělení bodů <span class="math notranslate nohighlight">\(x_{i}\)</span> s různými váhami <span class="math notranslate nohighlight">\(w_{i}\)</span></p></li>
+<li><p>Chceme spočítat integrál s minimálním počtem vyčíslení <span class="math notranslate nohighlight">\(f(x)\)</span></p></li>
+<li><p>Volíme optimální polohu bodů <span class="math notranslate nohighlight">\(x_{i}\)</span> a příslušné váhy <span class="math notranslate nohighlight">\(w_{i}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(n\)</span> bodů dává přesný výsledek pro polynomy řádu <span class="math notranslate nohighlight">\(\leq 2n-1\)</span></p></li>
+<li><p>Dvojnásobná přesnost oproti integraci s ekvidistantním rozdělením</p></li>
+<li><p>Pro polohu bodů a příslušné váhy používáme tyto polynomy:</p></li>
+<li><p>Legenderovy na intervalu <span class="math notranslate nohighlight">\((-1,1)\)</span></p></li>
+<li><p>Čebyševovy na intervalu <span class="math notranslate nohighlight">\((-1,1)\)</span></p></li>
+<li><p>Laguerrovy na intervalu <span class="math notranslate nohighlight">\((0,+\infty)\)</span></p></li>
+<li><p>Hermiteovy na intervalu <span class="math notranslate nohighlight">\((-\infty,+\infty)\)</span></p></li>
+<li><p>Funkci <span class="math notranslate nohighlight">\(f(x)\)</span> interpolujeme daným typem polynomu, nalezneme <span class="math notranslate nohighlight">\(w_{i}\)</span> a <span class="math notranslate nohighlight">\(x_{i}\)</span></p></li>
+<li><p>Následně lze integrál numericky vypočítat předpisem:
+$<span class="math notranslate nohighlight">\(
+\int_{-1}^{1}f(x)dx\approx \sum_{i=1}^{n}w_{i}f(x_{i})
+\)</span>$</p></li>
+<li><p>Pokud integrujeme přes interval <span class="math notranslate nohighlight">\(\langle a,b\rangle\)</span>, získáme předpis:
+$<span class="math notranslate nohighlight">\(
+\int_{a}^{b}f(x)dx\approx \sum_{i=1}^{n}\tilde{w}_{i}f(\tilde{x}_{i}),
+\)</span><span class="math notranslate nohighlight">\(
+kde
+\)</span><span class="math notranslate nohighlight">\(
+\tilde{w}_{i} = w_{i}\dfrac{b-a}{2}
+\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(
+\tilde{x}_{i} = \dfrac{(b-a)x_{i}+a+b}{2}
+\)</span>$</p></li>
+</ul>
+<div class="alert alert-block alert-warning"><b>Cvičení 09.02: </b>Metodou Gaussovy kvadratury numericky vypočtěte <a href="https://www.wolframalpha.com/input?i=sin%28x%29exp%28cos%28x%29%29">integrál</a> $\int_{0}^{\pi} \sin(x)\exp[\cos(x)]\,dx$.</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># kod</span>
+
+<span class="c1"># v kazdem radku je bod a prislusna vaha vypoctena z interpolace Legenderovym polynomem</span>
+<span class="n">vahy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+<span class="p">[</span> <span class="o">-</span><span class="mf">0.987992518</span><span class="p">,</span> <span class="mf">0.03075324221</span><span class="p">],</span>
+<span class="p">[</span><span class="o">-</span><span class="mf">0.9372733924</span><span class="p">,</span> <span class="mf">0.07036604699</span><span class="p">],</span>
+<span class="p">[</span><span class="o">-</span><span class="mf">0.8482065834</span><span class="p">,</span> <span class="mf">0.1071592202</span><span class="p">],</span>
+<span class="p">[</span><span class="o">-</span><span class="mf">0.7244177314</span><span class="p">,</span> <span class="mf">0.139570678</span><span class="p">],</span>
+<span class="p">[</span><span class="o">-</span><span class="mf">0.5709721726</span><span class="p">,</span> <span class="mf">0.1662692057</span><span class="p">],</span>
+<span class="p">[</span><span class="o">-</span><span class="mf">0.3941513471</span> <span class="p">,</span><span class="mf">0.1861609998</span><span class="p">],</span>
+<span class="p">[</span><span class="o">-</span><span class="mf">0.201194094</span> <span class="p">,</span><span class="mf">0.1984314853</span><span class="p">],</span>
+<span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.201194094</span><span class="p">],</span>
+<span class="p">[</span><span class="mf">0.201194094</span><span class="p">,</span> <span class="mf">0.1984314853</span><span class="p">],</span>
+<span class="p">[</span><span class="mf">0.3941513471</span><span class="p">,</span> <span class="mf">0.1861609998</span><span class="p">],</span>
+<span class="p">[</span><span class="mf">0.5709721726</span><span class="p">,</span> <span class="mf">0.1662692057</span><span class="p">],</span>
+<span class="p">[</span><span class="mf">0.7244177314</span><span class="p">,</span> <span class="mf">0.139570678</span><span class="p">],</span>
+<span class="p">[</span><span class="mf">0.8482065834</span><span class="p">,</span> <span class="mf">0.1071592202</span><span class="p">],</span>
+<span class="p">[</span><span class="mf">0.9372733924</span><span class="p">,</span> <span class="mf">0.07036604699</span><span class="p">],</span>
+<span class="p">[</span><span class="mf">0.987992518</span><span class="p">,</span> <span class="mf">0.03075324221</span> <span class="p">]</span>
+<span class="p">])</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="c1"># integracni meze</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+
+<span class="n">integral</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="n">vahy</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># pocet bodu</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+    <span class="c1"># prvek vahy[i,0] vrati i-ty bod, prvek vahy[i,1] vrati i-tou vahu</span>
+    <span class="c1"># body jsou preskalovane z (-1,1) na (a,b)</span>
+    <span class="c1"># DOPLNTE</span>
+    <span class="c1">#</span>
+    <span class="c1"># DOPLNTE</span>
+    <span class="n">integral</span> <span class="o">=</span> <span class="mi">0</span> 
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Nas vypocet: &#39;</span><span class="p">,</span><span class="n">integral</span><span class="p">)</span>
+
+<span class="n">kontrola</span> <span class="o">=</span> <span class="n">integrate</span><span class="o">.</span><span class="n">quad</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Kontrola: &#39;</span><span class="p">,</span> <span class="n">kontrola</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nas vypocet:  0
+Kontrola:  2.350402387287603
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="rombergova-metoda">
+<h2>Rombergova metoda<a class="headerlink" href="#rombergova-metoda" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Algoritmus na zpřesnění výpočtu integrálu</p></li>
+<li><p>Pro zadanou přesnost integrace sníží počet bodů, ve kterých musíme počítat funkční hodnotu</p></li>
+<li><p><a class="reference external" href="http://kfe.fjfi.cvut.cz/~vachal/edu/nme/cviceni/07_numint/DOCS/teorie_Rombergova_metoda.pdf">Teorie</a></p></li>
+</ul>
+<div class="alert alert-block alert-warning"><b>Cvičení 09.03: </b> Zpřesněte numerický výpočet <a href="https://www.wolframalpha.com/input?i=sin%28x%29exp%28cos%28x%29%29">integrálu</a> $\int_{0}^{\pi} \sin(x)\exp[\cos(x)]\,dx$ Rombergovou metodou.</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># kod</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="c1"># slozene lichobeznikove pravidlo</span>
+<span class="k">def</span> <span class="nf">lichobeznik</span><span class="p">(</span><span class="n">funkce</span><span class="p">,</span><span class="n">odkud</span><span class="p">,</span><span class="n">kam</span><span class="p">,</span><span class="n">krok</span><span class="p">):</span>
+    <span class="n">xArr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">odkud</span><span class="p">,</span> <span class="n">kam</span><span class="p">,</span> <span class="n">krok</span><span class="p">)</span>
+    <span class="n">integral</span> <span class="o">=</span> <span class="mi">0</span>  
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">xArr</span><span class="p">:</span>
+        <span class="c1"># secteme vsechny funkcni hodnoty</span>
+        <span class="n">integral</span> <span class="o">=</span> <span class="n">integral</span> <span class="o">+</span> <span class="n">funkce</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="c1"># a odecteme poloviny kraju</span>
+    <span class="c1">#integral = integral-0.5*funkce(xArr(1)) - 0.5*funkce(xArr(size(xArr,2)));</span>
+    <span class="n">integral</span> <span class="o">=</span> <span class="n">integral</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">funkce</span><span class="p">(</span><span class="n">xArr</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">funkce</span><span class="p">(</span><span class="n">xArr</span><span class="p">[</span><span class="n">xArr</span><span class="o">.</span><span class="n">size</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">integral</span> <span class="o">*</span> <span class="n">krok</span>    
+
+
+<span class="n">integ</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">h0</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="n">h0</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+    <span class="n">integ</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">lichobeznik</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="n">h</span><span class="p">)</span>
+
+<span class="c1"># presna hodnota:</span>
+<span class="n">v</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">presna_hodnota</span> <span class="o">=</span> <span class="n">v</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="c1">#</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span><span class="n">integ</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;numericky vypocet - iterace&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">presna_hodnota</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;presna hodnota&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;iterace&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;vysledek&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="c1"># zpresneni Romberg. metodou</span>
+<span class="n">r1</span><span class="o">=</span><span class="mi">4</span><span class="o">/</span><span class="mi">3</span><span class="o">*</span><span class="n">integ</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="o">*</span><span class="n">integ</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span><span class="n">integ</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;numericky vypocet - iterace&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">presna_hodnota</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;presna hodnota&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">r1</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;zpresneni Romberg. metodou&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;iterace&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="c1"># dalsi zpresneni Romberg. metodou</span>
+<span class="n">r2</span> <span class="o">=</span> <span class="mi">64</span><span class="o">/</span><span class="mi">45</span> <span class="o">*</span> <span class="n">integ</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">20</span><span class="o">/</span><span class="mi">45</span> <span class="o">*</span> <span class="n">integ</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="mi">45</span><span class="o">*</span><span class="n">integ</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span><span class="n">integ</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;numericky vypocet - iterace&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">presna_hodnota</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;presna hodnota&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">r1</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;zpresneni vypoctu Romberg. metodou&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">r2</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;C8&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;dalsi zpresneni Romberg. metodou&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;iterace&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x788fc3b84a90&gt;
+</pre></div>
+</div>
+<img alt="_images/Cviceni09_12_1.png" src="_images/Cviceni09_12_1.png" />
+</div>
+</div>
+</section>
+<section id="vicedimenzionalni-integraly">
+<h2>Vícedimenzionální integrály<a class="headerlink" href="#vicedimenzionalni-integraly" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(N\)</span> dimenzí</p></li>
+<li><p>Počet bodů, ve kterých vyčíslujeme funkční hodnotu roste s <span class="math notranslate nohighlight">\(N\)</span>-tou mocninou</p>
+<ul>
+<li><p>Např. 30 bodů v jedné dimenzi, ve třech dimenzích počítáme funkci ve <span class="math notranslate nohighlight">\(30^{3}=27000\)</span> bodech</p></li>
+</ul>
+</li>
+<li><p>Metody</p></li>
+<li><ol class="simple">
+<li><p>Snížení dimenze pomocí symetrie</p></li>
+</ol>
+</li>
+<li><ol class="simple">
+<li><p>Posloupnost opakovaných jednodimenzionálních integrací</p></li>
+</ol>
+</li>
+<li><ol class="simple">
+<li><p>Monte-Carlo</p></li>
+</ol>
+</li>
+</ul>
+<section id="metoda-monte-carlo">
+<h3>Metoda Monte-Carlo<a class="headerlink" href="#metoda-monte-carlo" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Integrační oblast <span class="math notranslate nohighlight">\(V\)</span> uzavřeme do co nejmenší oblasti se známým objemem <span class="math notranslate nohighlight">\(\tilde{V}\)</span>, ve které lze snadno generovat náhodné body</p></li>
+<li><p>Vygenerujeme <span class="math notranslate nohighlight">\(N\)</span> náhodných bodů ve <span class="math notranslate nohighlight">\(\tilde{V}\)</span> a vypočteme integrál
+$<span class="math notranslate nohighlight">\(
+\int f(\vec{x})dV\approx\dfrac{\tilde{V}}{N}\sum_{i=1}^{N}\tilde{f}(\vec{x}_{i}),
+\)</span><span class="math notranslate nohighlight">\(
+kde \)</span>\tilde{f}(\vec{x}) = f(\vec{x})<span class="math notranslate nohighlight">\(, pokud \)</span>\vec{x}\in V<span class="math notranslate nohighlight">\(. Jinak \)</span>\tilde{f}(\vec{x}) = 0$.</p></li>
+</ul>
+<div class="alert alert-block alert-warning"><b>Cvičení 09.04: </b> Metodou Monte-Carlo určete velikost konstanty $\pi$.</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># kod</span>
+
+<span class="n">kapek</span> <span class="o">=</span> <span class="mi">0</span>    <span class="c1"># pocet kapek</span>
+<span class="n">vkruhu</span> <span class="o">=</span> <span class="mi">0</span>   <span class="c1"># pocet kapek v kruhu</span>
+<span class="n">npi</span> <span class="o">=</span> <span class="mi">0</span>      <span class="c1"># odhad pi</span>
+<span class="n">steps</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># pocet kroku</span>
+<span class="n">plotPi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">steps</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mf">4.5</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">steps</span><span class="p">):</span> 
+    <span class="n">kapek</span> <span class="o">=</span> <span class="n">kapek</span><span class="o">+</span><span class="mi">1</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>    <span class="c1"># dve nahodna cisla x[0,0] a x[0,1]</span>
+    <span class="c1"># jsou uvnitr kruhu se stredem (0.5,0.5) a polomerem 0.5?</span>
+    <span class="c1"># DOPLNTE</span>
+    <span class="c1">#</span>
+    <span class="c1"># DOPLNTE</span>
+    <span class="n">npi</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">vkruhu</span> <span class="o">/</span> <span class="n">kapek</span>
+    <span class="n">plotPi</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">npi</span> 
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plotPi</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;numericky vypocet hodnoty $\pi$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;vysledek&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;iterace&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Vypoctena hodnota pi = &#39;</span><span class="p">,</span><span class="n">npi</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vypoctena hodnota pi =  0.0
+</pre></div>
+</div>
+<img alt="_images/Cviceni09_16_1.png" src="_images/Cviceni09_16_1.png" />
+</div>
+</div>
+<div class="alert alert-block alert-warning"><b>Cvičení 09.05: </b> Numericky vypočítejte <a href="https://www.wolframalpha.com/input?i=integrate+x%2By+for+0%3Cx%3C1+and+0%3Cy%3C1">integrál</a> $\int_{0}^{1}\int_{0}^{1}(x+y) dx dy$. Vykreslete výslednou hodnotu, absolutní chybu a odhad přesnosti metody v závislosti na počtu kroků.</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># kod</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+
+<span class="n">kroku</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">vysledky</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">kroku</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="c1"># vysledky</span>
+<span class="n">uspech</span> <span class="o">=</span> <span class="mi">0</span>   <span class="c1"># pocet uspesnych pokusu</span>
+<span class="n">suma</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">kroku</span><span class="p">):</span>
+    <span class="c1"># DOPLNTE</span>
+    <span class="n">vysledky</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span> 
+<span class="n">integral</span> <span class="o">=</span> <span class="n">suma</span> <span class="o">/</span> <span class="n">kroku</span>
+
+
+<span class="n">spravny_vysledek</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Numericka integrace = &#39;</span><span class="p">,</span><span class="n">integral</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Kontrola = &#39;</span><span class="p">,</span><span class="n">spravny_vysledek</span><span class="p">)</span>
+
+<span class="n">spravny_vysledek</span> <span class="o">=</span> <span class="n">spravny_vysledek</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">kroku</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="c1"># absolutni chyba</span>
+<span class="n">abs_chyba</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">vysledky</span><span class="o">-</span><span class="n">spravny_vysledek</span><span class="p">)</span>
+<span class="c1"># presnost vypoctu metodou Monte-Carlo je ~ 1/sqrt(N)</span>
+<span class="n">odhad_presnosti</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">kroku</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">num</span><span class="o">=</span><span class="n">kroku</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">vysledky</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;numericka integrace&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">spravny_vysledek</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">kroku</span><span class="p">,</span><span class="mi">1</span><span class="p">)),</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;presna hodnota&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;pocet kroku $N$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;vysledek&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">abs_chyba</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;C4&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;absolutni chyba&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">odhad_presnosti</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;cyan&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;analyticky odhad presnosti metody $1/\sqrt</span><span class="si">{N}</span><span class="s1">$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;pocet kroku $N$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;chyba&#39;</span><span class="p">)</span>
+<span class="c1">#ax[1].set_xscale(&#39;log&#39;)</span>
+<span class="c1">#ax[1].set_yscale(&#39;log&#39;)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Numericka integrace =  0.0
+Kontrola =  1
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x788fc39e62e0&gt;
+</pre></div>
+</div>
+<img alt="_images/Cviceni09_18_2.png" src="_images/Cviceni09_18_2.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "m-jirka/nme_cv",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Martin Jirka<br/>
+  
+      &copy; Copyright 2025.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

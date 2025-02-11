@@ -1,0 +1,1060 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>1. Jupyter notebook a základy Pythonu &#8212; Letní semestr</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Numerické metody - cvičení (12NME1)" href="Intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Letní semestr</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Intro.html">
+                    Numerické metody - cvičení (12NME1)
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Obsah cvičení
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   1. Jupyter notebook a základy Pythonu
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/m-jirka/nme_cv/main?urlpath=tree/Cviceni01.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/Cviceni01.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#interaktivni-jupyter-notebook">
+   1.1. Interaktivní Jupyter notebook
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python">
+   1.2. Python
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#podminkove-cykly">
+   1.3. Podmínkové cykly
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#if-else">
+     1.3.1. If … else
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#for">
+     1.3.2. For …
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#while">
+     1.3.3. While…
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#break">
+     1.3.4. Break
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#continue">
+     1.3.5. Continue
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#funkce">
+   1.4. Funkce
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#numericka-knihovna-numpy">
+   1.5. Numerická knihovna numpy
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#maticove-operace">
+     1.5.1. Maticové operace
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     1.5.2. Funkce
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualizace-dat">
+   1.6. Visualizace dat
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#graf-jedne-promenne">
+     1.6.1. Graf jedné proměnné
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visualizace-zavislosti-dvou-promennych">
+     1.6.2. Visualizace závislosti dvou proměnných
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#d-visualizace">
+     1.6.3. 3D visualizace
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Jupyter notebook a základy Pythonu</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#interaktivni-jupyter-notebook">
+   1.1. Interaktivní Jupyter notebook
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python">
+   1.2. Python
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#podminkove-cykly">
+   1.3. Podmínkové cykly
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#if-else">
+     1.3.1. If … else
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#for">
+     1.3.2. For …
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#while">
+     1.3.3. While…
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#break">
+     1.3.4. Break
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#continue">
+     1.3.5. Continue
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#funkce">
+   1.4. Funkce
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#numericka-knihovna-numpy">
+   1.5. Numerická knihovna numpy
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#maticove-operace">
+     1.5.1. Maticové operace
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     1.5.2. Funkce
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualizace-dat">
+   1.6. Visualizace dat
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#graf-jedne-promenne">
+     1.6.1. Graf jedné proměnné
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visualizace-zavislosti-dvou-promennych">
+     1.6.2. Visualizace závislosti dvou proměnných
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#d-visualizace">
+     1.6.3. 3D visualizace
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="jupyter-notebook-a-zaklady-pythonu">
+<h1><span class="section-number">1. </span>Jupyter notebook a základy Pythonu<a class="headerlink" href="#jupyter-notebook-a-zaklady-pythonu" title="Permalink to this heading">#</a></h1>
+<div class="alert alert-block alert-success"><b>On-line interaktivní verze: </b> Pro spuštení interaktivní verze této stránky klikněte ve vrchním menu na <i class="fa fa-rocket" aria-hidden="true"></i> a zvolte <i>Binder</i>, ve kterém lze <i>Jupyter notebook</i> (JP) upravovat a následně uložit na disk.</div><div class="alert alert-block alert-info"><b>Tip: </b> Tento soubor je možné stáhnout kliknutím na <i class="fa fa-download" aria-hidden="true"></i>, a to ve formě <code>*.ipynb</code> pro pozdější off-line editaci v prostředí <a href="https://www.anaconda.com/">Anaconda</a>, nebo pro on-line editaci v <a href="https://colab.research.google.com/">Google Colab</a>.</div><section id="interaktivni-jupyter-notebook">
+<h2><span class="section-number">1.1. </span>Interaktivní Jupyter notebook<a class="headerlink" href="#interaktivni-jupyter-notebook" title="Permalink to this heading">#</a></h2>
+<p>Napište <code class="docutils literal notranslate"><span class="pre">print('Hello,</span> <span class="pre">World!')</span></code> a stiskněte <code class="docutils literal notranslate"><span class="pre">Shift</span></code> <code class="docutils literal notranslate"><span class="pre">+</span></code> <code class="docutils literal notranslate"><span class="pre">Enter</span></code> (nebo <code class="docutils literal notranslate"><span class="pre">Ctrl</span></code> <code class="docutils literal notranslate"><span class="pre">+</span></code> <code class="docutils literal notranslate"><span class="pre">Enter</span></code>)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pomocí klávesy <code class="docutils literal notranslate"><span class="pre">b</span></code> vložíte další řádek do JP.</p>
+<ul class="simple">
+<li><p>Stiskněte <code class="docutils literal notranslate"><span class="pre">b</span></code>.</p></li>
+</ul>
+<p>Odstranění řádku: vyberte řádek v JP a stiskněte <code class="docutils literal notranslate"><span class="pre">d</span></code> <code class="docutils literal notranslate"><span class="pre">+</span></code> <code class="docutils literal notranslate"><span class="pre">d</span></code></p>
+<p>Klávesou <code class="docutils literal notranslate"><span class="pre">a</span></code> vložíte nový řádek nad právě vybraný.</p>
+<ol class="simple">
+<li><p>Stiskněte <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p></li>
+<li><p>Vyberte tento nový řádek a stiskněte <code class="docutils literal notranslate"><span class="pre">m</span></code>. Nyní lze do řádku místo kódu zapisovat text,</p></li>
+<li><p>Zadávání ukončíte stisknutím kombinace <code class="docutils literal notranslate"><span class="pre">Shift</span></code> <code class="docutils literal notranslate"><span class="pre">+</span></code> <code class="docutils literal notranslate"><span class="pre">Enter</span></code>.</p></li>
+<li><p>Pokud chcete řádek převést na kód, stiskněte <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p></li>
+</ol>
+<p><strong>Pro nápovědu stiskněte <code class="docutils literal notranslate"><span class="pre">h</span></code>.</strong></p>
+</section>
+<section id="python">
+<h2><span class="section-number">1.2. </span>Python<a class="headerlink" href="#python" title="Permalink to this heading">#</a></h2>
+<p>Jednořádkový komentář se zadává za znak <code class="docutils literal notranslate"><span class="pre">#</span></code>, více řádků lze zakomentovat pomocí <code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;</span></code> a <code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># toto je komentar</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Inicializace proměnných <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, základní aritmetické operace a výpis výsledku pomocí funkce <code class="docutils literal notranslate"><span class="pre">print()</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># zakladni aritmeticke operace</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-warning"><b>Cvičení 01.01: </b> Vypočtěte objem jehlanu o stranách 3 a 4 majiícího výšku 7. </div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cviceni 01.01</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="podminkove-cykly">
+<h2><span class="section-number">1.3. </span>Podmínkové cykly<a class="headerlink" href="#podminkove-cykly" title="Permalink to this heading">#</a></h2>
+<section id="if-else">
+<h3><span class="section-number">1.3.1. </span>If … else<a class="headerlink" href="#if-else" title="Permalink to this heading">#</a></h3>
+<div class="alert alert-block alert-danger"><b>Pozor:</b> vnitřní části kódu je <b>nutné odsadit</b>, obvykle se používají <b>čtyři mezery</b>.</div><p>Za klíčovými slovy <code class="docutils literal notranslate"><span class="pre">if</span></code> a <code class="docutils literal notranslate"><span class="pre">else</span></code> musíme psát <code class="docutils literal notranslate"><span class="pre">:</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># if, else</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="for">
+<h3><span class="section-number">1.3.2. </span>For …<a class="headerlink" href="#for" title="Permalink to this heading">#</a></h3>
+<p>Zde využijeme funkci <code class="docutils literal notranslate"><span class="pre">range(min,max,krok)</span></code>, která vytvoří sekvenci celých čísel od <code class="docutils literal notranslate"><span class="pre">min</span></code> po <code class="docutils literal notranslate"><span class="pre">max</span></code> <em><strong>(prvek max není v sekvenci obsažen)</strong></em> s uvedeným krokem. Výchozí hodnoty jsou <code class="docutils literal notranslate"><span class="pre">min</span> <span class="pre">=</span> <span class="pre">0</span></code> a <code class="docutils literal notranslate"><span class="pre">krok</span> <span class="pre">=</span> <span class="pre">1</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># for</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="while">
+<h3><span class="section-number">1.3.3. </span>While…<a class="headerlink" href="#while" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># while</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="break">
+<h3><span class="section-number">1.3.4. </span>Break<a class="headerlink" href="#break" title="Permalink to this heading">#</a></h3>
+<p>Pomocí příkazu <code class="docutils literal notranslate"><span class="pre">break</span></code> se ukončí probíhající cyklus. Pokud je cyklus vnořený, ukončí se pouze tento vnořený cyklus. V následujícím příkladu využijeme funkci <code class="docutils literal notranslate"><span class="pre">len()</span></code> která nám vrátí délku seznamu vytvořeného pomocí <code class="docutils literal notranslate"><span class="pre">range()</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ze seznamu cislic 0,1,2,... chci vypsat pouze prvni dve cislice. </span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="continue">
+<h3><span class="section-number">1.3.5. </span>Continue<a class="headerlink" href="#continue" title="Permalink to this heading">#</a></h3>
+<p>Příkaz <code class="docutils literal notranslate"><span class="pre">continue</span></code> ukončí aktuální iteraci v cyklu a pokračuje další iterací.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ze seznamu cislic 0,1,2,... chci vypsat vsechny cislice, krome dvojky. </span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="funkce">
+<h2><span class="section-number">1.4. </span>Funkce<a class="headerlink" href="#funkce" title="Permalink to this heading">#</a></h2>
+<p>Funkce se definuje příkazem <code class="docutils literal notranslate"><span class="pre">def</span></code>. Následuje jméno funkce, seznam vstupních parametrů a vše je zakončené <code class="docutils literal notranslate"><span class="pre">:</span></code>. Tělo funkce musí být odsazené. Funkce může vrátit hodnotu pomocí příkazu <code class="docutils literal notranslate"><span class="pre">return</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># funkce</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-warning"><b>Cvičení 01.02: </b> Napište funkci, která rozhodne, zda zadané číslo je liché, nebo sudé, a vypište výsledek. </div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cviceni 01.02</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="numericka-knihovna-numpy">
+<h2><span class="section-number">1.5. </span>Numerická knihovna numpy<a class="headerlink" href="#numericka-knihovna-numpy" title="Permalink to this heading">#</a></h2>
+<p>Pro import numerické knihovny <code class="docutils literal notranslate"><span class="pre">numpy</span></code> použijeme příkaz:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="maticove-operace">
+<h3><span class="section-number">1.5.1. </span>Maticové operace<a class="headerlink" href="#maticove-operace" title="Permalink to this heading">#</a></h3>
+<p>Pole (vektor, matice) lze vytvářet pomocí funkce <code class="docutils literal notranslate"><span class="pre">array()</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># vektor</span>
+
+<span class="c1"># matice (pole)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-danger"><b>Pozor:</b> v poli <code>array</code> má <b>první prvek index 0</b>!</div><p>Rozměry pole zjistíme pomocí funkce <code class="docutils literal notranslate"><span class="pre">shape</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># shape</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Funkce <code class="docutils literal notranslate"><span class="pre">size</span></code> vrátí počet prvků v poli:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># size</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Matici lze transponovat funkcí <code class="docutils literal notranslate"><span class="pre">transpose()</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># transpose</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pro vytváření polí lze používat následující generátory:</p>
+<ul class="simple">
+<li><p>Pomocí funkce <code class="docutils literal notranslate"><span class="pre">arange()</span></code> vytvoříme pole s prvky od 0 do 10 <strong>(poslední prvek není obsažen)</strong> a krokem 1:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># arange</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Pomocí funkce <code class="docutils literal notranslate"><span class="pre">linspace()</span></code> vygenerujeme pole s prvky od 0 do 10 <strong>(včetně)</strong>, přičemž počet prvků je 20:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># linspace</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Příkazem <code class="docutils literal notranslate"><span class="pre">logspace()</span></code> vytvoříme pole od 0 do 10 s počtem prvků 20 v logaritmickém měřítku (<span class="math notranslate nohighlight">\(\log_{10}\)</span>):</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># logspace</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Pomocí funkce <code class="docutils literal notranslate"><span class="pre">zeros()</span></code> vytvoříme nulovou matici 2x2:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># zeros</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Funkcí <code class="docutils literal notranslate"><span class="pre">ones()</span></code> vytvoříme jednotkovou matici 3x3:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ones</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Pomocí funkce <code class="docutils literal notranslate"><span class="pre">eye()</span></code> vytvoříme matici 3x3 s jedničkami na diagonále, ostatní hodnoty jsou nulové:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># eye</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Pole náhodných čísel v rozmezí 0 az 1 se vygeneruje pomocí funkce <code class="docutils literal notranslate"><span class="pre">np.random.rand()</span></code>:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># random</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pro přístup k prvkům pole <code class="docutils literal notranslate"><span class="pre">A</span></code> používáme syntaxi <code class="docutils literal notranslate"><span class="pre">A[i,j]</span></code>, kde <code class="docutils literal notranslate"><span class="pre">i</span></code> je index řádku a <code class="docutils literal notranslate"><span class="pre">j</span></code> je index sloupce:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pole</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pro přístup k prvkům pole používáme syntaxi <code class="docutils literal notranslate"><span class="pre">[min:max:krok]</span></code>. Mějme vektor <span class="math notranslate nohighlight">\(\mathbf{v}=(0,1,2,3,4,5,6)\)</span>. Nyní z něj vyjmeme první (“0”) až šestý prvek (“5”), a to s krokem 2:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pole - vyber</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Podobně u matice <span class="math notranslate nohighlight">\(A\)</span> vybereme např. poslední dva prvky ve třetím sloupci.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pole - vyber</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>U matice <span class="math notranslate nohighlight">\(A\)</span> vybereme první řádek:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pole - vyber</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>U matice <span class="math notranslate nohighlight">\(A\)</span> vybereme první sloupec:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pole - vyber</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Násobení matic a vektorů se provádí pomocí operátoru <code class="docutils literal notranslate"><span class="pre">dot</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># matice 2x3</span>
+
+<span class="c1"># matice 3x2</span>
+
+<span class="c1"># vysledek</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-danger"><b>Pozor:</b> operace <b>C*C</b> násobí matice po prvcích (není to maticové násobení)</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># maticove nasobeni</span>
+
+<span class="c1"># nasobeni po prvcich</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id1">
+<h3><span class="section-number">1.5.2. </span>Funkce<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">numpy</span></code> obsahuje často používané funkce a konstanty (napr. <code class="docutils literal notranslate"><span class="pre">sqrt()</span></code>, <code class="docutils literal notranslate"><span class="pre">log()</span></code>, <code class="docutils literal notranslate"><span class="pre">log10()</span></code>, <code class="docutils literal notranslate"><span class="pre">sin()</span></code>, <code class="docutils literal notranslate"><span class="pre">abs()</span></code>, <code class="docutils literal notranslate"><span class="pre">e</span></code>, <code class="docutils literal notranslate"><span class="pre">pi</span></code>, …):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># numpy - funkce</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Součet prvků v poli je dán funkcí <code class="docutils literal notranslate"><span class="pre">sum()</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># soucet prvku v poli</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Minimální a maximální hodnotu v poli určíme funkcí <code class="docutils literal notranslate"><span class="pre">min()</span></code> a <code class="docutils literal notranslate"><span class="pre">max()</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># maximalni hodnota v poli</span>
+
+<span class="c1"># minimalni hodnota v poli</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Funkce <code class="docutils literal notranslate"><span class="pre">average()</span></code> vrací průměrnou hodnotu; <code class="docutils literal notranslate"><span class="pre">std()</span></code> je směrodatná odchylka a <code class="docutils literal notranslate"><span class="pre">var()</span></code> je rozptyl:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># prumerna hodnota</span>
+
+<span class="c1"># smerodatna odchylka</span>
+
+<span class="c1"># rozptyl</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Index prvku v poli lze najít pomocí funkce <code class="docutils literal notranslate"><span class="pre">argwhere()</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># argwhere</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-info"><b>Tip: </b> Další příklady a návody pro práci s knihovnou <code>numpy</code> lze nalézt na <a href='https://numpy.org/'>https://numpy.org/</a>.</div></section>
+</section>
+<section id="visualizace-dat">
+<h2><span class="section-number">1.6. </span>Visualizace dat<a class="headerlink" href="#visualizace-dat" title="Permalink to this heading">#</a></h2>
+<p>Pro kreslení grafů využijeme knihovnu <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="graf-jedne-promenne">
+<h3><span class="section-number">1.6.1. </span>Graf jedné proměnné<a class="headerlink" href="#graf-jedne-promenne" title="Permalink to this heading">#</a></h3>
+<p>Vygenerujeme <span class="math notranslate nohighlight">\(x\)</span> a <span class="math notranslate nohighlight">\(y\)</span> hodnoty pro funkci <code class="docutils literal notranslate"><span class="pre">sin()</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># hodnoty x a y</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nejdříve je potřeba vytvořit obrázek pomocí <code class="docutils literal notranslate"><span class="pre">fig</span></code>. Vykreslení dat provedeme příkazem <code class="docutils literal notranslate"><span class="pre">plot()</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># vykresleni x,y</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Přidáme popisky os pomocí <code class="docutils literal notranslate"><span class="pre">set_xlabel()</span></code>, <code class="docutils literal notranslate"><span class="pre">set_ylabel()</span></code> a název grafu pomocí <code class="docutils literal notranslate"><span class="pre">set_title()</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># popisky os, nazev grafu</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Přidáme funkci <code class="docutils literal notranslate"><span class="pre">cos()</span></code>, nastavíme barvu (<code class="docutils literal notranslate"><span class="pre">color</span></code>), styl (<code class="docutils literal notranslate"><span class="pre">linestyle</span></code>) a šířku (<code class="docutils literal notranslate"><span class="pre">linewidth</span></code>) linky. Průhlednost se nastavuje parametrem <code class="docutils literal notranslate"><span class="pre">alpha</span></code>. Legendu zobrazíme příkazem <code class="docutils literal notranslate"><span class="pre">legend()</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># funkce cos()</span>
+
+<span class="c1"># vykreslime funkci cos()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Na závěr obrázek uložíme příkazem <code class="docutils literal notranslate"><span class="pre">savefig()</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ulozeni obrazku</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualizace-zavislosti-dvou-promennych">
+<h3><span class="section-number">1.6.2. </span>Visualizace závislosti dvou proměnných<a class="headerlink" href="#visualizace-zavislosti-dvou-promennych" title="Permalink to this heading">#</a></h3>
+<p>Mějme funkci <span class="math notranslate nohighlight">\(z(x,y)\)</span>, která závisí na dvou proměnných <span class="math notranslate nohighlight">\(z(x,y)=\exp(-\sqrt{x^2+y^2})\cos(2x)\sin(2y)\)</span>, a vykreslíme její závislost v 2D grafu.</p>
+<p>Vytvoříme mřížku <span class="math notranslate nohighlight">\(x\times y\)</span> pomocí funkce <code class="docutils literal notranslate"><span class="pre">meshgrid()</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># meshgrid</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Spočítáme hodnoty funkce <span class="math notranslate nohighlight">\(z(x,y)\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># hodnoty z</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>2D graf vykreslíme pomocí funkce <code class="docutils literal notranslate"><span class="pre">pcolor()</span></code> s parametrem <code class="docutils literal notranslate"><span class="pre">shading='auto'</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># vykresleni dat</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Kontury získáme použitím funkce <code class="docutils literal notranslate"><span class="pre">contour()</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># contour</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="d-visualizace">
+<h3><span class="section-number">1.6.3. </span>3D visualizace<a class="headerlink" href="#d-visualizace" title="Permalink to this heading">#</a></h3>
+<p>Máme stejnou funkci <span class="math notranslate nohighlight">\(z(x,y)=\exp(-\sqrt{x^2+y^2})\cos(2x)\sin(2y)\)</span>, kterou nyní chceme vykreslit v 3D grafu. Nejdříve vytvoříme trojrozměrnou osu:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3D graf</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vytvoříme mřížku <span class="math notranslate nohighlight">\(x\times y\)</span> pomocí funkce <code class="docutils literal notranslate"><span class="pre">meshgrid</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># meshgrid</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Spočítáme hodnoty funkce <span class="math notranslate nohighlight">\(z(x,y)\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># hodnoty z</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>3D data vykreslíme pomocí funkce <code class="docutils literal notranslate"><span class="pre">plot_surface()</span></code> a přidáme popisky os:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># vykresleni dat - plot_surface</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-warning"><b>Cvičení 01.03: </b> Vykreslete průběh funkce log(<i>x</i>) pro <i>x</i> od 0.1 do 10. Osy grafu popište, přidejte legendu a obrázek uložte ve formátu *.jpg.</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cviceni 01.03</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-info"><b>Tip: </b> Další příklady a návody pro práci s knihovnou <code>matplotlib</code> lze nalézt na <a href='https://matplotlib.org/'>https://matplotlib.org/</a>.</div></section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "m-jirka/nme_cv",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Numerické metody - cvičení (12NME1)</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Martin Jirka<br/>
+  
+      &copy; Copyright 2025.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
