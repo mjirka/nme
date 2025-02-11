@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Iterační metody řešení soustav lineárních rovnic, hledání vlastních čísel &#8212; Letní semestr</title>
+    <title>4. Iterační metody řešení soustav lineárních rovnic, hledání vlastních čísel &#8212; Letní semestr</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -55,6 +55,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="5. Aproximace funkcí" href="Cviceni05.html" />
+    <link rel="prev" title="3. Numerické metody lineární algebry" href="Cviceni03.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -119,10 +121,60 @@ const thebe_selector_output = ".output, .cell_output"
   Obsah cvičení
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Cviceni01.html">
    1. Jupyter notebook a základy Pythonu
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni02.html">
+   2. Chyby a nestabilita
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni03.html">
+   3. Numerické metody lineární algebry
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   4. Iterační metody řešení soustav lineárních rovnic, hledání vlastních čísel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni05.html">
+   5. Aproximace funkcí
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni06.html">
+   6. Aproximace funkcí II, třídění
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni07.html">
+   7. Řešení nelineárních rovnic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni08.html">
+   9. Extrémy funkcí
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni09.html">
+   10. Numerická integrace
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni10.html">
+   11. Obyčejné diferenciální rovnice (ODR)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni11.html">
+   12. Obyčejné diferenciální rovnice (ODR) II
   </a>
  </li>
 </ul>
@@ -306,39 +358,39 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#iteracni-metody">
-   Iterační metody:
+   4.1. Iterační metody:
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#jacobiho-metoda">
-     Jacobiho metoda
+     4.1.1. Jacobiho metoda
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#gauss-seidelova-metoda">
-     Gauss-Seidelova metoda
+     4.1.2. Gauss-Seidelova metoda
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#superrelaxacni-metoda">
-     Superrelaxační metoda
+     4.1.3. Superrelaxační metoda
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#prosta-iterace">
-     Prostá iterace
+     4.1.4. Prostá iterace
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#porovnani-proste-iterace-jacobiho-gauss-seidelovy-a-superrelaxacni-metody">
-     Porovnání prosté iterace, Jacobiho, Gauss-Seidelovy a superrelaxační metody
+     4.1.5. Porovnání prosté iterace, Jacobiho, Gauss-Seidelovy a superrelaxační metody
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#hledani-vlastnich-cisel-a-vektoru-matice">
-   Hledání vlastních čísel a vektorů matice
+   4.2. Hledání vlastních čísel a vektorů matice
   </a>
  </li>
 </ul>
@@ -362,39 +414,39 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#iteracni-metody">
-   Iterační metody:
+   4.1. Iterační metody:
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#jacobiho-metoda">
-     Jacobiho metoda
+     4.1.1. Jacobiho metoda
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#gauss-seidelova-metoda">
-     Gauss-Seidelova metoda
+     4.1.2. Gauss-Seidelova metoda
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#superrelaxacni-metoda">
-     Superrelaxační metoda
+     4.1.3. Superrelaxační metoda
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#prosta-iterace">
-     Prostá iterace
+     4.1.4. Prostá iterace
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#porovnani-proste-iterace-jacobiho-gauss-seidelovy-a-superrelaxacni-metody">
-     Porovnání prosté iterace, Jacobiho, Gauss-Seidelovy a superrelaxační metody
+     4.1.5. Porovnání prosté iterace, Jacobiho, Gauss-Seidelovy a superrelaxační metody
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#hledani-vlastnich-cisel-a-vektoru-matice">
-   Hledání vlastních čísel a vektorů matice
+   4.2. Hledání vlastních čísel a vektorů matice
   </a>
  </li>
 </ul>
@@ -408,7 +460,7 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="iteracni-metody-reseni-soustav-linearnich-rovnic-hledani-vlastnich-cisel">
-<h1>Iterační metody řešení soustav lineárních rovnic, hledání vlastních čísel<a class="headerlink" href="#iteracni-metody-reseni-soustav-linearnich-rovnic-hledani-vlastnich-cisel" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">4. </span>Iterační metody řešení soustav lineárních rovnic, hledání vlastních čísel<a class="headerlink" href="#iteracni-metody-reseni-soustav-linearnich-rovnic-hledani-vlastnich-cisel" title="Permalink to this heading">#</a></h1>
 <p>Naimportujeme si knihovny potřebné pro následující příklady:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -419,13 +471,13 @@ title="Print to PDF"
 </div>
 </div>
 <section id="iteracni-metody">
-<h2>Iterační metody:<a class="headerlink" href="#iteracni-metody" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.1. </span>Iterační metody:<a class="headerlink" href="#iteracni-metody" title="Permalink to this heading">#</a></h2>
 <ol class="simple">
 <li><p>Řešení rovnice <span class="math notranslate nohighlight">\(\mathbb{A}\mathbf{x}=\mathbf{b}\)</span> odhadneme vektorem <span class="math notranslate nohighlight">\(\mathbf{x}^{0}\)</span></p></li>
 <li><p>Následné iterace <span class="math notranslate nohighlight">\(\mathbf{x}^{(k+1)}=\mathbb{B}_{k}\mathbf{x}^{(k)}+\mathbf{c}_{k}\)</span> upřesňují náš počáteční odhad</p></li>
 </ol>
 <section id="jacobiho-metoda">
-<h3>Jacobiho metoda<a class="headerlink" href="#jacobiho-metoda" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.1.1. </span>Jacobiho metoda<a class="headerlink" href="#jacobiho-metoda" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Řešíme rovnici <span class="math notranslate nohighlight">\(\mathbb{A}\mathbf{x}=\mathbf{b}\)</span></p></li>
 <li><p>Předpokládáme, že matice <span class="math notranslate nohighlight">\(\mathbb{A}\)</span> má nenulové diagonální prvky <span class="math notranslate nohighlight">\(a_{ii}\neq 0\)</span></p></li>
@@ -526,7 +578,7 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x772447e459a0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7aa164ad4a00&gt;
 </pre></div>
 </div>
 <img alt="_images/Cviceni04_7_1.png" src="_images/Cviceni04_7_1.png" />
@@ -534,7 +586,7 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </section>
 <section id="gauss-seidelova-metoda">
-<h3>Gauss-Seidelova metoda<a class="headerlink" href="#gauss-seidelova-metoda" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.1.2. </span>Gauss-Seidelova metoda<a class="headerlink" href="#gauss-seidelova-metoda" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>Gauss-Seidelova metoda:</strong>
 $<span class="math notranslate nohighlight">\(
@@ -627,7 +679,7 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7724447c9dc0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7aa158149e20&gt;
 </pre></div>
 </div>
 <img alt="_images/Cviceni04_11_1.png" src="_images/Cviceni04_11_1.png" />
@@ -635,7 +687,7 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </section>
 <section id="superrelaxacni-metoda">
-<h3>Superrelaxační metoda<a class="headerlink" href="#superrelaxacni-metoda" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.1.3. </span>Superrelaxační metoda<a class="headerlink" href="#superrelaxacni-metoda" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Gauss-Seidelova metoda může konvergovat pomalu</p></li>
 <li><p>K urychlení iteračního procesu bývá využívána <strong>superrelaxační metoda</strong>:
@@ -652,7 +704,7 @@ x_{i}^{(k+1)}=x_{i}^{(k)}+\omega\Delta x_{i}^{(k)}
 </ul>
 </section>
 <section id="prosta-iterace">
-<h3>Prostá iterace<a class="headerlink" href="#prosta-iterace" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.1.4. </span>Prostá iterace<a class="headerlink" href="#prosta-iterace" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>Prostá iterace</strong>:
 $<span class="math notranslate nohighlight">\(
@@ -661,7 +713,7 @@ $<span class="math notranslate nohighlight">\(
 </ul>
 </section>
 <section id="porovnani-proste-iterace-jacobiho-gauss-seidelovy-a-superrelaxacni-metody">
-<h3>Porovnání prosté iterace, Jacobiho, Gauss-Seidelovy a superrelaxační metody<a class="headerlink" href="#porovnani-proste-iterace-jacobiho-gauss-seidelovy-a-superrelaxacni-metody" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.1.5. </span>Porovnání prosté iterace, Jacobiho, Gauss-Seidelovy a superrelaxační metody<a class="headerlink" href="#porovnani-proste-iterace-jacobiho-gauss-seidelovy-a-superrelaxacni-metody" title="Permalink to this heading">#</a></h3>
 <div class="alert alert-block alert-warning"><b>Cvičení 04.03: </b> Doplňte předpis pro prostou iteraci a superrelaxační metodu.</div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
@@ -777,7 +829,7 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7724463fe700&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7aa15bfbf8e0&gt;
 </pre></div>
 </div>
 <img alt="_images/Cviceni04_18_1.png" src="_images/Cviceni04_18_1.png" />
@@ -786,7 +838,7 @@ $<span class="math notranslate nohighlight">\(
 </section>
 </section>
 <section id="hledani-vlastnich-cisel-a-vektoru-matice">
-<h2>Hledání vlastních čísel a vektorů matice<a class="headerlink" href="#hledani-vlastnich-cisel-a-vektoru-matice" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.2. </span>Hledání vlastních čísel a vektorů matice<a class="headerlink" href="#hledani-vlastnich-cisel-a-vektoru-matice" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Nechť pro číslo <span class="math notranslate nohighlight">\(\lambda\)</span> existuje vektor <span class="math notranslate nohighlight">\(\mathbf{x}\neq\mathbf{0} \)</span> takový, že <span class="math notranslate nohighlight">\(\mathbb{A}\mathbf{x}=\lambda\mathbf{x}\)</span>. Pak:</p></li>
 <li><p><span class="math notranslate nohighlight">\(\lambda\)</span> je vlastní číslo matice <span class="math notranslate nohighlight">\(\mathbb{A}\)</span></p></li>
@@ -875,7 +927,7 @@ $<span class="math notranslate nohighlight">\(
 Odhad prislusneho vlastniho vektoru =  0
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x772444300100&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7aa158058100&gt;
 </pre></div>
 </div>
 <img alt="_images/Cviceni04_22_2.png" src="_images/Cviceni04_22_2.png" />
@@ -911,6 +963,20 @@ Odhad prislusneho vlastniho vektoru =  0
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Cviceni03.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">3. </span>Numerické metody lineární algebry</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Cviceni05.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Aproximace funkcí</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>

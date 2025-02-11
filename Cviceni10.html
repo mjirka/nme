@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Obyčejné diferenciální rovnice (ODR) &#8212; Letní semestr</title>
+    <title>11. Obyčejné diferenciální rovnice (ODR) &#8212; Letní semestr</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -55,6 +55,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="12. Obyčejné diferenciální rovnice (ODR) II" href="Cviceni11.html" />
+    <link rel="prev" title="10. Numerická integrace" href="Cviceni09.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -119,10 +121,60 @@ const thebe_selector_output = ".output, .cell_output"
   Obsah cvičení
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Cviceni01.html">
    1. Jupyter notebook a základy Pythonu
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni02.html">
+   2. Chyby a nestabilita
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni03.html">
+   3. Numerické metody lineární algebry
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni04.html">
+   4. Iterační metody řešení soustav lineárních rovnic, hledání vlastních čísel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni05.html">
+   5. Aproximace funkcí
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni06.html">
+   6. Aproximace funkcí II, třídění
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni07.html">
+   7. Řešení nelineárních rovnic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni08.html">
+   9. Extrémy funkcí
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni09.html">
+   10. Numerická integrace
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   11. Obyčejné diferenciální rovnice (ODR)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni11.html">
+   12. Obyčejné diferenciální rovnice (ODR) II
   </a>
  </li>
 </ul>
@@ -306,44 +358,44 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#runge-kuttovy-metody-pro-reseni-pocatecniho-problemu">
-   Runge-Kuttovy metody pro řešení počátečního problému
+   11.1. Runge-Kuttovy metody pro řešení počátečního problému
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#eulerova-metoda">
-     Eulerova metoda
+     11.1.1. Eulerova metoda
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#metoda-stredniho-bodu">
-     Metoda středního bodu
+     11.1.2. Metoda středního bodu
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#heunova-metoda">
-     Heunova metoda
+     11.1.3. Heunova metoda
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#runge-kuttova-metoda-4-radu">
-     Runge-Kuttova metoda 4. řádu
+     11.1.4. Runge-Kuttova metoda 4. řádu
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#stiff-rovnice-rovnice-se-silnym-tlumenim">
-   Stiff rovnice (rovnice se silným tlumením)
+   11.2. Stiff rovnice (rovnice se silným tlumením)
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#reseni-soustav-diferencialnich-rovnic">
-   Řešení soustav diferenciálních rovnic
+   11.3. Řešení soustav diferenciálních rovnic
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#dalsi-metody-reseni-odr">
-   Další metody řešení ODR
+   11.4. Další metody řešení ODR
   </a>
  </li>
 </ul>
@@ -367,44 +419,44 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#runge-kuttovy-metody-pro-reseni-pocatecniho-problemu">
-   Runge-Kuttovy metody pro řešení počátečního problému
+   11.1. Runge-Kuttovy metody pro řešení počátečního problému
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#eulerova-metoda">
-     Eulerova metoda
+     11.1.1. Eulerova metoda
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#metoda-stredniho-bodu">
-     Metoda středního bodu
+     11.1.2. Metoda středního bodu
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#heunova-metoda">
-     Heunova metoda
+     11.1.3. Heunova metoda
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#runge-kuttova-metoda-4-radu">
-     Runge-Kuttova metoda 4. řádu
+     11.1.4. Runge-Kuttova metoda 4. řádu
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#stiff-rovnice-rovnice-se-silnym-tlumenim">
-   Stiff rovnice (rovnice se silným tlumením)
+   11.2. Stiff rovnice (rovnice se silným tlumením)
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#reseni-soustav-diferencialnich-rovnic">
-   Řešení soustav diferenciálních rovnic
+   11.3. Řešení soustav diferenciálních rovnic
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#dalsi-metody-reseni-odr">
-   Další metody řešení ODR
+   11.4. Další metody řešení ODR
   </a>
  </li>
 </ul>
@@ -418,7 +470,7 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="obycejne-diferencialni-rovnice-odr">
-<h1>Obyčejné diferenciální rovnice (ODR)<a class="headerlink" href="#obycejne-diferencialni-rovnice-odr" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">11. </span>Obyčejné diferenciální rovnice (ODR)<a class="headerlink" href="#obycejne-diferencialni-rovnice-odr" title="Permalink to this heading">#</a></h1>
 <p>Naimportujeme si knihovny potřebné pro následující příklady:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -441,9 +493,9 @@ $<span class="math notranslate nohighlight">\( \dfrac{\mathrm{d}\vec y}{\mathrm{
 </li>
 </ul>
 <section id="runge-kuttovy-metody-pro-reseni-pocatecniho-problemu">
-<h2>Runge-Kuttovy metody pro řešení počátečního problému<a class="headerlink" href="#runge-kuttovy-metody-pro-reseni-pocatecniho-problemu" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.1. </span>Runge-Kuttovy metody pro řešení počátečního problému<a class="headerlink" href="#runge-kuttovy-metody-pro-reseni-pocatecniho-problemu" title="Permalink to this heading">#</a></h2>
 <section id="eulerova-metoda">
-<h3>Eulerova metoda<a class="headerlink" href="#eulerova-metoda" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">11.1.1. </span>Eulerova metoda<a class="headerlink" href="#eulerova-metoda" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Z Taylorova rozvoje známe směrnici tečny</p></li>
 <li><p>V každém bodě <span class="math notranslate nohighlight">\(x_{1},x_{2}\dots x_{n}\)</span> aproximujeme funkci její tečnou
@@ -452,7 +504,7 @@ $<span class="math notranslate nohighlight">\( y(x+h)\approx y(x)+hf\left( x,y(x
 </ul>
 </section>
 <section id="metoda-stredniho-bodu">
-<h3>Metoda středního bodu<a class="headerlink" href="#metoda-stredniho-bodu" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">11.1.2. </span>Metoda středního bodu<a class="headerlink" href="#metoda-stredniho-bodu" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Přesnější vyjádření směrnice tečny:</p>
 <ol class="simple">
@@ -465,7 +517,7 @@ $<span class="math notranslate nohighlight">\( y(x+h)\approx y(x)+hf\left[ x+\df
 </ul>
 </section>
 <section id="heunova-metoda">
-<h3>Heunova metoda<a class="headerlink" href="#heunova-metoda" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">11.1.3. </span>Heunova metoda<a class="headerlink" href="#heunova-metoda" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Opět zpřesňujeme vyjádření směrnice tečny:</p>
 <ol class="simple">
@@ -478,7 +530,7 @@ $<span class="math notranslate nohighlight">\( y(x+h)\approx y(x)+\dfrac{h}{2}\l
 </ul>
 </section>
 <section id="runge-kuttova-metoda-4-radu">
-<h3>Runge-Kuttova metoda 4. řádu<a class="headerlink" href="#runge-kuttova-metoda-4-radu" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">11.1.4. </span>Runge-Kuttova metoda 4. řádu<a class="headerlink" href="#runge-kuttova-metoda-4-radu" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Využívá postupné zpřesňování hodnot derivace v bodech mezi <span class="math notranslate nohighlight">\(x\)</span> a <span class="math notranslate nohighlight">\(x+h\)</span></p></li>
 <li><p><a class="reference external" href="http://kfe.fjfi.cvut.cz/~vachal/edu/nme/cviceni/09_ODE/DOCS/teorie_RK.pdf">Odvození</a></p></li>
@@ -579,14 +631,14 @@ $<span class="math notranslate nohighlight">\( k_{1}=f(x_{n},y_{n})\)</span><spa
 </section>
 </section>
 <section id="stiff-rovnice-rovnice-se-silnym-tlumenim">
-<h2>Stiff rovnice (rovnice se silným tlumením)<a class="headerlink" href="#stiff-rovnice-rovnice-se-silnym-tlumenim" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.2. </span>Stiff rovnice (rovnice se silným tlumením)<a class="headerlink" href="#stiff-rovnice-rovnice-se-silnym-tlumenim" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Takové rovnice, které v sobě obsahují útlum s charakteristickým časem <span class="math notranslate nohighlight">\(\tau \ll \)</span> jiný charakteristický čas úlohy</p></li>
 <li><p>Pro řešení je potřeba zvolit délku kroku <span class="math notranslate nohighlight">\(h \leq \tau\)</span></p></li>
 </ul>
 </section>
 <section id="reseni-soustav-diferencialnich-rovnic">
-<h2>Řešení soustav diferenciálních rovnic<a class="headerlink" href="#reseni-soustav-diferencialnich-rovnic" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.3. </span>Řešení soustav diferenciálních rovnic<a class="headerlink" href="#reseni-soustav-diferencialnich-rovnic" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Zadnou úlohu převedeme na soustavu <span class="math notranslate nohighlight">\(N\)</span> diferenciálních rovnic 1. řádu</p></li>
 </ul>
@@ -638,7 +690,7 @@ $<span class="math notranslate nohighlight">\( k_{1}=f(x_{n},y_{n})\)</span><spa
 </div>
 </section>
 <section id="dalsi-metody-reseni-odr">
-<h2>Další metody řešení ODR<a class="headerlink" href="#dalsi-metody-reseni-odr" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.4. </span>Další metody řešení ODR<a class="headerlink" href="#dalsi-metody-reseni-odr" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="http://kfe.fjfi.cvut.cz/~vachal/edu/nme/cviceni/09_ODE/DOCS/teorie_ode_dalsi_metody.pdf">Zde</a></p></li>
 </ul>
@@ -672,6 +724,20 @@ $<span class="math notranslate nohighlight">\( k_{1}=f(x_{n},y_{n})\)</span><spa
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Cviceni09.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">10. </span>Numerická integrace</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Cviceni11.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">12. </span>Obyčejné diferenciální rovnice (ODR) II</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>

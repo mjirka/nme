@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Obyčejné diferenciální rovnice (ODR) II &#8212; Letní semestr</title>
+    <title>12. Obyčejné diferenciální rovnice (ODR) II &#8212; Letní semestr</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -55,6 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="11. Obyčejné diferenciální rovnice (ODR)" href="Cviceni10.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -119,10 +120,60 @@ const thebe_selector_output = ".output, .cell_output"
   Obsah cvičení
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Cviceni01.html">
    1. Jupyter notebook a základy Pythonu
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni02.html">
+   2. Chyby a nestabilita
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni03.html">
+   3. Numerické metody lineární algebry
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni04.html">
+   4. Iterační metody řešení soustav lineárních rovnic, hledání vlastních čísel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni05.html">
+   5. Aproximace funkcí
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni06.html">
+   6. Aproximace funkcí II, třídění
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni07.html">
+   7. Řešení nelineárních rovnic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni08.html">
+   9. Extrémy funkcí
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni09.html">
+   10. Numerická integrace
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni10.html">
+   11. Obyčejné diferenciální rovnice (ODR)
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   12. Obyčejné diferenciální rovnice (ODR) II
   </a>
  </li>
 </ul>
@@ -306,17 +357,17 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#metody-reseni-okrajovych-uloh">
-   Metody řešení okrajových úloh:
+   12.1. Metody řešení okrajových úloh:
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#metoda-strelby">
-     Metoda střelby
+     12.1.1. Metoda střelby
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#metoda-siti-konecnych-diferenci">
-     Metoda sítí (konečných diferencí)
+     12.1.2. Metoda sítí (konečných diferencí)
     </a>
    </li>
   </ul>
@@ -342,17 +393,17 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#metody-reseni-okrajovych-uloh">
-   Metody řešení okrajových úloh:
+   12.1. Metody řešení okrajových úloh:
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#metoda-strelby">
-     Metoda střelby
+     12.1.1. Metoda střelby
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#metoda-siti-konecnych-diferenci">
-     Metoda sítí (konečných diferencí)
+     12.1.2. Metoda sítí (konečných diferencí)
     </a>
    </li>
   </ul>
@@ -368,7 +419,7 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="obycejne-diferencialni-rovnice-odr-ii">
-<h1>Obyčejné diferenciální rovnice (ODR) II<a class="headerlink" href="#obycejne-diferencialni-rovnice-odr-ii" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">12. </span>Obyčejné diferenciální rovnice (ODR) II<a class="headerlink" href="#obycejne-diferencialni-rovnice-odr-ii" title="Permalink to this heading">#</a></h1>
 <p>Naimportujeme si knihovny potřebné pro následující příklady:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -411,14 +462,14 @@ y''(t)=-y(t)
 </li>
 </ul>
 <section id="metody-reseni-okrajovych-uloh">
-<h2>Metody řešení okrajových úloh:<a class="headerlink" href="#metody-reseni-okrajovych-uloh" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">12.1. </span>Metody řešení okrajových úloh:<a class="headerlink" href="#metody-reseni-okrajovych-uloh" title="Permalink to this heading">#</a></h2>
 <ol class="simple">
 <li><p>Metoda střelby</p></li>
 <li><p>Metoda sítí (konečných diferencí)</p></li>
 <li><p>Variační metody</p></li>
 </ol>
 <section id="metoda-strelby">
-<h3>Metoda střelby<a class="headerlink" href="#metoda-strelby" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.1.1. </span>Metoda střelby<a class="headerlink" href="#metoda-strelby" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Úlohu převedeme na ekvivalentní úlohu počátečního problému (zvolíme si parametrickou počáteční podmínku v okrajovém bodě)</p></li>
 <li><p>Počáteční problém umíme vyřešit postupem uvedeným na Cvičení 10</p></li>
@@ -467,7 +518,7 @@ y''(t)=-y(t)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7a86e7fc1ac0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7d43ab44baf0&gt;
 </pre></div>
 </div>
 <img alt="_images/Cviceni11_6_1.png" src="_images/Cviceni11_6_1.png" />
@@ -475,7 +526,7 @@ y''(t)=-y(t)
 </div>
 </section>
 <section id="metoda-siti-konecnych-diferenci">
-<h3>Metoda sítí (konečných diferencí)<a class="headerlink" href="#metoda-siti-konecnych-diferenci" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.1.2. </span>Metoda sítí (konečných diferencí)<a class="headerlink" href="#metoda-siti-konecnych-diferenci" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="http://kfe.fjfi.cvut.cz/~vachal/edu/nme/cviceni/09_ODE/DOCS/priklad_tridiagonalni_matice.pdf">Příklad</a></p></li>
 </ul>
@@ -510,6 +561,13 @@ y''(t)=-y(t)
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Cviceni10.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">11. </span>Obyčejné diferenciální rovnice (ODR)</p>
+        </div>
+    </a>
 </div>
             </footer>
         </div>

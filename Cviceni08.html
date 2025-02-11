@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Extrémy funkcí &#8212; Letní semestr</title>
+    <title>9. Extrémy funkcí &#8212; Letní semestr</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -55,6 +55,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="10. Numerická integrace" href="Cviceni09.html" />
+    <link rel="prev" title="7. Řešení nelineárních rovnic" href="Cviceni07.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -119,10 +121,60 @@ const thebe_selector_output = ".output, .cell_output"
   Obsah cvičení
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Cviceni01.html">
    1. Jupyter notebook a základy Pythonu
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni02.html">
+   2. Chyby a nestabilita
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni03.html">
+   3. Numerické metody lineární algebry
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni04.html">
+   4. Iterační metody řešení soustav lineárních rovnic, hledání vlastních čísel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni05.html">
+   5. Aproximace funkcí
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni06.html">
+   6. Aproximace funkcí II, třídění
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni07.html">
+   7. Řešení nelineárních rovnic
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   9. Extrémy funkcí
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni09.html">
+   10. Numerická integrace
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni10.html">
+   11. Obyčejné diferenciální rovnice (ODR)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni11.html">
+   12. Obyčejné diferenciální rovnice (ODR) II
   </a>
  </li>
 </ul>
@@ -306,29 +358,29 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#hledani-extremu-funkce-jedne-promenne">
-   Hledání extrémů funkce jedné proměnné
+   9.1. Hledání extrémů funkce jedné proměnné
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#metoda-zlateho-rezu">
-     Metoda zlatého řezu
+     9.1.1. Metoda zlatého řezu
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#metoda-parabolicke-interpolace">
-     Metoda parabolické interpolace
+     9.1.2. Metoda parabolické interpolace
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#hledani-extremu-funkce-vice-promennych">
-   Hledání extrémů funkce více proměnných
+   9.2. Hledání extrémů funkce více proměnných
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#nelder-mead-simplex-metoda">
-     Nelder-Mead (simplex) metoda
+     9.2.1. Nelder-Mead (simplex) metoda
     </a>
    </li>
   </ul>
@@ -354,29 +406,29 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#hledani-extremu-funkce-jedne-promenne">
-   Hledání extrémů funkce jedné proměnné
+   9.1. Hledání extrémů funkce jedné proměnné
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#metoda-zlateho-rezu">
-     Metoda zlatého řezu
+     9.1.1. Metoda zlatého řezu
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#metoda-parabolicke-interpolace">
-     Metoda parabolické interpolace
+     9.1.2. Metoda parabolické interpolace
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#hledani-extremu-funkce-vice-promennych">
-   Hledání extrémů funkce více proměnných
+   9.2. Hledání extrémů funkce více proměnných
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#nelder-mead-simplex-metoda">
-     Nelder-Mead (simplex) metoda
+     9.2.1. Nelder-Mead (simplex) metoda
     </a>
    </li>
   </ul>
@@ -392,7 +444,7 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="extremy-funkci">
-<h1>Extrémy funkcí<a class="headerlink" href="#extremy-funkci" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">9. </span>Extrémy funkcí<a class="headerlink" href="#extremy-funkci" title="Permalink to this heading">#</a></h1>
 <p>Naimportujeme si knihovny potřebné pro následující příklady:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -403,7 +455,7 @@ title="Print to PDF"
 </div>
 </div>
 <section id="hledani-extremu-funkce-jedne-promenne">
-<h2>Hledání extrémů funkce jedné proměnné<a class="headerlink" href="#hledani-extremu-funkce-jedne-promenne" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.1. </span>Hledání extrémů funkce jedné proměnné<a class="headerlink" href="#hledani-extremu-funkce-jedne-promenne" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Pro ohraničení minima/maxima musíme znát hodnoty funkce ve třech bodech <span class="math notranslate nohighlight">\(a, b, c\)</span></p></li>
 <li><p>Budeme se zabývat hledáním minima</p></li>
@@ -415,7 +467,7 @@ pak existuje minimum funkce \)</span>f(x)<span class="math notranslate nohighlig
 <li><p>Ke zúženı́ intervalu ohraničujı́cı́ho minimum potřebujeme <strong>čtvrtý</strong> bod</p></li>
 </ul>
 <section id="metoda-zlateho-rezu">
-<h3>Metoda zlatého řezu<a class="headerlink" href="#metoda-zlateho-rezu" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">9.1.1. </span>Metoda zlatého řezu<a class="headerlink" href="#metoda-zlateho-rezu" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Vzdálenost čtvrtého bodu od krajů je v poměru <a class="reference external" href="https://www.mathsisfun.com/numbers/nature-golden-ratio-fibonacci.html">zlatého řezu</a>: <span class="math notranslate nohighlight">\(d=a + \dfrac{3-\sqrt{5}}{2}(c-a)\)</span></p></li>
 </ul>
@@ -466,7 +518,7 @@ pak existuje minimum funkce \)</span>f(x)<span class="math notranslate nohighlig
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_15501</span><span class="o">/</span><span class="mf">4239569154.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_17405</span><span class="o">/</span><span class="mf">4239569154.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="c1"># hledani probiha v cyklu</span>
 <span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
 <span class="ne">---&gt; </span><span class="mi">24</span>     <span class="k">if</span> <span class="p">(</span><span class="n">c</span><span class="o">-</span><span class="n">a</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">presnost</span><span class="p">:</span> <span class="c1"># skoncime, pokud je minimum urceno dostatecne presne</span>
@@ -480,7 +532,7 @@ pak existuje minimum funkce \)</span>f(x)<span class="math notranslate nohighlig
 </div>
 </section>
 <section id="metoda-parabolicke-interpolace">
-<h3>Metoda parabolické interpolace<a class="headerlink" href="#metoda-parabolicke-interpolace" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">9.1.2. </span>Metoda parabolické interpolace<a class="headerlink" href="#metoda-parabolicke-interpolace" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Odhad minima je určen vztahem:
 $<span class="math notranslate nohighlight">\(
@@ -527,9 +579,9 @@ d = b-\dfrac{1}{2}\dfrac{(b-a)^{2}[f(b)-f(c)]-(b-c)^{2}\left[f(b)-f(a)\right]}{(
 </section>
 </section>
 <section id="hledani-extremu-funkce-vice-promennych">
-<h2>Hledání extrémů funkce více proměnných<a class="headerlink" href="#hledani-extremu-funkce-vice-promennych" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.2. </span>Hledání extrémů funkce více proměnných<a class="headerlink" href="#hledani-extremu-funkce-vice-promennych" title="Permalink to this heading">#</a></h2>
 <section id="nelder-mead-simplex-metoda">
-<h3>Nelder-Mead (simplex) metoda<a class="headerlink" href="#nelder-mead-simplex-metoda" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">9.2.1. </span>Nelder-Mead (simplex) metoda<a class="headerlink" href="#nelder-mead-simplex-metoda" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Využívá (N + 1)-simplex v N-dimenzionálním prostoru</p></li>
 <li><p>Simplex posunujeme tak, aby ohraničil minimum</p></li>
@@ -1398,6 +1450,20 @@ funkcni hodnoty bodu =  [[5.19304523e-30]
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Cviceni07.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">7. </span>Řešení nelineárních rovnic</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Cviceni09.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Numerická integrace</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Aproximace funkcí II, třídění &#8212; Letní semestr</title>
+    <title>6. Aproximace funkcí II, třídění &#8212; Letní semestr</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -55,6 +55,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="7. Řešení nelineárních rovnic" href="Cviceni07.html" />
+    <link rel="prev" title="5. Aproximace funkcí" href="Cviceni05.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -119,10 +121,60 @@ const thebe_selector_output = ".output, .cell_output"
   Obsah cvičení
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Cviceni01.html">
    1. Jupyter notebook a základy Pythonu
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni02.html">
+   2. Chyby a nestabilita
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni03.html">
+   3. Numerické metody lineární algebry
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni04.html">
+   4. Iterační metody řešení soustav lineárních rovnic, hledání vlastních čísel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni05.html">
+   5. Aproximace funkcí
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   6. Aproximace funkcí II, třídění
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni07.html">
+   7. Řešení nelineárních rovnic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni08.html">
+   9. Extrémy funkcí
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni09.html">
+   10. Numerická integrace
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni10.html">
+   11. Obyčejné diferenciální rovnice (ODR)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni11.html">
+   12. Obyčejné diferenciální rovnice (ODR) II
   </a>
  </li>
 </ul>
@@ -306,32 +358,32 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#metoda-nejmensich-ctvercu">
-   Metoda nejmenších čtverců
+   6.1. Metoda nejmenších čtverců
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#razeni">
-   Řazení
+   6.2. Řazení
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#razeni-vkladanim-insertion-sort">
-     Řazení vkládáním (insertion sort)
+     6.2.1. Řazení vkládáním (insertion sort)
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#razeni-vyberem-selection-sort">
-     Řazení výběrem (selection sort)
+     6.2.2. Řazení výběrem (selection sort)
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#quick-sort-rychle-razeni">
-     Quick sort (rychlé řazení)
+     6.2.3. Quick sort (rychlé řazení)
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#heapsort-razeni-haldou">
-     Heapsort (řazení haldou)
+     6.2.4. Heapsort (řazení haldou)
     </a>
    </li>
   </ul>
@@ -357,32 +409,32 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#metoda-nejmensich-ctvercu">
-   Metoda nejmenších čtverců
+   6.1. Metoda nejmenších čtverců
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#razeni">
-   Řazení
+   6.2. Řazení
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#razeni-vkladanim-insertion-sort">
-     Řazení vkládáním (insertion sort)
+     6.2.1. Řazení vkládáním (insertion sort)
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#razeni-vyberem-selection-sort">
-     Řazení výběrem (selection sort)
+     6.2.2. Řazení výběrem (selection sort)
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#quick-sort-rychle-razeni">
-     Quick sort (rychlé řazení)
+     6.2.3. Quick sort (rychlé řazení)
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#heapsort-razeni-haldou">
-     Heapsort (řazení haldou)
+     6.2.4. Heapsort (řazení haldou)
     </a>
    </li>
   </ul>
@@ -398,7 +450,7 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="aproximace-funkci-ii-trideni">
-<h1>Aproximace funkcí II, třídění<a class="headerlink" href="#aproximace-funkci-ii-trideni" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">6. </span>Aproximace funkcí II, třídění<a class="headerlink" href="#aproximace-funkci-ii-trideni" title="Permalink to this heading">#</a></h1>
 <p>Naimportujeme si knihovny potřebné pro následující příklady:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -409,7 +461,7 @@ title="Print to PDF"
 </div>
 </div>
 <section id="metoda-nejmensich-ctvercu">
-<h2>Metoda nejmenších čtverců<a class="headerlink" href="#metoda-nejmensich-ctvercu" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.1. </span>Metoda nejmenších čtverců<a class="headerlink" href="#metoda-nejmensich-ctvercu" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Aproximační funkce <a class="reference external" href="https://miro.medium.com/max/1400/1*bqEcfSxeYrHx63_pHlmnIQ.png">neprochází</a> zadanými body (např. při aproximaci výsledků měření s nezanedbatelnými chybami)</p></li>
 <li><p>Naměřené hodnoty proložíme takovou aproximační funkcí <span class="math notranslate nohighlight">\(f(x)\)</span>, která minimalizujeme funkcionál
@@ -461,7 +513,7 @@ $<span class="math notranslate nohighlight">\(
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_15462</span><span class="o">/</span><span class="mf">138282949.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_17365</span><span class="o">/</span><span class="mf">138282949.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">     </span><span class="mi">16</span> 
 <span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="c1"># ziskame koeficienty</span>
 <span class="ne">---&gt; </span><span class="mi">18</span> <span class="n">reseni</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
@@ -475,9 +527,9 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </section>
 <section id="razeni">
-<h2>Řazení<a class="headerlink" href="#razeni" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.2. </span>Řazení<a class="headerlink" href="#razeni" title="Permalink to this heading">#</a></h2>
 <section id="razeni-vkladanim-insertion-sort">
-<h3>Řazení vkládáním (insertion sort)<a class="headerlink" href="#razeni-vkladanim-insertion-sort" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">6.2.1. </span>Řazení vkládáním (insertion sort)<a class="headerlink" href="#razeni-vkladanim-insertion-sort" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Postupně procházíme prvky a každý další nesetříděný prvek zařadíme na správné místo do již setříděné posloupnosti.</p></li>
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=OGzPmgsI-pQ">Animace</a></p></li>
@@ -520,7 +572,7 @@ Setridene pole:
 </div>
 </section>
 <section id="razeni-vyberem-selection-sort">
-<h3>Řazení výběrem (selection sort)<a class="headerlink" href="#razeni-vyberem-selection-sort" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">6.2.2. </span>Řazení výběrem (selection sort)<a class="headerlink" href="#razeni-vyberem-selection-sort" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Postupně procházíme prvky a hledáme minimum z neseřazené části.</p></li>
 <li><p>Nalezené minimum zařadíme na začátek seřazené části.</p></li>
@@ -567,7 +619,7 @@ Setridene pole:
 </div>
 </section>
 <section id="quick-sort-rychle-razeni">
-<h3>Quick sort (rychlé řazení)<a class="headerlink" href="#quick-sort-rychle-razeni" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">6.2.3. </span>Quick sort (rychlé řazení)<a class="headerlink" href="#quick-sort-rychle-razeni" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=PgBzjlCcFvc">Animace</a></p></li>
 </ul>
@@ -632,7 +684,7 @@ Setridene pole:
 </div>
 </section>
 <section id="heapsort-razeni-haldou">
-<h3>Heapsort (řazení haldou)<a class="headerlink" href="#heapsort-razeni-haldou" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">6.2.4. </span>Heapsort (řazení haldou)<a class="headerlink" href="#heapsort-razeni-haldou" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=MtQL_ll5KhQ">Animace</a></p></li>
 </ul>
@@ -727,6 +779,20 @@ Setridene pole:
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Cviceni05.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">5. </span>Aproximace funkcí</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Cviceni07.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Řešení nelineárních rovnic</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>

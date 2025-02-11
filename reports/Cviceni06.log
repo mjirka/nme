@@ -52,7 +52,7 @@ ax.set_title('Aproximace metodou nejmensich ctvercu')
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mNameError[0m                                 Traceback (most recent call last)
-[0;32m/tmp/ipykernel_15462/138282949.py[0m in [0;36m<module>[0;34m[0m
+[0;32m/tmp/ipykernel_17365/138282949.py[0m in [0;36m<module>[0;34m[0m
 [1;32m     16[0m [0;34m[0m[0m
 [1;32m     17[0m [0;31m# ziskame koeficienty[0m[0;34m[0m[0;34m[0m[0m
 [0;32m---> 18[0;31m [0mreseni[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0mlinalg[0m[0;34m.[0m[0msolve[0m[0;34m([0m[0mA[0m[0;34m,[0m[0mb[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
