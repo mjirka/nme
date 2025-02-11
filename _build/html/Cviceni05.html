@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Aproximace funkcí &#8212; Letní semestr</title>
+    <title>5. Aproximace funkcí &#8212; Letní semestr</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -55,6 +55,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="6. Aproximace funkcí II, třídění" href="Cviceni06.html" />
+    <link rel="prev" title="4. Iterační metody řešení soustav lineárních rovnic, hledání vlastních čísel" href="Cviceni04.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -119,10 +121,60 @@ const thebe_selector_output = ".output, .cell_output"
   Obsah cvičení
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Cviceni01.html">
    1. Jupyter notebook a základy Pythonu
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni02.html">
+   2. Chyby a nestabilita
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni03.html">
+   3. Numerické metody lineární algebry
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni04.html">
+   4. Iterační metody řešení soustav lineárních rovnic, hledání vlastních čísel
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   5. Aproximace funkcí
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni06.html">
+   6. Aproximace funkcí II, třídění
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni07.html">
+   7. Řešení nelineárních rovnic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni08.html">
+   9. Extrémy funkcí
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni09.html">
+   10. Numerická integrace
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni10.html">
+   11. Obyčejné diferenciální rovnice (ODR)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni11.html">
+   12. Obyčejné diferenciální rovnice (ODR) II
   </a>
  </li>
 </ul>
@@ -306,34 +358,34 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#typy-aproximaci">
-   Typy aproximací:
+   5.1. Typy aproximací:
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#interpolacni-aproximace">
-   Interpolační aproximace
+   5.2. Interpolační aproximace
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#lagrangeuv-interpolacni-polynom-globalni-interpolace">
-     Lagrangeův interpolační polynom (globální interpolace )
+     5.2.1. Lagrangeův interpolační polynom (globální interpolace )
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#spline-lokalni-interpolace">
-     Spline (lokální interpolace)
+     5.2.2. Spline (lokální interpolace)
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#aproximace-cebysevovymi-polynomy">
-   Aproximace Čebyševovými polynomy
+   5.3. Aproximace Čebyševovými polynomy
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#aproximace-derivaci-konecnymi-diferencemi">
-   Aproximace derivací konečnými diferencemi
+   5.4. Aproximace derivací konečnými diferencemi
   </a>
  </li>
 </ul>
@@ -357,34 +409,34 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#typy-aproximaci">
-   Typy aproximací:
+   5.1. Typy aproximací:
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#interpolacni-aproximace">
-   Interpolační aproximace
+   5.2. Interpolační aproximace
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#lagrangeuv-interpolacni-polynom-globalni-interpolace">
-     Lagrangeův interpolační polynom (globální interpolace )
+     5.2.1. Lagrangeův interpolační polynom (globální interpolace )
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#spline-lokalni-interpolace">
-     Spline (lokální interpolace)
+     5.2.2. Spline (lokální interpolace)
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#aproximace-cebysevovymi-polynomy">
-   Aproximace Čebyševovými polynomy
+   5.3. Aproximace Čebyševovými polynomy
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#aproximace-derivaci-konecnymi-diferencemi">
-   Aproximace derivací konečnými diferencemi
+   5.4. Aproximace derivací konečnými diferencemi
   </a>
  </li>
 </ul>
@@ -398,7 +450,7 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="aproximace-funkci">
-<h1>Aproximace funkcí<a class="headerlink" href="#aproximace-funkci" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">5. </span>Aproximace funkcí<a class="headerlink" href="#aproximace-funkci" title="Permalink to this heading">#</a></h1>
 <p>Naimportujeme si knihovny potřebné pro následující příklady:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -409,7 +461,7 @@ title="Print to PDF"
 </div>
 </div>
 <section id="typy-aproximaci">
-<h2>Typy aproximací:<a class="headerlink" href="#typy-aproximaci" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.1. </span>Typy aproximací:<a class="headerlink" href="#typy-aproximaci" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Interpolační</p></li>
 <li><p>Čebyševovy</p></li>
@@ -417,7 +469,7 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="interpolacni-aproximace">
-<h2>Interpolační aproximace<a class="headerlink" href="#interpolacni-aproximace" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.2. </span>Interpolační aproximace<a class="headerlink" href="#interpolacni-aproximace" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Máme zadané diskrétní funkční hodnoty nějaké funkce <span class="math notranslate nohighlight">\(f(x)\)</span> v bodech <span class="math notranslate nohighlight">\(x_{0},\dots ,x_{n}\)</span>.</p></li>
 <li><p>Hledáme interpolační funkci, která má v zadaných bodech <span class="math notranslate nohighlight">\(x_{0},\dots ,x_{n}\)</span> stejné hodnoty jako funkce <span class="math notranslate nohighlight">\(f(x)\)</span>.</p></li>
@@ -435,7 +487,7 @@ title="Print to PDF"
 </li>
 </ul>
 <section id="lagrangeuv-interpolacni-polynom-globalni-interpolace">
-<h3>Lagrangeův interpolační polynom (globální interpolace )<a class="headerlink" href="#lagrangeuv-interpolacni-polynom-globalni-interpolace" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">5.2.1. </span>Lagrangeův interpolační polynom (globální interpolace )<a class="headerlink" href="#lagrangeuv-interpolacni-polynom-globalni-interpolace" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="http://pascal.fjfi.cvut.cz/~vachal/edu/nme/cviceni/03_aprox/DOCS/priklad_Lagrangeova_interpolace.pdf">Konstrukce Lagrangeova interpolačního polynomu</a> řádu <span class="math notranslate nohighlight">\(n\)</span>:</p>
 <ul>
@@ -463,7 +515,7 @@ F_{i}(x) = \dfrac{x-x_{0}}{x_{i}-x_{0}}\dots\dfrac{x-x_{i-1}}{x_{i}-x_{i-1}}\dfr
 </div>
 </section>
 <section id="spline-lokalni-interpolace">
-<h3>Spline (lokální interpolace)<a class="headerlink" href="#spline-lokalni-interpolace" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">5.2.2. </span>Spline (lokální interpolace)<a class="headerlink" href="#spline-lokalni-interpolace" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Lokální interpolace</p></li>
 <li><p>Celý interval je rozdělený na podintervaly</p></li>
@@ -476,7 +528,7 @@ F_{i}(x) = \dfrac{x-x_{0}}{x_{i}-x_{0}}\dots\dfrac{x-x_{i-1}}{x_{i}-x_{i-1}}\dfr
 <div class="alert alert-block alert-warning"><b>Cvičení 05.02: </b> Můžete vyzkoušet <a href="http://pascal.fjfi.cvut.cz/~vachal/edu/nme/cviceni/03_aprox/MATLAB/kubspline.m" >skript</a> pro kubický spline a <a href="http://pascal.fjfi.cvut.cz/~vachal/edu/nme/cviceni/03_aprox/MATLAB/spline.dat">vstupní data</a> pro Matlab (dostupný též <a href="https://www.mathworks.com/products/matlab-online.html">online</a> pro studenty ČVUT).</div></section>
 </section>
 <section id="aproximace-cebysevovymi-polynomy">
-<h2>Aproximace Čebyševovými polynomy<a class="headerlink" href="#aproximace-cebysevovymi-polynomy" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.3. </span>Aproximace Čebyševovými polynomy<a class="headerlink" href="#aproximace-cebysevovymi-polynomy" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Čebyševův polynom <span class="math notranslate nohighlight">\(T_{n}(x)\)</span>:</p></li>
 <li><p><span class="math notranslate nohighlight">\(T_{0}(x)=1\)</span></p></li>
@@ -567,7 +619,7 @@ c_{j}=\dfrac{2}{N}\sum_{k=1}^{N}f\left[ \cos\left( \dfrac{\pi(k-0.5)}{N}\right) 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fba5bccceb0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x71437fecdee0&gt;
 </pre></div>
 </div>
 <img alt="_images/Cviceni05_15_1.png" src="_images/Cviceni05_15_1.png" />
@@ -575,7 +627,7 @@ c_{j}=\dfrac{2}{N}\sum_{k=1}^{N}f\left[ \cos\left( \dfrac{\pi(k-0.5)}{N}\right) 
 </div>
 </section>
 <section id="aproximace-derivaci-konecnymi-diferencemi">
-<h2>Aproximace derivací konečnými diferencemi<a class="headerlink" href="#aproximace-derivaci-konecnymi-diferencemi" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.4. </span>Aproximace derivací konečnými diferencemi<a class="headerlink" href="#aproximace-derivaci-konecnymi-diferencemi" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Na 2. cvičení jsme ukazovali jednoduchý vzorec pro aproximaci derivace z funkčních hodnot ve dvou blízkých bodech</p></li>
 <li><p>Ukážeme si <a class="reference external" href="http://pascal.fjfi.cvut.cz/~vachal/edu/nme/cviceni/03_aprox/DOCS/priklad_aproximace_derivaci.pdf">příklad metody vyššího řádu</a> pro přesnější aproximaci derivace.</p></li>
@@ -678,6 +730,20 @@ c_{j}=\dfrac{2}{N}\sum_{k=1}^{N}f\left[ \cos\left( \dfrac{\pi(k-0.5)}{N}\right) 
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Cviceni04.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">4. </span>Iterační metody řešení soustav lineárních rovnic, hledání vlastních čísel</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Cviceni06.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Aproximace funkcí II, třídění</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>

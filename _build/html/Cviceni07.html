@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Řešení nelineárních rovnic &#8212; Letní semestr</title>
+    <title>7. Řešení nelineárních rovnic &#8212; Letní semestr</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -55,6 +55,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="9. Extrémy funkcí" href="Cviceni08.html" />
+    <link rel="prev" title="6. Aproximace funkcí II, třídění" href="Cviceni06.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -119,10 +121,60 @@ const thebe_selector_output = ".output, .cell_output"
   Obsah cvičení
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Cviceni01.html">
    1. Jupyter notebook a základy Pythonu
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni02.html">
+   2. Chyby a nestabilita
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni03.html">
+   3. Numerické metody lineární algebry
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni04.html">
+   4. Iterační metody řešení soustav lineárních rovnic, hledání vlastních čísel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni05.html">
+   5. Aproximace funkcí
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni06.html">
+   6. Aproximace funkcí II, třídění
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   7. Řešení nelineárních rovnic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni08.html">
+   9. Extrémy funkcí
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni09.html">
+   10. Numerická integrace
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni10.html">
+   11. Obyčejné diferenciální rovnice (ODR)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni11.html">
+   12. Obyčejné diferenciální rovnice (ODR) II
   </a>
  </li>
 </ul>
@@ -306,37 +358,37 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   Řešení nelineárních rovnic
+   7. Řešení nelineárních rovnic
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#reseni-jedne-nelinearni-rovnice">
-     Řešení jedné nelineární rovnice
+     7.1. Řešení jedné nelineární rovnice
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#metoda-puleni-intervalu">
-       Metoda půlení intervalu
+       7.1.1. Metoda půlení intervalu
       </a>
      </li>
      <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#metoda-secny">
-       Metoda sečny
+       7.1.2. Metoda sečny
       </a>
      </li>
      <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#metoda-regula-falsi">
-       Metoda regula falsi
+       7.1.3. Metoda regula falsi
       </a>
      </li>
      <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#newtonraphsonova-tecnova-metoda">
-       Newton–Raphsonova (tečnová) metoda
+       7.1.4. Newton–Raphsonova (tečnová) metoda
       </a>
      </li>
      <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#mullerova-metoda">
-       Mullerova metoda
+       7.1.5. Mullerova metoda
       </a>
      </li>
     </ul>
@@ -345,17 +397,17 @@ title="Print to PDF"
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#soustavy-nelinearnich-rovnic">
-   Soustavy nelineárních rovnic
+   8. Soustavy nelineárních rovnic
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#prosta-iterace">
-     Prostá iterace
+     8.1. Prostá iterace
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#newtonraphsonova-metoda">
-     Newton–Raphsonova metoda
+     8.2. Newton–Raphsonova metoda
     </a>
    </li>
   </ul>
@@ -381,37 +433,37 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   Řešení nelineárních rovnic
+   7. Řešení nelineárních rovnic
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#reseni-jedne-nelinearni-rovnice">
-     Řešení jedné nelineární rovnice
+     7.1. Řešení jedné nelineární rovnice
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#metoda-puleni-intervalu">
-       Metoda půlení intervalu
+       7.1.1. Metoda půlení intervalu
       </a>
      </li>
      <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#metoda-secny">
-       Metoda sečny
+       7.1.2. Metoda sečny
       </a>
      </li>
      <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#metoda-regula-falsi">
-       Metoda regula falsi
+       7.1.3. Metoda regula falsi
       </a>
      </li>
      <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#newtonraphsonova-tecnova-metoda">
-       Newton–Raphsonova (tečnová) metoda
+       7.1.4. Newton–Raphsonova (tečnová) metoda
       </a>
      </li>
      <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#mullerova-metoda">
-       Mullerova metoda
+       7.1.5. Mullerova metoda
       </a>
      </li>
     </ul>
@@ -420,17 +472,17 @@ title="Print to PDF"
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#soustavy-nelinearnich-rovnic">
-   Soustavy nelineárních rovnic
+   8. Soustavy nelineárních rovnic
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#prosta-iterace">
-     Prostá iterace
+     8.1. Prostá iterace
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#newtonraphsonova-metoda">
-     Newton–Raphsonova metoda
+     8.2. Newton–Raphsonova metoda
     </a>
    </li>
   </ul>
@@ -446,7 +498,7 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="reseni-nelinearnich-rovnic">
-<h1>Řešení nelineárních rovnic<a class="headerlink" href="#reseni-nelinearnich-rovnic" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">7. </span>Řešení nelineárních rovnic<a class="headerlink" href="#reseni-nelinearnich-rovnic" title="Permalink to this heading">#</a></h1>
 <p>Naimportujeme si knihovny potřebné pro následující příklady:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -462,7 +514,7 @@ title="Print to PDF"
 <li><p>řešení nejdříve <strong>odhadneme</strong>, pak ho postupně <strong>zpřesňujeme</strong></p></li>
 </ul>
 <section id="reseni-jedne-nelinearni-rovnice">
-<h2>Řešení jedné nelineární rovnice<a class="headerlink" href="#reseni-jedne-nelinearni-rovnice" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">7.1. </span>Řešení jedné nelineární rovnice<a class="headerlink" href="#reseni-jedne-nelinearni-rovnice" title="Permalink to this heading">#</a></h2>
 <ul>
 <li><p>řešíme <span class="math notranslate nohighlight">\(f(x)=0\)</span> (řešení se často nazývá kořen)</p></li>
 <li><p>postup:</p>
@@ -478,7 +530,7 @@ title="Print to PDF"
 </li>
 </ul>
 <section id="metoda-puleni-intervalu">
-<h3>Metoda půlení intervalu<a class="headerlink" href="#metoda-puleni-intervalu" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">7.1.1. </span>Metoda půlení intervalu<a class="headerlink" href="#metoda-puleni-intervalu" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>postup</p>
 <ol class="simple">
@@ -544,7 +596,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_15481/4089753052.py&quot;</span><span class="gt">, line </span><span class="mi">26</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_17384/4089753052.py&quot;</span><span class="gt">, line </span><span class="mi">26</span>
     <span class="n">koren</span> <span class="o">=</span> <span class="n">reseni</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># odhad konecneho reseni</span>
     <span class="o">^</span>
 <span class="ne">IndentationError</span>: expected an indented block
@@ -554,7 +606,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="metoda-secny">
-<h3>Metoda sečny<a class="headerlink" href="#metoda-secny" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">7.1.2. </span>Metoda sečny<a class="headerlink" href="#metoda-secny" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>postup</p>
 <ol class="simple">
@@ -627,7 +679,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="metoda-regula-falsi">
-<h3>Metoda regula falsi<a class="headerlink" href="#metoda-regula-falsi" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">7.1.3. </span>Metoda regula falsi<a class="headerlink" href="#metoda-regula-falsi" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>modifikace metody sečen</p></li>
 <li><p>po určení <span class="math notranslate nohighlight">\(a_{n+1}\)</span> si k němu vyberu z <span class="math notranslate nohighlight">\(a_{n-1}\)</span> a <span class="math notranslate nohighlight">\(a_{n}\)</span> takový bod <span class="math notranslate nohighlight">\(\tilde{a}_{n}\)</span>, aby kořen zůstal ohraničený, tj. <span class="math notranslate nohighlight">\(f(\tilde{a}_{n})f(a_{n+1})&lt;0\)</span></p></li>
@@ -635,7 +687,7 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="newtonraphsonova-tecnova-metoda">
-<h3>Newton–Raphsonova (tečnová) metoda<a class="headerlink" href="#newtonraphsonova-tecnova-metoda" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">7.1.4. </span>Newton–Raphsonova (tečnová) metoda<a class="headerlink" href="#newtonraphsonova-tecnova-metoda" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>využívá první derivaci zadané funkce (je vhodná, pokud umíme hodnoty derivací rychle počítat)</p></li>
 <li><p>Taylorův rozvoj zadané funkce v okolí bodu <span class="math notranslate nohighlight">\(x_{i}\)</span>:
@@ -708,7 +760,7 @@ f(x_{i}+\delta)=f(x_{i})+\delta f'(x_{i})+\dfrac{\delta^{2}}{2}f''(x_{i})+\dots
 </div>
 </section>
 <section id="mullerova-metoda">
-<h3>Mullerova metoda<a class="headerlink" href="#mullerova-metoda" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">7.1.5. </span>Mullerova metoda<a class="headerlink" href="#mullerova-metoda" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="http://kfe.fjfi.cvut.cz/~vachal/edu/nme/cviceni/05_nelin/DOCS/teorie_Mullerova_metoda.pdf">teorie</a></p></li>
 </ul>
@@ -768,7 +820,7 @@ f(x_{i}+\delta)=f(x_{i})+\delta f'(x_{i})+\dfrac{\delta^{2}}{2}f''(x_{i})+\dots
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="soustavy-nelinearnich-rovnic">
-<h1>Soustavy nelineárních rovnic<a class="headerlink" href="#soustavy-nelinearnich-rovnic" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">8. </span>Soustavy nelineárních rovnic<a class="headerlink" href="#soustavy-nelinearnich-rovnic" title="Permalink to this heading">#</a></h1>
 <ul class="simple">
 <li><p>řešíme soustavu <span class="math notranslate nohighlight">\(\vec{f}(\vec{x})=\vec{0}\)</span></p></li>
 <li><p>přepíšeme ji do tvaru:</p></li>
@@ -794,7 +846,7 @@ f_{3}(x_{1},x_{2},\dots,x_{n})=0,
 f_{n}(x_{1},x_{2},\dots,x_{n})=0.
 \]</div>
 <section id="prosta-iterace">
-<h2>Prostá iterace<a class="headerlink" href="#prosta-iterace" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">8.1. </span>Prostá iterace<a class="headerlink" href="#prosta-iterace" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>soustavu lze přepsat do tvaru <span class="math notranslate nohighlight">\(\vec{x}=\vec{\varphi}(\vec{x})\)</span>:</p></li>
 </ul>
@@ -861,7 +913,7 @@ x_{n}=\varphi_{n}(\vec{x}).
 </div>
 </section>
 <section id="newtonraphsonova-metoda">
-<h2>Newton–Raphsonova metoda<a class="headerlink" href="#newtonraphsonova-metoda" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">8.2. </span>Newton–Raphsonova metoda<a class="headerlink" href="#newtonraphsonova-metoda" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>přesné řešení <span class="math notranslate nohighlight">\(\vec{\xi}\)</span> vyjádříme ve tvaru <span class="math notranslate nohighlight">\(\vec{\xi}=\vec{x}+\delta\vec{x}\)</span></p></li>
 <li><p>hodnotu funkce v bodě <span class="math notranslate nohighlight">\(\vec{\xi}\)</span> vyjádříme pomocí Taylorovy věty:
@@ -963,6 +1015,20 @@ f_{i}(\vec{x}+\delta\vec{x})=f_{i}(\vec{x})+\sum_{j=1}^{n}\dfrac{\partial f_{i}}
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Cviceni06.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">6. </span>Aproximace funkcí II, třídění</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Cviceni08.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">9. </span>Extrémy funkcí</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>

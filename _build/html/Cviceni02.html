@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Chyby a nestabilita &#8212; Letní semestr</title>
+    <title>2. Chyby a nestabilita &#8212; Letní semestr</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -55,6 +55,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="3. Numerické metody lineární algebry" href="Cviceni03.html" />
+    <link rel="prev" title="1. Jupyter notebook a základy Pythonu" href="Cviceni01.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -119,10 +121,60 @@ const thebe_selector_output = ".output, .cell_output"
   Obsah cvičení
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Cviceni01.html">
    1. Jupyter notebook a základy Pythonu
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   2. Chyby a nestabilita
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni03.html">
+   3. Numerické metody lineární algebry
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni04.html">
+   4. Iterační metody řešení soustav lineárních rovnic, hledání vlastních čísel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni05.html">
+   5. Aproximace funkcí
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni06.html">
+   6. Aproximace funkcí II, třídění
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni07.html">
+   7. Řešení nelineárních rovnic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni08.html">
+   9. Extrémy funkcí
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni09.html">
+   10. Numerická integrace
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni10.html">
+   11. Obyčejné diferenciální rovnice (ODR)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Cviceni11.html">
+   12. Obyčejné diferenciální rovnice (ODR) II
   </a>
  </li>
 </ul>
@@ -306,49 +358,49 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#chyby-nepresnosti-pri-reseni-numerickych-uloh">
-   Chyby - nepřesnosti při řešení numerických úloh
+   2.1. Chyby - nepřesnosti při řešení numerických úloh
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#relativni-a-absolutni-chyba">
-     Relativní a absolutní chyba
+     2.1.1. Relativní a absolutní chyba
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#zaokrouhlovaci-chyby">
-     Zaokrouhlovací chyby
+     2.1.2. Zaokrouhlovací chyby
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#reprezentace-realnych-cisel-v-pocitaci">
-       Reprezentace reálných čísel v počítači
+       2.1.2.1. Reprezentace reálných čísel v počítači
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#sireni-chyb-ve-vypoctech">
-       Šíření chyb ve výpočtech
+       2.1.2.2. Šíření chyb ve výpočtech
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#chyba-metody">
-     Chyba metody
+     2.1.3. Chyba metody
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#tayloruv-rozvoj">
-       Taylorův rozvoj
+       2.1.3.1. Taylorův rozvoj
       </a>
       <ul class="nav section-nav flex-column">
        <li class="toc-h5 nav-item toc-entry">
         <a class="reference internal nav-link" href="#metoda-prvniho-radu-dopredna-diference">
-         Metoda prvního řádu (dopředná diference)
+         2.1.3.1.1. Metoda prvního řádu (dopředná diference)
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
         <a class="reference internal nav-link" href="#metoda-druheho-radu-centralni-diference">
-         Metoda druhého řádu (centrální diference)
+         2.1.3.1.2. Metoda druhého řádu (centrální diference)
         </a>
        </li>
       </ul>
@@ -359,7 +411,7 @@ title="Print to PDF"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#numericka-stabilita">
-   Numerická stabilita
+   2.2. Numerická stabilita
   </a>
  </li>
 </ul>
@@ -383,49 +435,49 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#chyby-nepresnosti-pri-reseni-numerickych-uloh">
-   Chyby - nepřesnosti při řešení numerických úloh
+   2.1. Chyby - nepřesnosti při řešení numerických úloh
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#relativni-a-absolutni-chyba">
-     Relativní a absolutní chyba
+     2.1.1. Relativní a absolutní chyba
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#zaokrouhlovaci-chyby">
-     Zaokrouhlovací chyby
+     2.1.2. Zaokrouhlovací chyby
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#reprezentace-realnych-cisel-v-pocitaci">
-       Reprezentace reálných čísel v počítači
+       2.1.2.1. Reprezentace reálných čísel v počítači
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#sireni-chyb-ve-vypoctech">
-       Šíření chyb ve výpočtech
+       2.1.2.2. Šíření chyb ve výpočtech
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#chyba-metody">
-     Chyba metody
+     2.1.3. Chyba metody
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#tayloruv-rozvoj">
-       Taylorův rozvoj
+       2.1.3.1. Taylorův rozvoj
       </a>
       <ul class="nav section-nav flex-column">
        <li class="toc-h5 nav-item toc-entry">
         <a class="reference internal nav-link" href="#metoda-prvniho-radu-dopredna-diference">
-         Metoda prvního řádu (dopředná diference)
+         2.1.3.1.1. Metoda prvního řádu (dopředná diference)
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
         <a class="reference internal nav-link" href="#metoda-druheho-radu-centralni-diference">
-         Metoda druhého řádu (centrální diference)
+         2.1.3.1.2. Metoda druhého řádu (centrální diference)
         </a>
        </li>
       </ul>
@@ -436,7 +488,7 @@ title="Print to PDF"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#numericka-stabilita">
-   Numerická stabilita
+   2.2. Numerická stabilita
   </a>
  </li>
 </ul>
@@ -450,7 +502,7 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="chyby-a-nestabilita">
-<h1>Chyby a nestabilita<a class="headerlink" href="#chyby-a-nestabilita" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">2. </span>Chyby a nestabilita<a class="headerlink" href="#chyby-a-nestabilita" title="Permalink to this heading">#</a></h1>
 <p>Naimportujeme si knihovny potřebné pro následující příklady:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -461,7 +513,7 @@ title="Print to PDF"
 </div>
 </div>
 <section id="chyby-nepresnosti-pri-reseni-numerickych-uloh">
-<h2>Chyby - nepřesnosti při řešení numerických úloh<a class="headerlink" href="#chyby-nepresnosti-pri-reseni-numerickych-uloh" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1. </span>Chyby - nepřesnosti při řešení numerických úloh<a class="headerlink" href="#chyby-nepresnosti-pri-reseni-numerickych-uloh" title="Permalink to this heading">#</a></h2>
 <p>Zdroje chyb:</p>
 <ol class="simple">
 <li><p>Chyby vstupních dat (např. chyby měření, chyby modelu reality)</p></li>
@@ -469,7 +521,7 @@ title="Print to PDF"
 <li><p>Chyby metody (truncation errors) - v důsledku převedení matematické úlohy na numerickou</p></li>
 </ol>
 <section id="relativni-a-absolutni-chyba">
-<h3>Relativní a absolutní chyba<a class="headerlink" href="#relativni-a-absolutni-chyba" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.1.1. </span>Relativní a absolutní chyba<a class="headerlink" href="#relativni-a-absolutni-chyba" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>absolutní chyba</strong> <span class="math notranslate nohighlight">\(= \|\)</span>přesná hodnota - přibližná hodnota<span class="math notranslate nohighlight">\(\|\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(A(x) = \| x  -\tilde{x}\|\)</span></p></li>
@@ -478,9 +530,9 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="zaokrouhlovaci-chyby">
-<h3>Zaokrouhlovací chyby<a class="headerlink" href="#zaokrouhlovaci-chyby" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.1.2. </span>Zaokrouhlovací chyby<a class="headerlink" href="#zaokrouhlovaci-chyby" title="Permalink to this heading">#</a></h3>
 <section id="reprezentace-realnych-cisel-v-pocitaci">
-<h4>Reprezentace reálných čísel v počítači<a class="headerlink" href="#reprezentace-realnych-cisel-v-pocitaci" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">2.1.2.1. </span>Reprezentace reálných čísel v počítači<a class="headerlink" href="#reprezentace-realnych-cisel-v-pocitaci" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p>floating point (pohyblivá desetinná čárka): <span class="math notranslate nohighlight">\(\pm 1.23456789\times10^{\pm21}\)</span> (znaménko <span class="math notranslate nohighlight">\(\pm\)</span>; mantisa 1.23456789; exponent <span class="math notranslate nohighlight">\(\pm21\)</span>)</p></li>
 <li><p>délka exponentu určuje rozsah</p></li>
@@ -499,7 +551,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="sireni-chyb-ve-vypoctech">
-<h4>Šíření chyb ve výpočtech<a class="headerlink" href="#sireni-chyb-ve-vypoctech" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">2.1.2.2. </span>Šíření chyb ve výpočtech<a class="headerlink" href="#sireni-chyb-ve-vypoctech" title="Permalink to this heading">#</a></h4>
 <p>Motivace pro numerické postupy: vyhnout se odečítání dvou přibližně stejně velkých čísel:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -540,25 +592,25 @@ title="Print to PDF"
 </section>
 </section>
 <section id="chyba-metody">
-<h3>Chyba metody<a class="headerlink" href="#chyba-metody" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.1.3. </span>Chyba metody<a class="headerlink" href="#chyba-metody" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Při výpočtech nahrazujeme nekonečně krátký krok <span class="math notranslate nohighlight">\(dx\)</span> krokem <span class="math notranslate nohighlight">\(h\)</span>, který má konečnou délku.</p></li>
 </ul>
 <section id="tayloruv-rozvoj">
-<h4>Taylorův rozvoj<a class="headerlink" href="#tayloruv-rozvoj" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">2.1.3.1. </span>Taylorův rozvoj<a class="headerlink" href="#tayloruv-rozvoj" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(f(x+h)=\sum_{n}\dfrac{h^{n}f^{(n)}(x)}{n!}\)</span></p></li>
 <li><p>Řád metody <span class="math notranslate nohighlight">\(\alpha\)</span>: chyba veličiny úměrná <span class="math notranslate nohighlight">\(h^{\alpha}\)</span></p></li>
 </ul>
 <section id="metoda-prvniho-radu-dopredna-diference">
-<h5>Metoda prvního řádu (dopředná diference)<a class="headerlink" href="#metoda-prvniho-radu-dopredna-diference" title="Permalink to this heading">#</a></h5>
+<h5><span class="section-number">2.1.3.1.1. </span>Metoda prvního řádu (dopředná diference)<a class="headerlink" href="#metoda-prvniho-radu-dopredna-diference" title="Permalink to this heading">#</a></h5>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(f(x+h)=f(x)+hf'(x) + \mathcal{O}(h^{2})\rightarrow f'(x)=\dfrac{f(x+h)-f(x)}{h} + \dfrac{\mathcal{O}(h^{2})}{h}\rightarrow f'(x)=\dfrac{f(x+h)-f(x)}{h} +\mathcal{O}(h)\)</span></p></li>
 <li><p>získám aproximaci derivace <span class="math notranslate nohighlight">\(f'(x)\approx\dfrac{f(x+h)-f(x)}{h}\)</span>, přičemž zanedbám <span class="math notranslate nohighlight">\(\mathcal{O}(h)\)</span></p></li>
 </ul>
 </section>
 <section id="metoda-druheho-radu-centralni-diference">
-<h5>Metoda druhého řádu (centrální diference)<a class="headerlink" href="#metoda-druheho-radu-centralni-diference" title="Permalink to this heading">#</a></h5>
+<h5><span class="section-number">2.1.3.1.2. </span>Metoda druhého řádu (centrální diference)<a class="headerlink" href="#metoda-druheho-radu-centralni-diference" title="Permalink to this heading">#</a></h5>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(f(x+h)=f(x)+hf'(x) + \dfrac{h^{2}}{2}f''(x)+\mathcal{O}(h^{3})\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(f(x-h)=f(x)-hf'(x) + \dfrac{h^{2}}{2}f''(x)+\mathcal{O}(h^{3})\)</span></p></li>
@@ -639,7 +691,7 @@ title="Print to PDF"
 </section>
 </section>
 <section id="numericka-stabilita">
-<h2>Numerická stabilita<a class="headerlink" href="#numericka-stabilita" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.2. </span>Numerická stabilita<a class="headerlink" href="#numericka-stabilita" title="Permalink to this heading">#</a></h2>
 <div class="alert alert-block alert-warning"><b>Cvičení 02.05:</b> Pomocí a) Eulerovy a b) dvoukrokové metody vypočítejte časový vývoj rychlosti meteoritu, který je v atmosféře exponenciálně brzděn, přičemž $v(0)=1$.</div><p>Rychlost meteoritu lze popsat diferenciální rovnicí <span class="math notranslate nohighlight">\(\dfrac{dv}{dt}=-v(t)\)</span>. Jejím řešením je <span class="math notranslate nohighlight">\(v(t)=K\exp(-t)\)</span>. Konstatu <span class="math notranslate nohighlight">\(K\)</span> najdeme pomocí počáteční podmínky <span class="math notranslate nohighlight">\(v(0)=1\)</span>, a tedy <span class="math notranslate nohighlight">\(K=1\)</span>.</p>
 <ul class="simple">
 <li><p><strong>a) Eulerova metoda (dopředná diference)</strong></p></li>
@@ -683,7 +735,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7c9c54abe0d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x717a3d25bfa0&gt;
 </pre></div>
 </div>
 <img alt="_images/Cviceni02_29_1.png" src="_images/Cviceni02_29_1.png" />
@@ -737,7 +789,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7c9c480d8ca0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x717a3c99aca0&gt;
 </pre></div>
 </div>
 <img alt="_images/Cviceni02_31_1.png" src="_images/Cviceni02_31_1.png" />
@@ -774,6 +826,20 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Cviceni01.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">1. </span>Jupyter notebook a základy Pythonu</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Cviceni03.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Numerické metody lineární algebry</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>
