@@ -3,7 +3,7 @@
 
 title: Letní semestr
 author: Martin Jirka
-copyright: "2025"  # Copyright year to be placed in the footer
+copyright: "2026"  # Copyright year to be placed in the footer
 logo: logo.png
 
 # Force re-execution of notebooks on each build.
@@ -33,8 +33,10 @@ repository:
 #  use_repository_button: true
   
 launch_buttons:
-  binderhub_url: "https://mybinder.org"  # The URL for your BinderHub (e.g., https://mybinder.org)
-  thebe                  : true
+  jupyterhub_url: "https://jupyter.fjfi.cvut.cz"
+  notebook_interface: "jupyterlab"   # or "classic"
+#  binderhub_url: "https://jupyter.fjfi.cvut.cz/"  # The URL for your BinderHub (e.g., https://mybinder.org)
+#  thebe                  : true
   
 html:
   use_multitoc_numbering: false

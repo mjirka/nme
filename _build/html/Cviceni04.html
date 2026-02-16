@@ -1,113 +1,178 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+
+<html lang="en" data-content_root="./" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>4. Iterační metody řešení soustav lineárních rovnic, hledání vlastních čísel &#8212; Letní semestr</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Cviceni04';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="5. Aproximace funkcí" href="Cviceni05.html" />
     <link rel="prev" title="3. Numerické metody lineární algebry" href="Cviceni03.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
-    
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="Intro.html">
+  
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="_static/logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Letní semestr</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Letní semestr - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Letní semestr - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -116,368 +181,238 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Obsah cvičení
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Obsah cvičení</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="Cviceni01.html">
-   1. Jupyter notebook a základy Pythonu
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Cviceni02.html">
-   2. Chyby a nestabilita
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Cviceni03.html">
-   3. Numerické metody lineární algebry
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   4. Iterační metody řešení soustav lineárních rovnic, hledání vlastních čísel
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Cviceni05.html">
-   5. Aproximace funkcí
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Cviceni06.html">
-   6. Aproximace funkcí II, třídění
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Cviceni07.html">
-   7. Řešení nelineárních rovnic
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Cviceni08.html">
-   9. Extrémy funkcí
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Cviceni09.html">
-   10. Numerická integrace
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Cviceni10.html">
-   11. Obyčejné diferenciální rovnice (ODR)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Cviceni11.html">
-   12. Obyčejné diferenciální rovnice (ODR) II
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="Cviceni01.html">1. Jupyter notebook a základy Pythonu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Cviceni02.html">2. Chyby a nestabilita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Cviceni03.html">3. Numerické metody lineární algebry</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">4. Iterační metody řešení soustav lineárních rovnic, hledání vlastních čísel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Cviceni05.html">5. Aproximace funkcí</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Cviceni06.html">6. Aproximace funkcí II, třídění</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Cviceni07.html">7. Řešení nelineárních rovnic</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Cviceni08.html">8. Extrémy funkcí</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Cviceni09.html">9. Numerická integrace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Cviceni10.html">10. Obyčejné diferenciální rovnice (ODR)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Cviceni11.html">11. Obyčejné diferenciální rovnice (ODR) II</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/m-jirka/nme_cv/main?urlpath=tree/Cviceni04.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
-  
-    <img src="_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="initThebeSBT()"
-  class="headerbtn headerbtn-launch-thebe"
-  data-toggle="tooltip"
-data-placement="left"
-title="Launch Thebe"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-play"></i>
-  </span>
-<span class="headerbtn__text-container">Live Code</span>
-</button>
-
-      </li>
-      
-    </ul>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://jupyter.fjfi.cvut.cz/hub/user-redirect/git-pull?repo=https%3A//github.com/m-jirka/nme_cv&urlpath=lab/tree/nme_cv/Cviceni04.ipynb&branch=main" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on JupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="JupyterHub logo" src="_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+  </ul>
 </div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Cviceni04.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
 
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="_sources/Cviceni04.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
 
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </button>
-
-      </li>
+</div></div>
       
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
+    </div>
   
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
-
-    </div>
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#iteracni-metody">
-   4.1. Iterační metody:
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#jacobiho-metoda">
-     4.1.1. Jacobiho metoda
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#gauss-seidelova-metoda">
-     4.1.2. Gauss-Seidelova metoda
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#superrelaxacni-metoda">
-     4.1.3. Superrelaxační metoda
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#prosta-iterace">
-     4.1.4. Prostá iterace
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#porovnani-proste-iterace-jacobiho-gauss-seidelovy-a-superrelaxacni-metody">
-     4.1.5. Porovnání prosté iterace, Jacobiho, Gauss-Seidelovy a superrelaxační metody
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#hledani-vlastnich-cisel-a-vektoru-matice">
-   4.2. Hledání vlastních čísel a vektorů matice
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Iterační metody řešení soustav lineárních rovnic, hledání vlastních čísel</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#iteracni-metody">
-   4.1. Iterační metody:
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#jacobiho-metoda">
-     4.1.1. Jacobiho metoda
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#gauss-seidelova-metoda">
-     4.1.2. Gauss-Seidelova metoda
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#superrelaxacni-metoda">
-     4.1.3. Superrelaxační metoda
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#prosta-iterace">
-     4.1.4. Prostá iterace
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#porovnani-proste-iterace-jacobiho-gauss-seidelovy-a-superrelaxacni-metody">
-     4.1.5. Porovnání prosté iterace, Jacobiho, Gauss-Seidelovy a superrelaxační metody
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#hledani-vlastnich-cisel-a-vektoru-matice">
-   4.2. Hledání vlastních čísel a vektorů matice
-  </a>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Iterační metody řešení soustav lineárních rovnic, hledání vlastních čísel</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iteracni-metody">4.1. Iterační metody:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jacobiho-metoda">4.1.1. Jacobiho metoda</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gauss-seidelova-metoda">4.1.2. Gauss-Seidelova metoda</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#superrelaxacni-metoda">4.1.3. Superrelaxační metoda</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prosta-iterace">4.1.4. Prostá iterace</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#porovnani-proste-iterace-jacobiho-gauss-seidelovy-a-superrelaxacni-metody">4.1.5. Porovnání prosté iterace, Jacobiho, Gauss-Seidelovy a superrelaxační metody</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hledani-vlastnich-cisel-a-vektoru-matice">4.2. Hledání vlastních čísel a vektorů matice</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="iteracni-metody-reseni-soustav-linearnich-rovnic-hledani-vlastnich-cisel">
-<h1><span class="section-number">4. </span>Iterační metody řešení soustav lineárních rovnic, hledání vlastních čísel<a class="headerlink" href="#iteracni-metody-reseni-soustav-linearnich-rovnic-hledani-vlastnich-cisel" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">4. </span>Iterační metody řešení soustav lineárních rovnic, hledání vlastních čísel<a class="headerlink" href="#iteracni-metody-reseni-soustav-linearnich-rovnic-hledani-vlastnich-cisel" title="Link to this heading">#</a></h1>
 <p>Naimportujeme si knihovny potřebné pro následující příklady:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 </pre></div>
 </div>
 </div>
 </div>
 <section id="iteracni-metody">
-<h2><span class="section-number">4.1. </span>Iterační metody:<a class="headerlink" href="#iteracni-metody" title="Permalink to this heading">#</a></h2>
-<ol class="simple">
+<h2><span class="section-number">4.1. </span>Iterační metody:<a class="headerlink" href="#iteracni-metody" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
 <li><p>Řešení rovnice <span class="math notranslate nohighlight">\(\mathbb{A}\mathbf{x}=\mathbf{b}\)</span> odhadneme vektorem <span class="math notranslate nohighlight">\(\mathbf{x}^{0}\)</span></p></li>
 <li><p>Následné iterace <span class="math notranslate nohighlight">\(\mathbf{x}^{(k+1)}=\mathbb{B}_{k}\mathbf{x}^{(k)}+\mathbf{c}_{k}\)</span> upřesňují náš počáteční odhad</p></li>
 </ol>
 <section id="jacobiho-metoda">
-<h3><span class="section-number">4.1.1. </span>Jacobiho metoda<a class="headerlink" href="#jacobiho-metoda" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.1.1. </span>Jacobiho metoda<a class="headerlink" href="#jacobiho-metoda" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Řešíme rovnici <span class="math notranslate nohighlight">\(\mathbb{A}\mathbf{x}=\mathbf{b}\)</span></p></li>
 <li><p>Předpokládáme, že matice <span class="math notranslate nohighlight">\(\mathbb{A}\)</span> má nenulové diagonální prvky <span class="math notranslate nohighlight">\(a_{ii}\neq 0\)</span></p></li>
@@ -578,15 +513,15 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7aa164ad4a00&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x75600f3e4e10&gt;
 </pre></div>
 </div>
-<img alt="_images/Cviceni04_7_1.png" src="_images/Cviceni04_7_1.png" />
+<img alt="_images/a13f217ef2e21ef7c795c5ff8da971c0416612ea3f952976329d0029e1afc6dd.png" src="_images/a13f217ef2e21ef7c795c5ff8da971c0416612ea3f952976329d0029e1afc6dd.png" />
 </div>
 </div>
 </section>
 <section id="gauss-seidelova-metoda">
-<h3><span class="section-number">4.1.2. </span>Gauss-Seidelova metoda<a class="headerlink" href="#gauss-seidelova-metoda" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.1.2. </span>Gauss-Seidelova metoda<a class="headerlink" href="#gauss-seidelova-metoda" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>Gauss-Seidelova metoda:</strong>
 $<span class="math notranslate nohighlight">\(
@@ -679,15 +614,15 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7aa158149e20&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x75600e6af750&gt;
 </pre></div>
 </div>
-<img alt="_images/Cviceni04_11_1.png" src="_images/Cviceni04_11_1.png" />
+<img alt="_images/a13f217ef2e21ef7c795c5ff8da971c0416612ea3f952976329d0029e1afc6dd.png" src="_images/a13f217ef2e21ef7c795c5ff8da971c0416612ea3f952976329d0029e1afc6dd.png" />
 </div>
 </div>
 </section>
 <section id="superrelaxacni-metoda">
-<h3><span class="section-number">4.1.3. </span>Superrelaxační metoda<a class="headerlink" href="#superrelaxacni-metoda" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.1.3. </span>Superrelaxační metoda<a class="headerlink" href="#superrelaxacni-metoda" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Gauss-Seidelova metoda může konvergovat pomalu</p></li>
 <li><p>K urychlení iteračního procesu bývá využívána <strong>superrelaxační metoda</strong>:
@@ -704,7 +639,7 @@ x_{i}^{(k+1)}=x_{i}^{(k)}+\omega\Delta x_{i}^{(k)}
 </ul>
 </section>
 <section id="prosta-iterace">
-<h3><span class="section-number">4.1.4. </span>Prostá iterace<a class="headerlink" href="#prosta-iterace" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.1.4. </span>Prostá iterace<a class="headerlink" href="#prosta-iterace" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>Prostá iterace</strong>:
 $<span class="math notranslate nohighlight">\(
@@ -713,7 +648,7 @@ $<span class="math notranslate nohighlight">\(
 </ul>
 </section>
 <section id="porovnani-proste-iterace-jacobiho-gauss-seidelovy-a-superrelaxacni-metody">
-<h3><span class="section-number">4.1.5. </span>Porovnání prosté iterace, Jacobiho, Gauss-Seidelovy a superrelaxační metody<a class="headerlink" href="#porovnani-proste-iterace-jacobiho-gauss-seidelovy-a-superrelaxacni-metody" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.1.5. </span>Porovnání prosté iterace, Jacobiho, Gauss-Seidelovy a superrelaxační metody<a class="headerlink" href="#porovnani-proste-iterace-jacobiho-gauss-seidelovy-a-superrelaxacni-metody" title="Link to this heading">#</a></h3>
 <div class="alert alert-block alert-warning"><b>Cvičení 04.03: </b> Doplňte předpis pro prostou iteraci a superrelaxační metodu.</div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
@@ -829,29 +764,29 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7aa15bfbf8e0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x75600f172990&gt;
 </pre></div>
 </div>
-<img alt="_images/Cviceni04_18_1.png" src="_images/Cviceni04_18_1.png" />
+<img alt="_images/59645f4b60d2700904b0e9bfb32125ba01b075379c74bf26f6d00a5db367ac48.png" src="_images/59645f4b60d2700904b0e9bfb32125ba01b075379c74bf26f6d00a5db367ac48.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="hledani-vlastnich-cisel-a-vektoru-matice">
-<h2><span class="section-number">4.2. </span>Hledání vlastních čísel a vektorů matice<a class="headerlink" href="#hledani-vlastnich-cisel-a-vektoru-matice" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.2. </span>Hledání vlastních čísel a vektorů matice<a class="headerlink" href="#hledani-vlastnich-cisel-a-vektoru-matice" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Nechť pro číslo <span class="math notranslate nohighlight">\(\lambda\)</span> existuje vektor <span class="math notranslate nohighlight">\(\mathbf{x}\neq\mathbf{0} \)</span> takový, že <span class="math notranslate nohighlight">\(\mathbb{A}\mathbf{x}=\lambda\mathbf{x}\)</span>. Pak:</p></li>
 <li><p><span class="math notranslate nohighlight">\(\lambda\)</span> je vlastní číslo matice <span class="math notranslate nohighlight">\(\mathbb{A}\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\mathbf{x}\)</span> je vlastní vektor matice <span class="math notranslate nohighlight">\(\mathbb{A}\)</span></p></li>
 <li><p>Motivace: vlastní čísla a vlastní vektory souvisí např. s <a class="reference external" href="https://www.aldebaran.cz/studium/f2/docs/12_kvanta.pdf">operátory v kvantové fyzice</a>, <a class="reference external" href="https://www.aldebaran.cz/bulletin/2017_23_tac.php">rezonanční frekvencí</a>, … atd.</p></li>
 <li><p>Typy úloh:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Úplný problém vlastních čísel - hledání všech vlastních čísel matice a případně i příslušných vlastních vektorů</p></li>
 <li><p>Částečný problém vlastních čísel - hledání jednoho nebo několika vlastních čísel</p></li>
 </ol>
 </li>
 <li><p>Příklad na částečný problém vlastních čísel: hledám vlastní číslo matice <span class="math notranslate nohighlight">\(\mathbb{A}\)</span>, které je největší v absolutní hodnotě. Postup:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Zvolíme libovolné <span class="math notranslate nohighlight">\(\mathbf{v}^{(0)}\)</span> jako počáteční odhad vlastního vektoru</p></li>
 <li><p>Iterujeme
 $<span class="math notranslate nohighlight">\(
@@ -927,10 +862,10 @@ $<span class="math notranslate nohighlight">\(
 Odhad prislusneho vlastniho vektoru =  0
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7aa158058100&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x75600f1ba490&gt;
 </pre></div>
 </div>
-<img alt="_images/Cviceni04_22_2.png" src="_images/Cviceni04_22_2.png" />
+<img alt="_images/54b844a2f7708d09f7be3b367d40c29e8c3a4f85a471d8ed22c31ad551320ab9.png" src="_images/54b844a2f7708d09f7be3b367d40c29e8c3a4f85a471d8ed22c31ad551320ab9.png" />
 </div>
 </div>
 </section>
@@ -940,8 +875,8 @@ Odhad prislusneho vlastniho vektoru =  0
     {
         requestKernel: true,
         binderOptions: {
-            repo: "m-jirka/nme_cv",
-            ref: "main",
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
         },
         codeMirrorConfig: {
             theme: "abcdef",
@@ -956,50 +891,111 @@ Odhad prislusneho vlastniho vektoru =  0
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="Cviceni03.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">3. </span>Numerické metody lineární algebry</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Cviceni03.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Numerické metody lineární algebry</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="Cviceni05.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="Cviceni05.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title"><span class="section-number">5. </span>Aproximace funkcí</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iteracni-metody">4.1. Iterační metody:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jacobiho-metoda">4.1.1. Jacobiho metoda</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gauss-seidelova-metoda">4.1.2. Gauss-Seidelova metoda</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#superrelaxacni-metoda">4.1.3. Superrelaxační metoda</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prosta-iterace">4.1.4. Prostá iterace</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#porovnani-proste-iterace-jacobiho-gauss-seidelovy-a-superrelaxacni-metody">4.1.5. Porovnání prosté iterace, Jacobiho, Gauss-Seidelovy a superrelaxační metody</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hledani-vlastnich-cisel-a-vektoru-matice">4.2. Hledání vlastních čísel a vektorů matice</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By Martin Jirka<br/>
-  
-      &copy; Copyright 2025.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+<p class="component-author">
+By Martin Jirka
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
 </div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
