@@ -1,0 +1,85 @@
+Traceback (most recent call last):
+  File "/home/mjirka/anaconda3/lib/python3.13/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+    ~~~~~~~~~^
+        nb,
+        ^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "/home/mjirka/anaconda3/lib/python3.13/site-packages/nbclient/client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/mjirka/anaconda3/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/home/mjirka/anaconda3/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/home/mjirka/anaconda3/lib/python3.13/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+        cell, index, execution_count=self.code_cells_executed + 1
+    )
+  File "/home/mjirka/anaconda3/lib/python3.13/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/mjirka/anaconda3/lib/python3.13/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+#
+# metoda puleni intervalu
+
+# demonstrace metody puleni intervalu pro nelinearni rovnice
+
+# nadefinujeme f(x) a budeme hledat reseni f(x)=0
+def f(x):
+    return np.sin(x)-0.5
+
+iteraci = 50 # celkovy pocet iteraci
+
+# pocatecni body omezujici reseni
+a = 0 
+b = 1
+
+# budeme si prubezne ukladat odhad reseni a chybu odhadu
+epsilon = np.zeros((iteraci)) # odhad chyby, tedy delku intervalu <a,b> v jednotlivych krocich
+reseni = np.zeros((iteraci)) # aktualni odhad reseni
+
+for i in range(iteraci):
+    # DOPLNTE
+    #
+    # DOPLNTE
+
+
+koren = reseni[-1] # odhad konecneho reseni
+chyba = epsilon[-1] # odhad konecne chyby
+
+
+fig, ax = plt.subplots(1,2,figsize=(15,5))
+
+# zobrazime vyvoj reseni v zavislosti na iteracich
+ax[0].plot(range(iteraci),reseni,label='reseni')
+ax[0].set_ylabel('reseni')
+ax[0].set_xlabel('iterace')
+ax[0].legend()
+
+# zobrazime vyvoj chyby v zavislosti na iteracich
+ax[1].plot(range(iteraci),epsilon,label='vyvoj chyby')
+ax[1].set_ylabel(r'$\epsilon$')
+ax[1].set_xlabel('iterace')
+ax[1].legend()
+
+# overeni reseni
+spravne_reseni = fsolve(f, a)
+print('f(x)=0 pro x= ',spravne_reseni)
+------------------
+
+
+[0;36m  Cell [0;32mIn[2], line 26[0;36m[0m
+[0;31m    koren = reseni[-1] # odhad konecneho reseni[0m
+[0m    ^[0m
+[0;31mIndentationError[0m[0;31m:[0m expected an indented block after 'for' statement on line 20
+
+
